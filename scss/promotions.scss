@@ -1,0 +1,71 @@
+@use 'varibles' as *;
+
+.promotions {
+    margin: 40px 0;
+    padding: 0 20px;
+
+    &__content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &__info {
+        flex: 1;
+        margin-right: 20px;
+
+        &__title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: $link-color;
+            margin-top: 27px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+      }
+  }
+  &__card {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 25px;
+    width: 70%;
+
+    &__image {
+        width: 300px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 20px;
+        margin-bottom: 15px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: 500;
+        font-size: 1.1em;
+    }
+
+    &__date {
+        color: #666;
+        font-size: 0.9em;
+        margin-top: 10px;
+    }
+    &__preview__text {
+        color:  $link-color;
+        font-weight: 500;
+        font-size: 0.9em;
+        margin-top: 10px;
+    }
+  }
+}

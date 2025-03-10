@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "sass": "^1.85.1"
+  },
+  "scripts": {
+    "scss": "sass scss/main.scss css/styles.css --watch"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  }
+}

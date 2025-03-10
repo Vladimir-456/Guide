@@ -1,0 +1,31 @@
+@use "reset";
+@use "header";
+@use "footer";
+@use "news";
+@use "reviews";
+@use "benefit";
+@use "pension-card";
+@use "assesment";
+@use "pensions";
+@use "promotions";
+@use "rehab-slider";
+@use "response";
+@use "modal";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+.page {
+    font-family: "Roboto", serif;
+  }
+  
+  .page__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  

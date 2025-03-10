@@ -1,0 +1,120 @@
+@use 'varibles' as *;
+.header__content {
+    display: flex;
+    margin-left: 15px;
+    justify-content: space-between;
+    align-items: flex-start;
+  
+    &__logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+  
+      &__text {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+  
+  /* Основное меню */
+  .main__menu {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .menu__section {
+    flex: 1;
+    padding: 0 15px;
+  }
+  
+  .menu__title {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .menu__list {
+    list-style: none;
+  
+    li {
+      margin-bottom: 8px;
+  
+      a {
+        color: #0c5da5;
+        text-decoration: none;
+        font-size: 14px;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+ 
+  /* Подвал */
+  .footer {
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.6;
+    font-size: 12px;
+    color: #666;
+  
+    &__links {
+      a {
+        margin-left: 10px;
+        color: #0c5da5;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #007bff;
+          text-decoration: underline;
+
+          &::before {
+            content: '→';
+            position: absolute;
+            left: -15px;
+            opacity: 1;
+          }
+
+
+        }
+      }
+      
+    }
+  }
+  
+  .footer-content {
+    padding: 10px;
+  }
+  
+  .copyright {
+    margin-top: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+  }
+  
+  .privacy-policy {
+    margin-top: 5px;
+    font-size: 14px;
+    color: blue;
+  }
+  

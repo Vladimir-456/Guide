@@ -1,0 +1,139 @@
+@use "varibles" as *;
+
+.reviews {
+    max-width: $max-width;
+    // margin: 0 auto;
+    padding: 20px;
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+  
+    &__title {
+      font-size: 2em;
+      font-weight: 500;
+      margin: 0;
+    }
+  
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+  
+    &__all-link {
+      text-decoration: none;
+      color: $link-color;
+      margin-top: 27px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+  }
+  
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    height: 100%;
+  
+    &__author {
+      font-size: 1.15em;
+      line-height: 1.35em;
+      margin-bottom: 8px;
+    }
+  
+    &__text {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 10px;
+      font-weight: 500;
+  
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  
+    &__source-text {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      letter-spacing: 0.05em;
+    }
+  
+    &__more-link {
+      text-decoration: none;
+      color: $link-color;
+      margin-top: 27px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-left: 20px;
+
+      &:last-of-type {
+        margin-top: 10px;
+      }
+    }
+  
+    &__image {
+      margin-bottom: 15px;
+  
+      img {
+        max-width: 90%;
+        border-radius: $radius;
+      }
+    }
+  
+    &__location-tags {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 15px;
+    }
+  
+    &__content {
+      padding: 20px 20px 10px;
+    }
+  
+    &__source {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  
+    &__date {
+      margin-left: 20px;
+    }
+  }
+  
+  .location-tag {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 0;
+    font-size: 11px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+  
+    &--blue {
+      background-color: #0066cc;
+    }
+  
+    &--green {
+      background-color: #4CAF50;
+    }
+  
+    &--light-green {
+      background-color: #8BC34A;
+    }
+  }
+  
+  .divider {
+    border-top: 1px solid #e6e6e6;
+    margin: 20px 25px;
+    width: 100%;
+  }
+  
