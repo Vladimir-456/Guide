@@ -846,7 +846,7 @@ i {
   padding: 0;
   margin: 0 auto;
   width: 100%;
-  margin-top: 170px;
+  margin-top: 240px;
 }
 .rehab-slider__item {
   display: flex;
@@ -966,6 +966,9 @@ i {
     width: 95%;
     max-width: 100%;
   }
+  .rehab-slider__container {
+    margin-top: 0;
+  }
   .pension-card {
     flex: 0 0 calc(33.333% - 30px);
   }
@@ -1020,6 +1023,9 @@ i {
     width: 50%;
     padding: 30px 20px;
   }
+  .rehab-slider__container {
+    margin-top: 240px;
+  }
   .rehab-slider__image {
     width: 45%;
     transform: translateY(30px);
@@ -1060,8 +1066,12 @@ i {
   }
 }
 @media (max-width: 768px) {
+  .header {
+    position: relative;
+  }
   .header__container {
     padding: 0 10px;
+    margin-top: 0;
   }
   .header__actions {
     flex-direction: column;
@@ -1106,6 +1116,9 @@ i {
   .rehab-slider__item {
     flex-direction: column;
     padding: 20px;
+  }
+  .rehab-slider__container {
+    margin-top: 20px;
   }
   .rehab-slider__content {
     width: 100%;
@@ -1171,6 +1184,9 @@ i {
   }
 }
 @media (max-width: 576px) {
+  .header {
+    position: relative;
+  }
   .header__container {
     padding: 0 5px;
   }
@@ -1227,6 +1243,9 @@ i {
   .rehab-slider__title {
     font-size: 18px;
     margin-bottom: 15px;
+  }
+  .rehab-slider__container {
+    margin-top: 20px;
   }
   .rehab-slider__buttons {
     margin-top: 15px;
@@ -1354,6 +1373,9 @@ i {
   }
 }
 @media (max-width: 440px) {
+  .header {
+    position: relative;
+  }
   .header__logo-img {
     width: 28px;
     height: 28px;
@@ -1377,6 +1399,9 @@ i {
   }
   .rehab-slider__content {
     padding: 15px 10px;
+  }
+  .rehab-slider__container {
+    margin-top: 20px;
   }
   .rehab-slider__title {
     font-size: 16px;
@@ -1420,6 +1445,9 @@ i {
   }
 }
 @media (max-width: 375px) {
+  .header {
+    position: relative;
+  }
   .header__logo {
     margin-left: 5px;
   }
@@ -1455,6 +1483,9 @@ i {
   .rehab-slider__title {
     font-size: 15px;
   }
+  .rehab-slider__container {
+    margin-top: 20px;
+  }
   .feature-list__item {
     font-size: 12px;
     padding-left: 20px;
@@ -1482,6 +1513,13 @@ i {
   }
   .divider {
     margin: 15px;
+  }
+  .modal {
+    width: 100px;
+  }
+  .modal__close {
+    width: 30px;
+    height: 30px;
   }
 }
 .modal__overlay {

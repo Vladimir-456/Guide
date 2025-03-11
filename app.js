@@ -36,7 +36,9 @@ app.post('/api/callback',limiter, async (req, res) => {
     try {
     console.log(req.body);
     const { name, phone, agreement, newsletter } = req.body;
-
+    if(!name || !phone) {
+        return res.status(400).json({ success: false, message: 'Недостаточно данных' });
+    }
     const result = await pool.query(
         'INSERT INTO callbacks (name, phone, agreement, newsletter) VALUES ($1, $2, $3, $4) RETURNING *',
         [name, phone, agreement, newsletter]

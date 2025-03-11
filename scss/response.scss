@@ -11,6 +11,12 @@
     width: 95%;
     max-width: 100%;
   }
+
+  .rehab-slider {
+    &__container {
+      margin-top: 0;
+    }
+  }
   
   .pension-card {
     flex: 0 0 calc(33.333% - 30px);
@@ -84,7 +90,9 @@
       width: 50%;
       padding: 30px 20px;
     }
-    
+    &__container {
+      margin-top: 240px;
+    }
     &__image {
       width: 45%;
       transform: translateY(30px);
@@ -150,8 +158,10 @@
 // Media query for screens up to 768px
 @media (max-width: $breakpoint-md) {
   .header {
+    position: relative;
     &__container {
       padding: 0 10px;
+      margin-top: 0;
     }
     
     &__actions {
@@ -212,7 +222,9 @@
       flex-direction: column;
       padding: 20px;
     }
-    
+    &__container {
+      margin-top: 20px;
+    }
     &__content {
       width: 100%;
       padding: 20px 15px;
@@ -310,6 +322,7 @@
 @media (max-width: $breakpoint-sm) {
   // Header
   .header {
+    position: relative;
     &__container {
       padding: 0 5px;
     }
@@ -391,7 +404,9 @@
       font-size: 18px;
       margin-bottom: 15px;
     }
-    
+    &__container {
+      margin-top: 20px;
+    }
     &__buttons {
       margin-top: 15px;
     }
@@ -565,6 +580,7 @@
 // Media query for screens up to 440px
 @media (max-width: $breakpoint-xs) {
   .header {
+    position: relative;
     &__logo-img {
       width: 28px;
       height: 28px;
@@ -596,6 +612,9 @@
   .rehab-slider {
     &__content {
       padding: 15px 10px;
+    }
+    &__container {
+      margin-top: 20px;
     }
     
     &__title {
@@ -677,6 +696,7 @@
 // Media query for screens up to 375px
 @media (max-width: $breakpoint-xxs) {
   .header {
+    position: relative;
     &__logo {
       margin-left: 5px;
     }
@@ -718,6 +738,10 @@
     &__title {
       font-size: 15px;
     }
+    &__container {
+      margin-top: 20px;
+    }
+    
   }
   
   .feature-list {
@@ -764,5 +788,13 @@
   
   .divider {
     margin: 15px;
+  }
+  .modal {
+    width: 100px;
+
+    &__close {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
