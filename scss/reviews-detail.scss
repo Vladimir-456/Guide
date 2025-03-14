@@ -1,0 +1,60 @@
+.review-page {
+    margin-top: 180px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.review-location {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 0;
+    font-size: 11px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: #0066cc;
+}
+
+.review-branch {
+    margin-left: 20px;
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 0;
+    font-size: 11px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: #4CAF50;
+}
+
+.review-author {
+    font-size: 25px;
+    line-height: 1.35em;
+    margin-bottom: 8px;
+}
+
+.review-content {
+    font-size: 17px;
+    line-height: 1.8em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.review-document {
+    width: 50%;
+    height: auto;
+}
+.review-document img{
+    width: 50%;
+    height: auto;
+
+}
+
+.review-date {
+    margin-bottom: 25px;
+}

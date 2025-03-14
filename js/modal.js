@@ -29,7 +29,16 @@ const onFormSubmit = (evt) => {
   evt.preventDefault();
   const formData = new FormData(evt.target);
   const formDataObj = {};
-  formatedData(formData);
+  formData.forEach((value, key) => {
+    // Для чекбоксов (согласие с обработкой данных)
+    if (key === 'agreement' || key === 'newsletter') {
+        formDataObj[key] = value === 'on' || value === 'true';
+    } else {
+        formDataObj[key] = value;
+    }
+  });
+  console.log(formDataObj);
+  // formatedData(formData);
   fetch(API_URL , {
     method: 'POST',
     headers: {
