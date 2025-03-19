@@ -1,5 +1,5 @@
 .review-page {
-    margin-top: 180px;
+    margin-top: 190px;
 }
 
 .review-header {
@@ -7,9 +7,11 @@
     align-items: center;
     margin-bottom: 10px;
     margin-top: 20px;
-    margin-left: 20px;
+    // margin-left: 20px;
 }
-
+.review-item {
+    width: 900px;
+}
 .review-location {
     display: inline-flex;
     padding: 4px 8px;
@@ -57,4 +59,16 @@
 
 .review-date {
     margin-bottom: 25px;
+}
+
+
+.container__reviews {
+    margin-top: 190px;
+}
+
+.reviews-title {
+    font-size: 31px;
+    color: black;
+    text-align: center;
+    margin-bottom: 15px;
 }

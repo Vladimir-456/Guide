@@ -1,19 +1,16 @@
 extends layout
 
 block content
-    .container 
-        .news
-         each item in news
-         item
-            //- .news__item
-            //- .news__item__image
-            //-     img(src=item.image, alt=item.title)
-            //- .news__item__content
-            //-     h3
-            //-     a(href="/news/" + item.id)= item.title
-            //-     p= item.shortContent
-            //-     .news__item__date= item.date
-  
-  .divider
-            
+  .container__news
+    .news__element
+      each item in newsData
+        .news-item
+          .news-item__image
+            img(src=item.image, alt=item.title)
+          .news-item__content
+            h3
+              a(href="/news/" + item.id)= item.title
+            p= item.shortContent
+            .news-item__date= item.date
+    .divider
            

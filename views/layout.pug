@@ -3,6 +3,15 @@ doctype html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>      
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel='icon' href='./img/favicon-16x16.png' type='image/x-icon'>
     <link href="../css/styles.css" rel="stylesheet">
 <title>Опека Ставрополь</title>
 </head>
@@ -13,8 +22,10 @@ doctype html
             <div class="header__container">
                 <div class="header__logo">
                     <div>
+                    <a href="/">
                         <img class="header__logo-img" src="../img/logo.jpg" alt="ОПЕКА">
                         <span class="header__logo-text">ПЕКА</span>
+                    </a>
                     </div>
                     <div class="header__logo__location">
                         <span class="header__location">Ставрополь</span>
@@ -51,8 +62,8 @@ doctype html
                         </div>
                     </li>
                     <li class="nav__item"><a href="#" class="nav__link">Акции</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="/reviews" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item"><a href="/news" class="nav__link">Новости</a></li>
                     <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
                 </ul>
             </nav>
@@ -60,3 +71,15 @@ doctype html
         .news__item__block
             block content
             //- include footer
+
+            //- .header__logo
+            //-          <img class="header__logo-img" src="../img/logo.jpg" alt="ОПЕКА">
+            //-          <span class="header__logo-text">ПЕКА</span>
+            //-          .header__logo__location
+            //-             <span class="header__location">Ставрополь</span>
+            //- .container
+            //-     .footer-content
+            //-         .copyright
+            //-         p © 2025,"СТАВРОПОЛЬ ОПЕКА". Все права защищены.
+            //-         .privacy-policy
+            //-             a(href="#").privacy-link Политика конфиденциальности

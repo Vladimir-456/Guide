@@ -15,7 +15,7 @@ function validateHandler(req, res, next) {
         }
     }
     if(errors.length > 0) {
-        res.status(400).json({ success: false, message: 'Ошибка валидации', errors:errors });
+        return res.status(400).json({ success: false, message: 'Ошибка валидации', errors:errors });
     }
 
     next();

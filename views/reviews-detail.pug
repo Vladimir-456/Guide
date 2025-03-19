@@ -2,33 +2,27 @@ extends layout
 
 block content
   .review-page
-    //- .breadcrumbs
-    //-   a(href="/") Главная
-    //-   span &gt;
-    //-   span Отзывы
-    //-   span &gt;
-    //-   span=reviewItem.author
+    .review-item
+      .review-header
+        .review-location=reviewItem.location
+        .review-branch=reviewItem.branch
       
-    .review-header
-      .review-location=reviewItem.location
-      .review-branch=reviewItem.branch
-    
-    .review-document
-      if reviewItem.id === 1
-        img(src="../img/cnlmd7sgq1t9ocv4q8tg5hhyimzm5gww.jpg", alt="Благодарственное письмо")
-    
-    h1.review-author=reviewItem.author
-    
+      .review-document
+        if reviewItem.id === 1
+          img(src="../img/cnlmd7sgq1t9ocv4q8tg5hhyimzm5gww.jpg", alt="Благодарственное письмо")
+      
+      h1.review-author=reviewItem.author
+      
 
-    
-    .review-content
-      p=reviewItem.fullText
-    .review-date=reviewItem.date
-    
-    
-    
-    .news-detail__navigation
-      a(href="/").back-button Вернуться назад
+      
+      .review-content
+        p=reviewItem.fullText
+      .review-date=reviewItem.date
+      
+      
+      
+      .news-detail__navigation
+        a(href="/").back-button Вернуться назад
 
 
 

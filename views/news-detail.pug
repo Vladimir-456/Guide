@@ -1,25 +1,27 @@
 extends layout
 
 block content
-  .news__item
-    article.news-detail
-    .news-detail__header
-      h1.news-detail__title= newsItem.title
-    
-    if newsItem.image
-      .news-detail__image
-        img(src=newsItem.image, alt=newsItem.title)
-      .news__item__date= newsItem.date
-    
-    .news-detail__content!= newsItem.content
+  .container-news
+    .news-detail__item
+      article.news-detail
+      .news-detail__header
+        h1.news-detail__title= newsItem.title
+        .news-detail__date= newsItem.date
+      if newsItem.image
+        .news-detail__image
+          img(src=newsItem.image, alt=newsItem.title)
+          .image-overlay
+      
+      .news-detail__content!= newsItem.content
+      .news-detail__navigation
+        a(href="/").back-button Вернуться назад
+    .sidebar
+      h3 Другие новости
+      each item in relatedNews
+        .related-news
+          a(href=`/news/${item.slug}`)
+            h4=item.title
+            .related-news__date= item.date
 
     
-    .news-detail__navigation
-      a(href="/").back-button Вернуться назад
-  //- .breadcrumbs
-  //-   .container
-  //-     a(href="/") Главная
-  //-     span /
-  //-     a(href="/news") Новости
-  //-     span /
-  //-     span= newsItem.title
+

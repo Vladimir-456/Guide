@@ -1,12 +1,17 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
-const { Pool } = require('pg');
+const { testConnection } = require('./config/database');
+const { sequelize} = require('./models/index');
+const { Callback } = require('./models/callback');
 const { validateHandler } = require('./middleware/validate');
 const {errorHandler, notFound} = require('./middleware/errorHandler');
-const { newsData } = require('./mokki/data');
+const { newsData, relatedNews } = require('./mokki/data');
 const { reviewsData } = require('./mokki/mokki-reviews');
 
 const app = express();
@@ -27,12 +32,12 @@ const limiter = rateLimit({
   message: 'Слишком много запросов с этого IP, пожалуйста, повторите попытку позже'
 });
 
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'callbacks',
-    password: '12',
-    port: 5432
+const transporter = nodemailer.createTransport({
+  service: 'mail.ru',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
+  }
 })
 
 app.get('/', (req, res) => {
@@ -42,7 +47,7 @@ app.get('/', (req, res) => {
 app.get('/news/:id', (req, res) => {
   const newsItem = newsData.find(item => item.id === parseInt(req.params.id));
   if (newsItem) {
-    res.render('news-detail', { newsItem });
+    res.render('news-detail', { newsItem, relatedNews });
   } else {
     res.status(404).send('News item not found');
   }
@@ -51,6 +56,10 @@ app.get('/news/:id', (req, res) => {
 app.get('/news', (req, res) => {
   res.render('news', { newsData });
 });
+
+app.get('/reviews', (req, res) => {
+  res.render('reviews', { reviewsData });
+})
 
 app.get('/reviews/:id', (req, res) => {
   const reviewItem = reviewsData.find(item => item.id === parseInt(req.params.id));
@@ -61,29 +70,74 @@ app.get('/reviews/:id', (req, res) => {
   }
 })
 
-app.post('/api/callback', validateHandler,limiter, async (req, res) => {
-    // Получаем данные из запроса
-    try {
+app.post('/api/callback', validateHandler, limiter, async (req, res) => {
+  try {
     const { name, phone, agreement, newsletter } = req.body;
+    
+    // Создаем запись через Sequelize
+    const newCallback = await Callback.create({
+      name,
+      phone,
+      agreement,
+      newsletter
+    });
+    
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_TARGET,
+        subject: 'Новая заявка с сайта Опека',
+        html: `
+        <h2>Поступила новая заявка</h2>
+        <p><strong>Имя:</strong> ${name}</p>
+        <p><strong>Телефон:</strong> ${phone}</p>
+        <p><strong>Согласие на обработку данных:</strong> ${agreement ? 'Да' : 'Нет'}</p>
+        <p><strong>Подписка на рассылку:</strong> ${newsletter ? 'Да' : 'Нет'}</p>
+        <p><strong>Дата заявки:</strong> ${new Date().toLocaleString('ru-RU')}</p>
+      `
+      };
 
-    const result = await pool.query(
-        'INSERT INTO callbacks (name, phone, agreement, newsletter) VALUES ($1, $2, $3, $4) RETURNING *',
-        [name, phone, agreement, newsletter]
-    );
-    // Отправка успешного ответа
-    res.status(201).json({ success: true, message: 'Заявка успешно отправлена', data: result.rows[0]}); 
+      await transporter.sendMail(mailOptions);
+      
+      // Отправляем ответ только один раз, после успешной отправки email
+      res.status(201).json({ 
+        success: true, 
+        message: 'Заявка успешно отправлена', 
+        data: newCallback
+      });
+      
+    } catch (emailError) {
+      console.error('Ошибка отправки email:', emailError);
+      // Заявка создана, но email не отправлен
+      res.status(201).json({ 
+        success: true, 
+        message: 'Заявка принята, но возникла проблема с отправкой уведомления', 
+        data: newCallback
+      });
     }
-    catch(error) {
-      console.log(error);
-      res.status(500).json({ success: false, message: 'Произошла ошибка при обработке заявки' });
-    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Внутренняя ошибка сервера' });
+  }
 });
 
 app.use(errorHandler);
 
 app.use(notFound);
 
+const startServer = async () => {
+    try {
+      await testConnection();
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}!`);
-});
+      await sequelize.sync({ alter: true });
+      console.log('Database synced successfully.');
+
+      app.listen(PORT, () => {
+        console.log(`Example app listening on port ${PORT}!`);
+    });
+    } catch (error) {
+      console.error('Unable to connect to the database:', error);
+    }
+  };
+
+  startServer();
