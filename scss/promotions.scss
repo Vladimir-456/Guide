@@ -1,4 +1,5 @@
 @use 'varibles' as *;
+@use 'mixin' as *;
 
 .promotions {
     margin: 40px 0;
@@ -69,3 +70,58 @@
     }
   }
 }
+
+@include xl-down {
+
+}
+
+@include lg-down {
+    .promotions {
+        &__content {
+          flex-direction: column;
+          
+          &__info {
+            margin-right: 0;
+            margin-bottom: 20px;
+          }
+        }
+        
+        &__card {
+          width: 100%;
+        }
+    }
+}
+
+@include md-down {
+    .promotions {
+        &__card {
+          &__image {
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 15px;
+          }
+        }
+    }
+}
+
+@include sm-down {
+
+}
+
+@include xs-down {
+    .promotions {
+        &__content {
+          &__info {
+            &__title {
+              font-size: 18px;
+            }
+          }
+        }
+    }
+}
+
+@include xxs-down {
+
+}
+  

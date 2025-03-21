@@ -1,4 +1,3 @@
-@use "reset";
 @use "header";
 @use "footer";
 @use "news";
@@ -14,6 +13,7 @@
 @use "reviews-detail";
 @use "news-template";
 @use "response";
+@use "mixin";
 * {
     margin: 0;
     padding: 0;
@@ -30,4 +30,8 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+
+
+
   

@@ -16,13 +16,10 @@
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(3, 1fr);
-    // flex-wrap: wrap;
-    
     margin-top: 10px;
 }
 .news-item {
-    width: 300px;
-    // max-width: 500px;
+    width: 400px;
     margin: 10px auto;
     padding: 0;
     border-radius: 10px;
@@ -50,10 +47,10 @@
     }
 
     &__content {
-        padding: 25px;
+        padding: 20px;
         width: 100%;
         margin-top: 0;
-        font-size: 16px;
+        font-size: 13px;
         line-height: 1.6;
         margin-bottom: 0;
 
@@ -61,6 +58,7 @@
             color: black;
             text-decoration: none;
             font-weight: 500;
+            font-size: 20px;
             transition: color 0.2s ease;
 
             &:hover {

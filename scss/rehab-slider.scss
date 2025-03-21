@@ -1,4 +1,5 @@
 @use 'varibles' as *;
+@use 'mixin' as *;
 
 .rehab-slider {
     position: relative;
@@ -137,5 +138,153 @@
     &--secondary {
         background-color: #58b957;
         color: white;
+    }
+}
+
+
+
+@include xl-down {
+    .rehab-slider {
+        width: 95%;
+        max-width: 100%;
+        &__container {
+          margin-top:150px;
+        }
+    }
+
+}
+
+@include lg-down {
+    .rehab-slider {
+        &__content {
+          width: 50%;
+          padding: 30px 20px;
+        }
+        &__container {
+          margin-top: 240px;
+        }
+        &__image {
+          width: 45%;
+          transform: translateY(30px);
+        }
+        
+        &__title {
+          font-size: 22px;
+        }
+      }
+      
+      .feature-list {
+        &__item {
+          font-size: 15px;
+        }
+      }  
+}
+
+@include md-down {
+    .rehab-slider {
+        &__item {
+          flex-direction: column;
+          padding: 20px;
+        }
+        &__container {
+          margin-top: 20px;
+        }
+        &__content {
+          width: 100%;
+          padding: 20px 15px;
+          order: 2;
+        }
+        
+        &__image {
+          position: relative;
+          width: 100%;
+          transform: none;
+          margin-bottom: 20px;
+          order: 1;
+        }
+        
+        &__img {
+          width: 100%;
+        }
+        
+        &__buttons {
+          width: 100%;
+          margin: 0 auto;
+          align-items: center;
+        }
+      }
+      
+      .button {
+        &--primary,
+        &--secondary {
+          width: 70%;
+          margin-bottom: 10px;
+        }
+      }
+}
+
+@include sm-down {
+
+    .rehab-slider {
+        &__title {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+        &__container {
+          margin-top: 20px;
+        }
+        &__buttons {
+          margin-top: 15px;
+        }
+      }
+      
+      .feature-list {
+        &__item {
+          font-size: 14px;
+          margin-bottom: 10px;
+          padding-left: 25px;
+        }
+    }
+}
+
+@include xs-down {
+
+    .rehab-slider {
+        &__content {
+          padding: 15px 10px;
+        }
+        &__container {
+          margin-top: 20px;
+        }
+        
+        &__title {
+          font-size: 16px;
+        }
+    }
+
+    .feature-list {
+        &__item {
+          font-size: 13px;
+        }
+      }
+}
+
+@include xxs-down {
+
+    .rehab-slider {
+        &__title {
+          font-size: 15px;
+        }
+        &__container {
+          margin-top: 20px;
+        }
+        
+      }
+      
+      .feature-list {
+        &__item {
+          font-size: 12px;
+          padding-left: 20px;
+        }
     }
 }

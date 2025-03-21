@@ -1,4 +1,6 @@
 @use 'varibles' as *;
+@use 'mixin' as *;
+
 .pensions {
     width: 100%;
     padding: 20px;
@@ -59,3 +61,85 @@
 
   }
 }
+
+@include xl-down {
+  .pensions {
+    width: 95%;
+    max-width: 100%;
+  }  
+  .pension-card {
+    flex: 0 0 calc(33.333% - 30px);
+  }
+}
+
+@include lg-down {
+  .pension-card {
+    flex: 0 0 calc(50% - 30px);
+    
+    &__content {
+      height: auto;
+      min-height: 350px;
+    }
+  }
+}
+
+@include md-down {
+  .pension-card {
+    flex: 0 0 calc(100% - 30px);
+  }
+}
+
+@include sm-down {
+  .pensions {
+    padding: 10px;
+    
+    &__title {
+      font-size: 20px;
+    }
+    
+    &__description {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    
+    &__controls {
+      display: none;
+    }
+  }
+  
+  .pension-card {
+    margin-bottom: 15px;
+    
+    &__name {
+      font-size: 18px;
+    }
+    
+    &__content {
+      padding: 15px 10px;
+      height: auto;
+    }
+  }
+}
+
+@include xs-down {
+  .pension-card {
+    &__name {
+      font-size: 16px;
+    }
+    
+    &__price,
+    &__address,
+    &__description {
+      font-size: 13px;
+    }
+  }
+}
+
+@include xxs-down {
+  .pension-card {
+    &__name {
+      font-size: 15px;
+    }
+  }
+}
+  

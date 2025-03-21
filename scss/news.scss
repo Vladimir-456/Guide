@@ -1,4 +1,6 @@
 @use 'varibles' as *;
+@use 'mixin' as *;
+
 .news {
     position: relative;
     padding: 40px 0;
@@ -126,4 +128,110 @@
       margin-left: 5px;
     }
   }
+
+@include xl-down {
+  .news {
+    width: 95%;
+    max-width: 100%;
+
+    &-slider {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+}
+
+@include lg-down {
+  .news-slider {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@include md-down {
+  .news {
+    &__item {
+      padding: 15px;
+      margin: 15px;
+      
+      &__image {
+        height: 200px;
+      }
+      
+      &__content {
+        padding: 15px;
+      }
+    }
+  }
+
+}
+
+@include sm-down {
+  .news {
+    &__title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    &__item {
+      padding: 10px;
+      margin: 10px;
+      
+      h3 {
+        font-size: 16px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+    }
+    
+    &__navigation {
+      justify-content: center;
+      margin-left: 0;
+      margin-top: 15px;
+    }
+  }
+  
+  .all-news {
+    margin-left: 15px;
+  }
+
+}
+
+@include xs-down {
+  .news {
+    &__navigation {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        display: none;
+      }
+
+      a {
+        color: #000;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@include xxs-down {
+  .news {
+    &__item {
+      h3 {
+        font-size: 15px;
+      }
+      
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  .all-news {
+    font-size: 12px;
+  }
+
+}
   

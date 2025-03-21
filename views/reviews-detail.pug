@@ -2,22 +2,22 @@ extends layout
 
 block content
   .review-page
-    .review-item
-      .review-header
-        .review-location=reviewItem.location
-        .review-branch=reviewItem.branch
+    .review-page__item
+      .review-page__item__header
+        .review-page__item__header__location=reviewItem.location
+        .review-page__item__header__branch=reviewItem.branch
       
-      .review-document
+      .review-page__document 
         if reviewItem.id === 1
           img(src="../img/cnlmd7sgq1t9ocv4q8tg5hhyimzm5gww.jpg", alt="Благодарственное письмо")
       
-      h1.review-author=reviewItem.author
+      h1.review-page__author=reviewItem.author
       
 
       
-      .review-content
+      .review-page__content
         p=reviewItem.fullText
-      .review-date=reviewItem.date
+      .review-page__date=reviewItem.date
       
       
       
