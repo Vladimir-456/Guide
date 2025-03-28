@@ -8,8 +8,7 @@ block content
         .review-page__item__header__branch=reviewItem.branch
       
       .review-page__document 
-        if reviewItem.id === 1
-          img(src="../img/cnlmd7sgq1t9ocv4q8tg5hhyimzm5gww.jpg", alt="Благодарственное письмо")
+       
       
       h1.review-page__author=reviewItem.author
       
@@ -23,6 +22,39 @@ block content
       
       .news-detail__navigation
         a(href="/").back-button Вернуться назад
+    .review__form
+      h2 Оставить свой отзыв
+
+      .form-group
+        label(for="pansionat") Пансионат
+        select#pansionat.form-control(name="pansionat")
+          option(value="") Выберите пансионат 
+      .form-group
+        label(for="fio") ФИО
+        input#fio.form-control(type="text" name="fio" placeholder="Введите ФИО")
+      
+      .form-group
+        label(for="contact") Телефон или Почта
+        input#contact.form-control(type="text" name="contact" placeholder="Как с вами связаться чтобы подтвердить достоверность Вашего отзыва?")
+      
+      .form-group
+        label(for="text") Текст отзыва
+        textarea#text.form-control(name="text" rows="6" placeholder="Мы будем рады опубликовать Ваш отзыв после проверки его подлинности")
+      
+      .form-actions
+        button.btn.btn-primary(type="submit") Отправить
+        .file-upload
+          label.file-label
+            span.icon 📎
+            span.text Прикрепить файл
+            input(type="file" hidden)
+      
+      .form-checkbox
+        input#consent(type="checkbox" name="consent")
+        label(for="consent") Я согласен на обработку моих персональных данных, включая трансграничную передачу и передачу третьим лицам, уполномоченным для осуществления целей маркетинга, рекламы и изучения мнений. Я прочитал 
+          a(href="#") Политику обработки и защиты персональных данных
+          |  и согласен с ее положениями
+
 
 
 

@@ -8,6 +8,7 @@
 @use "pensions";
 @use "promotions";
 @use "rehab-slider";
+@use "promotions-template";
 @use "modal";
 @use "news-item";
 @use "reviews-detail";
@@ -23,6 +24,8 @@
 
 .page {
     font-family: "Roboto", serif;
+    
+    // background: linear-gradient(90deg, #ffffff,#b8e4ff);
   }
   
   .page__container {

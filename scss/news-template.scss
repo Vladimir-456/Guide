@@ -1,3 +1,4 @@
+@use 'animation' as *;
 .container__news {
     margin-top: 180px;
     max-width: 1200px;
@@ -27,6 +28,7 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: #fff;
+    animation: fadeIn 0.7s ease;
     &__image {
         padding: 0;
         width: 100%;

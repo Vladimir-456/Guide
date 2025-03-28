@@ -69,7 +69,9 @@ app.get('/reviews/:id', (req, res) => {
     res.status(404).send('Review item not found');
   }
 })
-
+app.get('/promotion', (req, res) => {
+  res.render('promotion');
+})
 app.post('/api/callback', validateHandler, limiter, async (req, res) => {
   try {
     const { name, phone, agreement, newsletter } = req.body;

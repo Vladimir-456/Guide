@@ -1,5 +1,6 @@
 @use 'varibles' as *;
 @use 'mixin' as *;
+@use 'animation' as *;
 
 .header {
     position: fixed;
@@ -28,6 +29,7 @@
             height: 40px;
             border-radius: 50%;
             transform: translateY(6px);
+            
         }
         
         &-text {
@@ -36,6 +38,7 @@
             color: green;
             text-decoration: none;
             @include fluid-type(375px, 576px, 26px, 32px);
+            
         }
         
         &__location {
@@ -62,6 +65,7 @@
         color: #000;
         text-decoration: none;
         @include fluid-type(375px, 992px, 12px, 16px);
+        
     }
     
     &__hours {
@@ -87,21 +91,13 @@
       margin-top: 15px;
       order: 1;
       @include flex-container(row, center, center, no-wrap);
-
-    //   &:first-child, 
-    //   &:nth-child(2) {
-    //      &::after {
-    //          content: '▼';
-    //          font-size: 1em;
-    //          margin-left: 5px;
-    //      }
-    //  }
   }
 
   &__item {
     font-size: 15px;
       margin-right: 60px;
       position: relative;
+      
 
       &:last-child {
           margin-right: 0;
@@ -174,20 +170,9 @@
     
     &--call {
         @include button-header(#23527c, white, 20px);
-        
+        // animation: bounce 2s infinite;
         &:hover {
             background-color: #23527c;
-        }
-    }
-    
-    &--payment {
-        @include button-header(rgb(200,179,152), white, 20px);
-        text-align: center;
-        padding: 10px 7px;
-        box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.35);
-        
-        &:hover {
-            background-color: rgb(200,179,152);
         }
     }
     

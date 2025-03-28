@@ -1,0 +1,181 @@
+@use 'animation' as *;
+@use 'mixin' as *;
+.promotion__item {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 0 20px;
+    background-image: url('../img/3.jpg');
+    height: 500px;
+    animation: pulse 2s 1;
+
+    &__header {
+        margin-left: 50px;
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        width: 50%;
+        animation: fadeIn 0.5s ease;
+    }
+}
+
+.promotion__content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+
+    h2 {
+        font-size: 17px;
+        font-weight: 600;
+        text-align: center;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    ul {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        margin-left: 20px;
+
+        li {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.promotion__application {
+    margin-top: 30px;
+    h3 {
+        font-size: 21px;
+        font-weight: 500;
+        margin-bottom: 20px;
+
+        a {
+            text-decoration: none;
+            color: #0b4c8b;
+            font-weight: 700;
+            font-size: 19px;
+        }
+    }
+    p {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+}
+
+.promotion__organizer p + p{
+    margin-top: 10px;
+}
+
+.promotion__form {
+    width: 80%;
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-checkboxes {
+        display: flex;
+        flex-direction: column;
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+    }
+    .btn-primary {
+        margin-top: 10px;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        margin-bottom: 10px;
+        border: none;
+    }
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+}
+
+@include xl-down {
+
+}
+    
+@include lg-down {
+    .promotion__item {
+        width: 100%;
+        height: 400px;
+
+        &__header {
+            font-size: 30px;
+        }
+    }
+    .promotion__content {
+        width: 90%;
+        p {
+            margin-left: 40px;
+        }
+        ul {
+            margin-left: 40px;
+        }
+    }
+}
+    
+@include md-down {
+    .promotion__item {
+        margin-top: 0;
+        &__header {
+            font-size: 25px;
+        }
+    }
+    .promotion__application {
+        margin-left: 40px;
+        margin-top: 5px;
+    }
+}
+    
+@include sm-down {
+    .promotion__item {
+        &__header {
+            font-size: 20px;
+        }
+    }
+    .promotion__application {
+        h3 {
+            font-size: 16px;
+        }
+        p {
+            margin-left: 20px;
+            font-size: 14px;
+        }
+    }
+    .promotion__form {
+        width: 100%;
+        .form-checkboxes {
+            .checkbox-group {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+    
+@include xs-down {
+
+}
+    
+@include xxs-down {
+
+}
+     

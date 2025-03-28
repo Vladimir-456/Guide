@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  .container__promotions
+    .promotion__item
+      h1.promotion__item__header Для наших любимых клиентов - скидки при единовременной оплате
+    
+      
+    .promotion__content
+        h2.promotion__subtitle Дорогие друзья!
+        
+        p Мы понимаем важность экономии, особенно, когда речь идет о ежемесячных расходах на проживание близкого в пансионате.
+        p И поэтому мы с радостью предоставляем Вам систему скидок при единовременной оплате:
+        
+        ul.promotion__list
+          li при оплате за 3 месяца - скидка 3%
+          li при оплате за 6 месяцев - скидка 5%
+          li при оплате за 9 месяцев - скидка 7%
+        
+        p 73,5% пользующихся предложением выбирают предоплату за 3 месяца, 20% - за 6 месяцев, а 6,5% - за 9 месяцев. Это подтверждает, что многие ценят возможность планировать свои расходы и получать выгоду!
+        
+        p Для оформления скидки, обратитесь, пожалуйста, к управляющему пансионатом или в отдел клиентского обслуживания 8 (800) 555-54-03.
+        
+        .promotion__organizer
+          p Организатор: «ОПЕКА Ставрополь»
+          p Территория проведения: Ставрополь
+        
+        .promotion__application
+          h3 Оформите заявку 
+            a(href="#") или позвоните по телефону - 8 (800) 000-00-00
+          
+          p Мы с радостью проконсультируем по всем вопросам.
+          
+          form.promotion__form
+            .form-group
+              input(type="text" placeholder="Фамилия, имя и отчество" required)
+            
+            .form-group
+              input(type="tel" placeholder="Телефон" required)
+              
+            .form-group
+              input(type="email" placeholder="E-mail")
+            
+            .form-checkboxes
+              .checkbox-group
+                input#confidentiality(type="checkbox")
+                label(for="confidentiality") Согласен с политикой конфиденциальности
+              
+              .checkbox-group
+                input#mailing(type="checkbox" checked)
+                label(for="mailing") Согласен получать рекламные рассылки
+            
+            button.btn.btn-primary(type="submit") Отправить заявку

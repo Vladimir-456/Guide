@@ -1,5 +1,6 @@
 @use 'varibles' as *;
 @use 'mixin' as *;
+@use 'animation' as *;
 
 .rehab-slider {
     position: relative;
@@ -52,7 +53,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
         width: 50%;
         height: auto;
         border-radius: 20px;
@@ -64,6 +65,9 @@
         width: 96%;
         height: auto;
         object-fit: cover;
+        object-position: center;
+        border: none;
+        box-shadow: none;
         border-radius: 0;
     }
     
