@@ -1,4 +1,6 @@
 
+@use 'varibles' as *;
+@use 'mixin' as *;
 .modal__overlay {
     display: none;
     position: fixed;
@@ -15,6 +17,7 @@
     top: 50%;
     left: 50%;
     width: 500px;
+    height: auto;
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
@@ -119,14 +122,215 @@
     border-radius: 5px;
     text-align: center;
     display: none;
-  }
+}
   
-  .alert-success {
+.alert-success {
     background-color: #dff0d8;
     color: #3c763d;
-  }
+}
   
-  .alert-danger {
+.alert-danger {
     background-color: #f2dede;
     color: #a94442;
-  }
+}
+
+@include xl-down {
+    .modal {
+        width: 480px;
+        
+        &__header {
+            &__phone {
+                font-size: 20px;
+            }
+            &__whatsapp {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@include lg-down {
+    .modal {
+        width: 450px;
+        padding: 18px;
+    }
+}
+
+@include md-down {
+    .modal {
+        width: 90%;
+        max-width: 420px;
+        
+        &__close {
+            right: -50px;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+        
+        &__header {
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+    }
+    
+    .modal__form {
+        &__control {
+            padding: 10px;
+            font-size: 15px;
+        }
+    }
+    
+    .submit-button {
+        padding: 10px;
+    }
+}
+
+@include sm-down {
+    .modal {
+        width: 90%;
+        padding: 15px;
+        
+        &__close {
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: transparent;
+            color: #333;
+        }
+        
+        &__header {
+            &__phone {
+                font-size: 18px;
+            }
+            &__whatsapp {
+                font-size: 16px;
+            }
+        }
+    }
+    
+    .checkbox__group {
+        label {
+            font-size: 11px;
+        }
+    }
+}
+
+@include xs-down {
+    .modal {
+        width: 95%;
+        padding: 12px;
+        
+        &__header {
+            padding: 5px;
+            margin-bottom: 12px;
+        }
+    }
+    
+    .modal__form {
+        &__group {
+            margin-bottom: 12px;
+        }
+        
+        &__control {
+            padding: 8px;
+            font-size: 14px;
+        }
+    }
+    
+    .submit-button {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+
+@include xxs-down {
+    .modal {
+        width: 100%;
+        padding: 8px;
+        max-height: 100vh;
+        overflow-y: auto;
+        
+        &__header {
+            padding: 2px;
+            margin-bottom: 8px;
+            
+            &__phone {
+                font-size: 15px;
+            }
+            &__whatsapp {
+                font-size: 13px;
+                margin-top: 2px;
+            }
+        }
+    }
+    
+    .modal__form {
+        &__group {
+            margin-bottom: 8px;
+        }
+        
+        &__control {
+            padding: 5px;
+            font-size: 12px;
+            height: 30px;
+        }
+    }
+    
+    .checkbox__group {
+        margin-bottom: 5px;
+        
+        input {
+            min-width: 12px;
+            height: 12px;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+        
+        label {
+            font-size: 8px;
+            line-height: 1.1;
+            max-height: 60px;
+            overflow-y: auto;
+        }
+    }
+    
+    .submit-button {
+        padding: 6px;
+        font-size: 12px;
+        margin-bottom: 5px;
+        height: 30px;
+    }
+    
+    .alert {
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 11px;
+    }
+    
+    .modal__close {
+        width: 25px;
+        height: 25px;
+        top: 2px;
+        right: 2px;
+        font-size: 14px;
+    }
+    
+    // Добавим возможность прокрутки для длинного текста соглашения
+    .agreement-container {
+        max-height: 60px;
+        overflow-y: auto;
+        font-size: 8px;
+        line-height: 1.1;
+        border: 1px solid #eee;
+        padding: 3px;
+        margin-bottom: 5px;
+    }
+    
+    // Уменьшаем отступы между чекбоксами
+    .modal__form .checkbox__group + .checkbox__group {
+        margin-top: -2px;
+    }
+}

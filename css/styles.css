@@ -1870,6 +1870,7 @@ i {
   top: 50%;
   left: 50%;
   width: 500px;
+  height: auto;
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
@@ -1978,6 +1979,173 @@ i {
   color: #a94442;
 }
 
+@media (max-width: 1200px) {
+  .page__container {
+    width: 95%;
+    max-width: 100%;
+  }
+  .modal {
+    width: 480px;
+  }
+  .modal__header__phone {
+    font-size: 20px;
+  }
+  .modal__header__whatsapp {
+    font-size: 18px;
+  }
+}
+@media (max-width: 992px) {
+  .modal {
+    width: 450px;
+    padding: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    max-width: 420px;
+  }
+  .modal__close {
+    right: -50px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .modal__header {
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  .modal__form__control {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .submit-button {
+    padding: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .modal {
+    width: 90%;
+    padding: 15px;
+  }
+  .modal__close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    color: #333;
+  }
+  .modal__header__phone {
+    font-size: 18px;
+  }
+  .modal__header__whatsapp {
+    font-size: 16px;
+  }
+  .checkbox__group label {
+    font-size: 11px;
+  }
+}
+@media (max-width: 440px) {
+  .location-tag {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  .modal {
+    width: 95%;
+    padding: 12px;
+  }
+  .modal__header {
+    padding: 5px;
+    margin-bottom: 12px;
+  }
+  .modal__form__group {
+    margin-bottom: 12px;
+  }
+  .modal__form__control {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .submit-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 375px) {
+  .divider {
+    margin: 15px;
+  }
+  .modal {
+    width: 100%;
+    padding: 8px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  .modal__header {
+    padding: 2px;
+    margin-bottom: 8px;
+  }
+  .modal__header__phone {
+    font-size: 15px;
+  }
+  .modal__header__whatsapp {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .modal__form__group {
+    margin-bottom: 8px;
+  }
+  .modal__form__control {
+    padding: 5px;
+    font-size: 12px;
+    height: 30px;
+  }
+  .checkbox__group {
+    margin-bottom: 5px;
+  }
+  .checkbox__group input {
+    min-width: 12px;
+    height: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .checkbox__group label {
+    font-size: 8px;
+    line-height: 1.1;
+    max-height: 60px;
+    overflow-y: auto;
+  }
+  .submit-button {
+    padding: 6px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    height: 30px;
+  }
+  .alert {
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 11px;
+  }
+  .modal__close {
+    width: 25px;
+    height: 25px;
+    top: 2px;
+    right: 2px;
+    font-size: 14px;
+  }
+  .agreement-container {
+    max-height: 60px;
+    overflow-y: auto;
+    font-size: 8px;
+    line-height: 1.1;
+    border: 1px solid #eee;
+    padding: 3px;
+    margin-bottom: 5px;
+  }
+  .modal__form .checkbox__group + .checkbox__group {
+    margin-top: -2px;
+  }
+}
 .news-detail__item {
   width: 100%;
   max-width: 850px;
