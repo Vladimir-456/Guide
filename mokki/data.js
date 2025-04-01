@@ -62,4 +62,4 @@ const relatedNews = [
   },
    
 ];
-export { newsData,  relatedNews }
+module.exports = { newsData,  relatedNews }

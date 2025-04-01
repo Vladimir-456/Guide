@@ -31,4 +31,4 @@ const reviewsData = [
     }
 ];
 
-export { reviewsData }
+module.exports = { reviewsData }
