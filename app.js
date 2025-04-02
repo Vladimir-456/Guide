@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 
-const { testConnection } = require('./config/database');
-const { sequelize} = require('./models/index');
 const { Callback } = require('./models/callback');
 const { validateHandler } = require('./middleware/validate');
 const {errorHandler, notFound} = require('./middleware/errorHandler');
@@ -127,19 +125,7 @@ app.use(errorHandler);
 
 app.use(notFound);
 
-const startServer = async () => {
-    try {
-      await testConnection();
 
-      await sequelize.sync({ alter: true });
-      console.log('Database synced successfully.');
-
-      app.listen(PORT, () => {
-        console.log(`Example app listening on port ${PORT}!`);
-    });
-    } catch (error) {
-      console.error('Unable to connect to the database:', error);
-    }
-  };
-
-  startServer();
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}!`);
+});
