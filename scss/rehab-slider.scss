@@ -7,7 +7,7 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    background-color: #f5f8fa;
+    // background-color: #f5f8fa;
     border-radius: 20px;
     overflow: hidden;
     padding: 0;
@@ -53,9 +53,10 @@
         position: absolute;
         right: 0;
         top: 0;
-        transform: translateY(30px);
+        transform: translateY(10px);
         width: 50%;
         height: auto;
+        border-radius: 7px;
         border-radius: 20px;
         overflow: hidden;
         z-index: 1;

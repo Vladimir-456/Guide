@@ -1465,7 +1465,6 @@ i {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  background-color: #f5f8fa;
   border-radius: 20px;
   overflow: hidden;
   padding: 0;
@@ -1506,9 +1505,10 @@ i {
   position: absolute;
   right: 0;
   top: 0;
-  transform: translateY(30px);
+  transform: translateY(10px);
   width: 50%;
   height: auto;
+  border-radius: 7px;
   border-radius: 20px;
   overflow: hidden;
   z-index: 1;
@@ -2411,7 +2411,7 @@ i {
   }
 }
 .review-page {
-  margin-top: 150px;
+  margin-top: 180px;
 }
 .review-page__item {
   width: 900px;
@@ -2471,7 +2471,7 @@ i {
 }
 
 .reviews {
-  margin-top: 160px;
+  margin-top: 180px;
 }
 .reviews__element {
   margin-bottom: 50px;
@@ -2561,37 +2561,47 @@ i {
     max-width: 100%;
   }
   .review-page__item {
-    width: 80%;
+    width: 90%;
     padding: 20px;
   }
 }
 @media (max-width: 992px) {
   .review__form {
     width: 500px;
+    padding: 15px;
   }
   .review-page {
-    margin-top: 240px;
+    margin-top: 200px;
   }
 }
 @media (max-width: 768px) {
   .review-page {
-    margin-top: 0;
+    margin-top: 100px;
   }
   .review-page__item {
-    width: 80%;
-    padding: 10px;
+    width: 90%;
+    padding: 15px;
+  }
+  .review__form {
+    width: 90%;
+    padding: 15px;
   }
 }
 @media (max-width: 576px) {
   .review__form {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
+    padding: 10px;
   }
   .review-page {
-    margin-top: 0;
+    margin-top: 50px;
   }
   .review-page__item {
     width: 100%;
+    padding: 10px;
+  }
+  .reviews {
+    margin-top: 100px;
   }
 }
 @media (max-width: 440px) {
@@ -2600,8 +2610,17 @@ i {
     padding: 3px 6px;
   }
   .review__form {
-    width: 80%;
+    width: 90%;
     margin-top: 10px;
+    padding: 10px;
+  }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .form-actions .btn-primary {
+    width: 100%;
+    text-align: center;
   }
 }
 @media (max-width: 375px) {
@@ -2610,6 +2629,7 @@ i {
   }
   .review__form {
     width: 100%;
+    margin-top: 10px;
   }
 }
 .container__news {

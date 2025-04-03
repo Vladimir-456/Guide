@@ -1,7 +1,7 @@
 @use 'mixin' as *;
 
 .review-page {
-    margin-top: 150px;
+    margin-top: 180px;
     &__item {
         width: 900px;
 
@@ -66,7 +66,7 @@
 }
 
 .reviews {
-    margin-top: 160px;
+    margin-top: 180px;
 
     &__element {
         margin-bottom: 50px;
@@ -156,59 +156,79 @@
 @include xl-down {
     .review-page {
         &__item {
-            width: 80%;
+            width: 90%;
             padding: 20px;
         }
     }
-  }
-  
-  @include lg-down {
+}
+
+@include lg-down {
     .review__form {
         width: 500px;
+        padding: 15px;
     }
     .review-page {
-        margin-top: 240px;
+        margin-top: 200px;
     }
-  }
-    
-  @include md-down {
+}
+
+@include md-down {
     .review-page {
-        margin-top: 0;
+        margin-top: 100px;
 
         &__item {
-            width: 80%;
-            padding: 10px;
+            width: 90%;
+            padding: 15px;
         }
     }
-  }
-    
-  @include sm-down {
+    .review__form {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@include sm-down {
     .review__form {
         width: 100%;
-        margin-top: 10px;
+        margin-top: 15px;
+        padding: 10px;
     }
     .review-page {
-        margin-top: 0;
+        margin-top: 50px;
 
         &__item {
             width: 100%;
+            padding: 10px;
         }
     }
-  }
-    
-  @include xs-down {
-    .review__form {
-        width: 80%;
-        margin-top: 10px;
+    .reviews {
+        margin-top: 100px;
     }
-  }
-    
-  @include xxs-down {
+}
+
+@include xs-down {
+    .review__form {
+        width: 90%;
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+
+        .btn-primary {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+@include xxs-down {
     .review__form {
         width: 100%;
+        margin-top: 10px;
     }
-
-  }
+}
       
     
     
