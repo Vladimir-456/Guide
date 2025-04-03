@@ -75,12 +75,12 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
     const { name, phone, agreement, newsletter } = req.body;
     
     // Создаем запись через Sequelize
-    const newCallback = await Callback.create({
-      name,
-      phone,
-      agreement,
-      newsletter
-    });
+    // const newCallback = await Callback.create({
+    //   name,
+    //   phone,
+    //   agreement,
+    //   newsletter
+    // });
     
     try {
       const mailOptions = {
@@ -103,7 +103,7 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
       res.status(201).json({ 
         success: true, 
         message: 'Заявка успешно отправлена', 
-        data: newCallback
+        // data: newCallback
       });
       
     } catch (emailError) {
@@ -112,7 +112,7 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
       res.status(201).json({ 
         success: true, 
         message: 'Заявка принята, но возникла проблема с отправкой уведомления', 
-        data: newCallback
+        // data: newCallback
       });
     }
   } catch (error) {
