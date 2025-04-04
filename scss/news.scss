@@ -11,8 +11,8 @@
       font-size: 32px;
       margin-bottom: 30px;
       font-weight: 500;
+      margin-left: 36px;
       color: #000;
-      margin-left: 15px;
     }
   }
   
@@ -88,11 +88,11 @@
   .news__navigation {
     display: flex;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 25px;
   }
   
   .nav__arrows {
-    gap: 30px;
+    gap: 50px;
   }
   
   .nav__arrow {
@@ -121,6 +121,7 @@
     font-size: 14px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     margin-left: 30px;
     font-weight: 500;
   

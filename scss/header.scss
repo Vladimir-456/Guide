@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px 0;
     background-color: white;
     border-radius: 5px;
@@ -25,10 +25,10 @@
         @include flex-container(column,center, center, no-wrap);
         
         &-img {
-            width: 43px;
-            height: 40px;
-            border-radius: 50%;
-            transform: translateY(6px);
+            width: 100px;
+            height: 100px;
+            // border-radius: 50%;
+            transform: translateY(-10px) translateX(20px);
             
         }
         
@@ -64,14 +64,24 @@
         margin-bottom: 5px;
         color: #000;
         font-weight: 700;
+        font-size: 20px;
         text-decoration: none;
-        @include fluid-type(375px, 992px, 12px, 16px);
+        // @include fluid-type(375px, 992px, 12px, 16px);
         
+        &:hover {
+            text-decoration: underline;
+        }
     }
     
     &__hours {
         margin-top: 13px;
-        @include fluid-type(375px, 576px, 10px, 12px);
+        font-size: 14px;
+        color: #621215;
+        // @include fluid-type(375px, 576px, 10px, 12px);
+
+        &:hover {
+          text-decoration: underline;
+        }
     }
     
     &__actions {
@@ -81,7 +91,7 @@
     &__search {
         padding: 8px;
         font-size: 14px;
-        border: 1px solid #ccc;
+        border: 1px solid black;
         border-radius: 4px;
     }
 }
@@ -172,10 +182,10 @@
     @include fluid-type(375px, 768px, 12px, 14px);
     
     &--call {
-        @include button-header(#23527c, white, 20px);
+        @include button-header(#621215, white, 15px);
         // animation: bounce 2s infinite;
         &:hover {
-            background-color: #23527c;
+            background-color: #085a17;
         }
     }
     
@@ -315,8 +325,8 @@
         }
         
         &__logo-img {
-          width: 40px;
-          height: 40px;
+          width: 80px;
+          height: 80px;
         }
         
         &__location {
@@ -329,6 +339,7 @@
         }
         
         &__hours {
+          margin-left: 15px;
           font-size: 12px;
           margin-top: 8px;
         }
@@ -343,8 +354,8 @@
     .header {
         position: relative;
         &__logo-img {
-          width: 28px;
-          height: 28px;
+          width: 70px;
+          height: 70px;
         }
         &__logo__location {
           margin-left: 10px;
@@ -383,8 +394,8 @@
           margin-left: 5px;
         }
         &__logo-img {
-          width: 25px;
-          height: 25px;
+          width: 60px;
+          height: 60px;
           transform: translateY(3px);
         }
         &__logo__location {
