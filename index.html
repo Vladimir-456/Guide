@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Сеть пансионатов для пожилых Опека. Работаем в городе Ставрополь">
     <link href="./css/styles.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -14,29 +16,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel='icon' href='./img/favicon-16x16.png' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-<title>Опека Ставрополь</title>
+    <title>Опека Ставрополь</title>
 </head>
 <body>
-  <body class="page">
-    <div class="page__container">
-        <header class="header">
-            <div class="header__container">
-                <div class="header__logo">
+  <body class="page" id="page" itemscope itemtype="https://schema.org/Organization">
+    <div class="page__container" id="page__container" itemprop="mainEntityOfPage">
+        <header class="header" id="header" itemprop="header">
+            <div class="header__container" id="header__container" itemprop="mainEntityOfPage">
+                <div class="header__logo" id="header__logo" itemprop="logo">
                     <div>
-                        <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА">
-                        <!-- <span class="header__logo-text">ПЕКА</span> -->
+                        <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url">
                     </div>
-                    <!-- <div class="header__logo__location">
-                        <span class="header__location">Ставрополь</span>
-                    </div> -->
                 </div>
                 <div class="header__contacts">
                     <a class="header__phone" href="tel:+88005555403">+ 7 933 181-02-35</a>
                     <span class="header__hours">Режим работы: с 9:00 до 18:00</span>
                 </div>
                 <div class="header__actions">
-                    <a href="#" class="button__slider button--call">Заказать звонок</a>
-                    <input type="text" class="header__search" placeholder="Поиск...">
+                    <a href="#" class="button__slider button--call" role="link">Заказать звонок</a>
+                    <input type="text" class="header__search" placeholder="Поиск..." id="header__search" role="search">
                 </div>
             </div>
             <!-- <nav class="nav">
@@ -66,54 +64,53 @@
                 </ul>
             </nav> -->
         </header>
-        <section class="rehab-slider">
-            <div class="rehab-slider__container">
-                <!-- Slide 1 -->
-                <div class="rehab-slider__item">
-                    <div class="rehab-slider__content">
-                        <h2 class="rehab-slider__title">Дом с  любовью к пожилым</h2>
-                        <ul class="feature-list">
+        <section class="rehab-slider" id="rehab-slider" data-aos="fade-up" itemscope itemtype="https://schema.org/Organization">
+            <div class="rehab-slider__container" id="rehab-slider__container" role="banner">
+                <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
+                    <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
+                        <h2 class="rehab-slider__title" id="rehab-slider__title" itemprop="name">Дом с  любовью к пожилым</h2>
+                        <ul role="feature-list" id="feature-list" itemprop="description">
                             <li class="feature-list__item">Уход за пожилыми людьми</li>
                             <li class="feature-list__item">Пятиразовое сбалансированное питание</li>
                             <li class="feature-list__item">Регулярный мониторинг здоровья</li>
                             <li class="feature-list__item">Веселый досуг</li>
                         </ul>
-                        <div class="rehab-slider__buttons">
-                            <a href="#" class="button__slider button--primary">Бесплатная консультация</a>
-                            <a href="#" class="button__slider  button--secondary">Посещение пансионата</a>
+                        <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="mainEntityOfPage">
+                            <a href="#" class="button__slider button--primary" role="link">Бесплатная консультация</a>
+                            <a href="#" class="button__slider  button--secondary" role="link">Посещение пансионата</a>
                         </div>
                     </div>
-                    <div class="rehab-slider__image">
-                        <img class="rehab-slider__img" src="./img/slider-item_1.jpg" alt="Реабилитация пожилых людей">
+                    <div class="rehab-slider__image" id="rehab-slider__image" itemprop="image" role="img">
+                        <img class="rehab-slider__img" src="./img/slider-item_1.jpg" alt="Реабилитация пожилых людей" itemprop="url">
                     </div>
                 </div>
                 
                 <!-- Slide 2 -->
-                <div class="rehab-slider__item">
-                    <div class="rehab-slider__content">
+                <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
+                    <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
                         <h2 class="rehab-slider__title">Нам доверяют заботу о самых близких!</h2>
-                        <ul class="feature-list">
+                        <ul class="feature-list" id="feature-list" role="list" itemprop="description">
                             <li class="feature-list__item">Профессиональный уход 24 часа в сутки</li>
                             <li class="feature-list__item">5-разовое питание: вкусное и разнообразное</li>
                             <li class="feature-list__item">Прогулки и полезный досуг</li>
                             <li class="feature-list__item">Высокий уровень безопасности: <br> пожарная сигнализация и видеонаблюдение</li>
                             <li class="feature-list__item">Организуем бережную транспортировку в пансионат при ограниченной подвижности</li>
                         </ul>
-                        <div class="rehab-slider__buttons">
-                            <a href="#" class="button__slider button--primary">Бесплатная консультация</a>
-                            <a href="#" class="button__slider  button--secondary">Посещение пансионата</a>
+                        <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="buttons">
+                            <a href="#" class="button__slider button--primary" role="link">Бесплатная консультация</a>
+                            <a href="#" class="button__slider  button--secondary" role="link">Посещение пансионата</a>
                         </div>
                     </div>
-                        <div class="rehab-slider__image">
-                            <img class="rehab-slider__img" src="./img/kandinsky-download-1743150491923.png" alt="Реабилитация пожилых людей"/>
+                        <div class="rehab-slider__image" id="rehab-slider__image" role="img" itemprop="image">
+                            <img class="rehab-slider__img" src="./img/kandinsky-download-1743150491923.png" alt="Реабилитация пожилых людей" itemprop="url"/>
                     </div>
                 </div>
             </div>
             
             <!-- Slider controls -->
-            <div class="slider-nav"></div>
-            <button class="rehab-slider__arrow rehab-slider__arrow--prev">&#10094;</button>
-            <button class="rehab-slider__arrow rehab-slider__arrow--next">&#10095;</button>
+            <div class="slider-nav" id="slider-nav" role="navigation" aria-label="slider navigation" aria-orientation="horizontal" tabindex="0" itemprop="navigation"></div>
+            <button class="rehab-slider__arrow rehab-slider__arrow--prev" role="button">&#10094;</button>
+            <button class="rehab-slider__arrow rehab-slider__arrow--next" role="button">&#10095;</button>
         </section>
 
         <div class="modal__overlay">
@@ -424,54 +421,54 @@
 
           <div class="divider"></div> -->
           
-          <section class="news">
-            <h2 class="news__title">Новости</h2>
+          <section class="news" itemscope itemtype="https://schema.org/NewsArticle">
+            <h2 class="news__title" itemprop="name">Новости</h2>
             <div class="news__bottom">
-                <div class="news__navigation">
-                  <button class="nav__arrow prev">&#10094;</button>
-                  <button class="nav__arrow next">&#10095;</button>
-                  <a href="/news" class="all-news">ВСЕ НОВОСТИ →</a>
+                <div class="news__navigation" itemprop="navigation">
+                  <button role="button" class="nav__arrow prev">&#10094;</button>
+                  <button  role="button" class="nav__arrow next">&#10095;</button>
+                  <a href="/news" role="link" class="all-news">ВСЕ НОВОСТИ →</a>
                 </div>
               </div>
-            <div class="news-slider">
-              <div class="news__item">
-                <div class="news__item__image">
-                  <img src="./img/67413990-15e5-50a2-ac07-e403ffc6238a.jpeg" alt="Открытие нового центра">
+            <div class="news-slider" itemprop="slider">
+              <div class="news__item" itemprop="articleBody">
+                <div class="news__item__image" itemprop="image">
+                  <img src="./img/67413990-15e5-50a2-ac07-e403ffc6238a.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
-                <div class="news__item__content">
-                  <h3><a href="/news/1">Служба питания «Опеки» представила обновленное меню с учетом пожеланий подопечных и рекомендаций врачей</a></h3>
+                <div class="news__item__content" itemprop="articleSection">
+                  <h3 class="news__item__title" itemprop="headline"><a href="/news/1" >Служба питания «Опеки» представила обновленное меню с учетом пожеланий подопечных и рекомендаций врачей</a></h3>
                   <p>Служба питания наших пансионатов продолжает совершенствовать меню, ориентируясь на запросы проживающих и советы медицинских специалистов</p>
-                  <div class="news__item__date">27.06.2024</div>
+                  <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
               </div>
               
-              <div class="news__item">
-                <div class="news__item__image">
-                  <img src="./img/n1ob9x79o3bl2okklp70mjthzppn9gh9.jpg" alt="Открытие нового центра">
+              <div class="news__item" itemprop="articleBody">
+                <div class="news__item__image" itemprop="image">
+                  <img src="./img/n1ob9x79o3bl2okklp70mjthzppn9gh9.jpg" alt="Открытие нового центра" itemprop="url">
                 </div>
-                <div class="news__item__content">
-                  <h3><a href="/news/2">Компания «Опека» поможет студентам в разработке инклюзивных навыков для голосового помощника «Алиса»</a></h3>
+                <div class="news__item__content" itemprop="articleSection">
+                  <h3 class="news__item__title" itemprop="headline"><a href="/news/2">Компания «Опека» поможет студентам в разработке инклюзивных навыков для голосового помощника «Алиса»</a></h3>
                   <p>Компания «Опека» расширяет сеть своих центров.</p>
-                  <div class="news__item__date">27.06.2024</div>
+                  <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
               </div>
-              <div class="news__item">
-                <div class="news__item__image">
-                  <img src="./img/3c9a90ee8909d4da43137b2a45fe7df9.jpeg" alt="Открытие нового центра">
+              <div class="news__item" itemprop="articleBody">
+                <div class="news__item__image" itemprop="image">
+                  <img src="./img/3c9a90ee8909d4da43137b2a45fe7df9.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
-                <div class="news__item__content">
-                  <h3><a href="/news/3">«Опека» открывает новый пансионат на 85 мест</a></h3>
+                <div class="news__item__content" itemprop="articleSection">
+                  <h3 class="news__item__title" itemprop="headline"><a href="/news/3">«Опека» открывает новый пансионат на 85 мест</a></h3>
                   <p>Компания «Опека» расширяет сеть своих центров, оснащенное современным оборудованием.</p>
-                  <div class="news__item__date">27.06.2024</div>
+                  <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
               </div>
             </div>
           </section>
           <div class="divider"></div>
           <section>
-            <div class="footer__logo">
+            <div class="footer__logo" >
                 <div>
-                    <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА">
+                    <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" >
                     <!-- <span class="header__logo-text">ПЕКА</span> -->
                 </div>
                 <!-- <div class="header__logo__location">
