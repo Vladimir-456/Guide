@@ -1,14 +1,11 @@
 require('dotenv').config();
-
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 
-const { Callback } = require('./models/callback');
 const { validateHandler } = require('./middleware/validate');
-const {errorHandler, notFound} = require('./middleware/errorHandler');
 const { newsData, relatedNews } = require('./mokki/data');
 const { reviewsData } = require('./mokki/mokki-reviews');
 
@@ -33,8 +30,8 @@ const limiter = rateLimit({
 const transporter = nodemailer.createTransport({
   service: 'mail.ru',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD
+    user: 'babic34@mail.ru',
+    pass: 'KdHAMKwavmJ9jfg3v0z4'
   }
 })
 
@@ -73,19 +70,10 @@ app.get('/promotion', (req, res) => {
 app.post('/api/callback', validateHandler, limiter, async (req, res) => {
   try {
     const { name, phone, agreement, newsletter } = req.body;
-    
-    // Создаем запись через Sequelize
-    // const newCallback = await Callback.create({
-    //   name,
-    //   phone,
-    //   agreement,
-    //   newsletter
-    // });
-    
     try {
       const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_TARGET,
+        from: 'babic34@mail.ru',
+        to: 'vlad.stavros@bk.ru',
         subject: 'Новая заявка с сайта Опека',
         html: `
         <h2>Поступила новая заявка</h2>
@@ -98,21 +86,16 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
       };
 
       await transporter.sendMail(mailOptions);
-      
-      // Отправляем ответ только один раз, после успешной отправки email
       res.status(201).json({ 
         success: true, 
         message: 'Заявка успешно отправлена', 
-        // data: newCallback
       });
       
     } catch (emailError) {
       console.error('Ошибка отправки email:', emailError);
-      // Заявка создана, но email не отправлен
       res.status(201).json({ 
         success: true, 
         message: 'Заявка принята, но возникла проблема с отправкой уведомления', 
-        // data: newCallback
       });
     }
   } catch (error) {
@@ -120,11 +103,6 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
     res.status(500).json({ success: false, message: 'Внутренняя ошибка сервера' });
   }
 });
-
-app.use(errorHandler);
-
-app.use(notFound);
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);

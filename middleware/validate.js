@@ -9,7 +9,7 @@ function validateHandler(req, res, next) {
     if(!phone) {
       errors.push('Телефон должен быть заполнен');
     }else {
-        const phoneRegex = /^(\+7|7|8)?[\s-]?\(?[1-9]{1}[0-9]{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
+        const phoneRegex = /^(\+7|7|8)[\s\-]?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$/;
         if(!phoneRegex.test(phone)) {
           errors.push('Неверно введен номер телефона');
         }
