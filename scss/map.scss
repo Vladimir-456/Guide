@@ -43,41 +43,184 @@
 }
 
 @include xl-down {
-
+    .address-map {
+        margin: 50px auto;
+        margin-left: 25px;
+        gap: 20px;
+        
+        &__content {
+            margin-bottom: 80px;
+        }
+        
+        &__map {
+            height: 380px;
+        }
+    }
 }
 
 @include lg-down {
-
+    .address-map {
+        margin: 40px auto;
+        margin-left: 20px;
+        gap: 15px;
+        
+        &__content {
+            margin-bottom: 70px;
+        }
+        
+        &__title {
+            font-size: 28px; // предполагая, что $font-size-title больше этого значения
+            margin-bottom: 15px;
+        }
+        
+        &__phone {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        &__description {
+            font-size: 16px;
+        }
+        
+        &__map {
+            height: 350px;
+        }
+    }
 }
-
 
 @include md-down {
     .address-map { 
         margin: 30px auto;
+        margin-left: 15px;
         gap: 10px;
         flex-direction: column;
+        align-items: flex-start;
 
+        &__content {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
         &__title {
             margin-bottom: 10px;
             font-size: 25px;
         }
+        
+        &__phone {
+            font-size: 17px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        &__description {
+            font-size: 15px;
+            margin-top: 15px;
+        }
 
         &__map {
             margin-top: 0;
+            margin-bottom: 30px;
+            height: 320px;
         }
     }
 }
 
 @include sm-down {
+    .address-map {
+        margin: 25px auto;
+        margin-left: 10px;
+        
+        &__content {
+            margin-bottom: 25px;
+        }
+        
+        &__title {
+            font-size: 22px;
+            padding-bottom: 10px;
+        }
+        
+        &__phone {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+        }
+        
+        &__description {
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        
+        &__map {
+            height: 300px;
+            margin-bottom: 25px;
+        }
+    }
 }
 
 @include xs-down {
-
+    .address-map {
+        margin: 15px auto;
+        margin-left: 5px;
+        gap: 8px;
+        
+        &__content {
+            margin-bottom: 20px;
+        }
+        
+        &__title {
+            font-size: 20px;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+        }
+        
+        &__phone {
+            font-size: 15px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+        }
+        
+        &__description {
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        
+        &__map {
+            height: 250px;
+            margin-bottom: 20px;
+        }
+    }
 }
 
 @include xxs-down {
     .address-map {
-        margin: 0 auto;
+        margin: 10px auto;
+        margin-left: 5px;
         gap: 5px;
+        
+        &__content {
+            margin-bottom: 15px;
+        }
+        
+        &__title {
+            font-size: 18px;
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+        }
+        
+        &__phone {
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+        
+        &__description {
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        
+        &__map {
+            height: 200px;
+            margin-bottom: 15px;
+        }
     }
 }

@@ -1,4 +1,7 @@
 @use 'varibles' as *;
+@use 'mixin' as *;
+@use 'animation' as *;
+
 .header__content {
     display: flex;
     margin-left: 15px;
@@ -26,8 +29,7 @@
   /* Подвал */
   footer {
     background-color: white;
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    margin-top: 50px;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
     padding: 30px 0;
     border-radius: 5px;
 
@@ -99,7 +101,7 @@
   
   .footer__list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     padding: 0;
     margin: 0;
 
@@ -131,5 +133,273 @@
           }
         }
     }
+  }
+}
+
+@include xl-down {
+  .header__content {
+    flex-direction: column;
+    
+    &__logo {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .footer {
+    &__container {
+      padding: 10px 20px;
+    }
+    
+    &__list {
+      &__item {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+@include lg-down {
+  .header__content {
+    margin-left: 10px;
+    
+    &__logo {
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+  
+  .footer {
+    padding: 25px 0;
+    
+    &__container {
+      gap: 10px;
+    }
+    
+    &__list {
+      &__item {
+        margin-right: 15px;
+        margin-left: 25px;
+        
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  
+  .footer-content {
+    margin-left: 15px;
+  }
+}
+
+@include md-down {
+  .header__content {
+    &__logo {
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+      }
+      
+      &__text {
+        font-size: 11px;
+      }
+    }
+  }
+  
+  .footer {
+    margin-top: 40px;
+    
+    &__logo {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+    
+    &__list {
+      align-items: center;
+      flex-wrap: wrap;
+      
+      &__item {
+        margin-right: 10px;
+        margin-left: 20px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  
+  .copyright {
+    font-size: 12px;
+  }
+  
+  .privacy-policy {
+    font-size: 12px;
+  }
+}
+
+@include sm-down {
+  .header__content {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+  
+  .footer {
+    padding: 20px 0;
+    
+    &__logo {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+    
+    &__links {
+      a {
+        margin-left: 8px;
+        font-size: 14px;
+      }
+    }
+    
+    &__list {
+      justify-content: center;
+      
+      &__item {
+        margin-right: 10px;
+        margin-left: 15px;
+        
+        a {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  
+  .container {
+    margin: 5px auto;
+    margin-left: 5px;
+  }
+}
+
+@include xs-down {
+  .header__content {
+    &__logo {
+      img {
+        width: 35px;
+        height: 35px;
+      }
+      
+      &__text {
+        font-size: 10px;
+      }
+    }
+  }
+  
+  .footer {
+    margin-top: 30px;
+    
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 15px;
+    }
+    
+    &__logo {
+      margin-bottom: 15px;
+      justify-content: center;
+      
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+      
+      &__item {
+        margin: 5px 0;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: center;
+        
+        a {
+          font-size: 15px;
+        }
+      }
+    }
+    
+    &__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      a {
+        margin: 5px 0;
+        margin-left: 0;
+      }
+    }
+  }
+  
+  .footer-content {
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+  
+  .privacy-policy {
+    display: block;
+    margin: 8px auto;
+  }
+}
+
+@include xxs-down {
+  .header__content {
+    &__logo {
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+      }
+      
+      &__text {
+        font-size: 9px;
+      }
+    }
+  }
+  
+  .footer {
+    padding: 15px 0;
+    
+    &__logo {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    
+    &__list {
+      &__item {
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  .copyright {
+    font-size: 11px;
+  }
+  
+  .privacy-policy {
+    font-size: 11px;
   }
 }
