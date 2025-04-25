@@ -15,6 +15,10 @@
 @use "news-template";
 @use "response";
 @use "mixin";
+@use "info";
+@use "documents";
+@use "comparison";
+@use "map";
 * {
     margin: 0;
     padding: 0;

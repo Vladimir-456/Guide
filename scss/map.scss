@@ -1,0 +1,83 @@
+@use 'varibles' as *;
+@use 'mixin' as *;
+
+.address-map {
+    margin: 60px auto;
+    margin-left: 30px;
+    gap: 25px;
+    @include flex-container(row, flex-start, center, no-wrap);
+    &__content {
+        margin-bottom: 90px;
+    }
+    &__title {
+        color: $secondary-color;
+        font-size: $font-size-title;
+        margin-bottom: 20px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    &__phone {
+        color: #000000;
+        font-size: 20px;
+        margin-bottom: 30px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+        text-decoration: none;
+    }
+
+    &__description {
+        color: #333;
+        font-size: 17px;
+        margin-top: 20px;
+    }
+
+    &__map {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@include xl-down {
+
+}
+
+@include lg-down {
+
+}
+
+
+@include md-down {
+    .address-map { 
+        margin: 30px auto;
+        gap: 10px;
+        flex-direction: column;
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        &__map {
+            margin-top: 0;
+        }
+    }
+}
+
+@include sm-down {
+}
+
+@include xs-down {
+
+}
+
+@include xxs-down {
+    .address-map {
+        margin: 0 auto;
+        gap: 5px;
+    }
+}

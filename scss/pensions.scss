@@ -2,21 +2,23 @@
 @use 'mixin' as *;
 
 .pensions {
-    width: 100%;
-    padding: 20px;
-    max-width: 1200px;
+  margin: 60px auto;
+  width: 100%;
+  padding: 20px;
+  max-width: 1200px;
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
   }
   
   &__title {
-    font-size: 23px;
+    font-size: 25px;
     text-align: center;
-    font-weight: 700;
-    color: #333;
+    font-weight: 600;
+    color: $secondary-color;
   }
   
   &__controls {
@@ -25,7 +27,7 @@
   }
   
   &__button {
-    background: none;
+  background: none;
   border: 1px solid #ddd;
   border-radius: 50%;
   width: 40px;
@@ -43,10 +45,11 @@
   }
 
   &__description {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #555;
-        margin-bottom: 20px;
+      margin-left: 10px;
+        font-size: 17px;
+        line-height: 1.5;
+        color: gray;
+        margin-bottom: 10px;
         max-width: 900px;
     }
   
@@ -62,6 +65,59 @@
   }
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.7s ease, transform 0.7s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease-out;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wave-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.wave-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease-out;
+}
+/* Задержки для последовательного появления */
+.delay-1 { transition-delay: 0.4s; }
+.delay-2 { transition-delay: 0.6s; }
+.delay-3 { transition-delay: 0.8s; }
+.delay-4 { transition-delay: 1s; }
+.delay-5 { transition-delay: 1.2s; }
+.delay-6 { transition-delay: 1.4s; }
+
+.wave-in:nth-child(1) { transition-delay: 0.1s; }
+.wave-in:nth-child(2) { transition-delay: 0.2s; }
+.wave-in:nth-child(3) { transition-delay: 0.3s; }
+.wave-in:nth-child(4) { transition-delay: 0.4s; }
+.wave-in:nth-child(5) { transition-delay: 0.5s; }
+.wave-in:nth-child(6) { transition-delay: 0.6s; }
 @include xl-down {
   .pensions {
     width: 95%;
@@ -84,9 +140,18 @@
 }
 
 @include md-down {
-  .pension-card {
-    flex: 0 0 calc(100% - 30px);
+  .pensions__title {
+    font-size: 24px;
   }
+  
+  .pensions__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  // .pension-card {
+  //   flex: 0 0 calc(100% - 30px);
+  // }
 }
 
 @include sm-down {
@@ -101,14 +166,16 @@
       font-size: 14px;
       margin-bottom: 15px;
     }
-    
-    &__controls {
-      display: none;
+
+    &__slider {
+      display: flex;
+      flex-direction: column;
     }
   }
   
   .pension-card {
     margin-bottom: 15px;
+    flex: 0 0 calc(70% - 30px);
     
     &__name {
       font-size: 18px;
@@ -117,6 +184,9 @@
     &__content {
       padding: 15px 10px;
       height: auto;
+    }
+    &__image {
+      height: 200px;
     }
   }
 }

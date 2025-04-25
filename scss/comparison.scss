@@ -1,0 +1,189 @@
+@use 'varibles' as *;
+@use 'mixin' as *;
+@use 'animation' as *;
+
+.comparison {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+
+    &__title {
+        color: $secondary-color;
+        font-size: $font-size-title;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    &-table {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        border-collapse: collapse;
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #e6d0c4;
+            color: $secondary-color;
+        }
+
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .services {
+            text-align: left;
+            color: gray;
+            width: 50%;
+        }
+
+        .available, .unavailable {
+            display: inline-block;
+            position: relative;
+            transform: translateX(130px);
+            width: 24px;
+            height: 24px;
+        }
+
+        .available::before {
+            content: "\2714";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $secondary-color;
+            font-size: 20px;
+        }
+
+        .unavailable::before {
+            content: "\2716";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #f44336;
+            font-size: 20px;
+        }
+
+        .reserve-btn {
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 25px;
+            border: none;
+            background-color: $secondary-color;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #0eb654;
+            }
+        }
+    }
+}
+
+@include md-down {
+    .comparison {
+        padding: 10px;
+        
+        &__title {
+            padding: 10px;
+            font-size: 25px;
+        }
+        
+        &-table {
+            thead, tbody, tfoot, th, td, tr {
+                display: block;
+            }
+            
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            tr {
+                margin-bottom: 25px; // Increased space between rows
+                border-bottom: 2px solid #e6d0c4;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            
+            td {
+                position: relative;
+                padding: 15px 15px 15px 50%; // Better padding
+                text-align: left;
+                border-bottom: 1px solid #e6d0c4;
+                min-height: 50px; // Ensure minimum height for all cells
+                
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    width: 45%;
+                    padding-right: 10px;
+                    text-align: left;
+                    font-weight: bold;
+                    transform: translateY(-50%); // Center vertically
+                }
+                .unavailable, .available {
+                    transform: translateX(140px);
+                }
+                // // Fix for checkmarks and X marks
+                // .available, .unavailable {
+                //     transform: translateX(0); // Reset the transform
+                //     margin: 0 auto;
+                //     display: block;
+                // }
+            }
+            
+            .services {
+                text-align: center;
+                padding: 15px;
+                font-weight: bold;
+                width: 100%;
+                color: $secondary-color; // Make service names more visible
+                font-size: 17px; // Bigger font for better readability
+                background-color: rgba(230, 208, 196, 0.1); // Light background
+            }
+            
+            // Label content for mobile view
+            tbody tr td:nth-of-type(2):before { 
+                content: "Пансионат, от 1400 руб."; 
+            }
+            
+            tbody tr td:nth-of-type(3):before { 
+                content: "Сиделка, от 2500 руб."; 
+            }
+            
+            // Center buttons in mobile view
+            td:last-child {
+                text-align: center;
+                padding-left: 15px; // Reset padding for button container
+                
+                .reserve-btn {
+                    margin: 10px auto;
+                    display: block;
+                    width: 80%; // Make button wider on mobile
+                    max-width: 200px;
+                }
+            }
+            
+            // Animation for rows
+            tbody tr {
+                opacity: 0;
+                animation: fadeInRow 0.5s ease forwards;
+            }
+            
+            // Stagger animation for rows
+            @for $i from 1 through 10 {
+                tbody tr:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
+    }
+}

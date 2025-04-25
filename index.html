@@ -12,6 +12,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>      
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=6f99a5c3-9f9d-4cad-b11c-d628befa5f1c&lang=ru_RU" type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel='icon' href='./img/favicon-16x16.png' type='image/x-icon'>
@@ -29,12 +30,11 @@
                     </div>
                 </div>
                 <div class="header__contacts">
-                    <a class="header__phone" href="tel:+88005555403">+ 7 933 181-02-35</a>
+                    <a class="header__phone">+ 7 933 181-02-35</a>
                     <span class="header__hours">Режим работы: с 9:00 до 18:00</span>
                 </div>
                 <div class="header__actions">
                     <a href="#" class="button__slider button--call" role="link">Заказать звонок</a>
-                    <input type="text" class="header__search" placeholder="Поиск..." id="header__search" role="search">
                 </div>
             </div>
         </header>
@@ -42,28 +42,8 @@
             <div class="rehab-slider__container" id="rehab-slider__container" role="banner">
                 <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
                     <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
-                        <h2 class="rehab-slider__title" id="rehab-slider__title" itemprop="name">Дом с  любовью к пожилым</h2>
-                        <ul class="feature-list" role="list" itemprop="description">
-                            <li class="feature-list__item">Уход за пожилыми людьми</li>
-                            <li class="feature-list__item">Пятиразовое сбалансированное питание</li>
-                            <li class="feature-list__item">Регулярный мониторинг здоровья</li>
-                            <li class="feature-list__item">Веселый досуг</li>
-                        </ul>
-                        <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="mainEntityOfPage">
-                            <a href="#" class="button__slider button--primary" role="link">Бесплатная консультация</a>
-                            <a href="#" class="button__slider  button--secondary" role="link">Посещение пансионата</a>
-                        </div>
-                    </div>
-                    <div class="rehab-slider__image" id="rehab-slider__image" itemprop="image" role="img">
-                        <img class="rehab-slider__img" src="./img/slider-item_1.jpg" alt="Реабилитация пожилых людей" itemprop="url">
-                    </div>
-                </div>
-                
-                <!-- Slide 2 -->
-                <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
-                    <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
-                        <h2 class="rehab-slider__title">Нам доверяют заботу о самых близких!</h2>
-                        <ul class="feature-list" id="feature-list" role="list" itemprop="description">
+                        <h2 class="rehab-slider__title fade-in delay-2">Нам доверяют заботу о самых близких!</h2>
+                        <ul class="feature-list wave-in" id="feature-list" role="list" itemprop="description">
                             <li class="feature-list__item">Профессиональный уход 24 часа в сутки</li>
                             <li class="feature-list__item">5-разовое питание: вкусное и разнообразное</li>
                             <li class="feature-list__item">Прогулки и полезный досуг</li>
@@ -71,12 +51,33 @@
                             <li class="feature-list__item">Организуем бережную транспортировку в пансионат при ограниченной подвижности</li>
                         </ul>
                         <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="buttons">
-                            <a href="#" class="button__slider button--primary" role="link">Бесплатная консультация</a>
-                            <a href="#" class="button__slider  button--secondary" role="link">Посещение пансионата</a>
+                            <a href="#" class="button__slider button--primary fade-in delay-4" role="link">Бесплатная консультация</a>
+                            <a href="#" class="button__slider  button--secondary fade-in delay-5" role="link">Посещение пансионата</a>
                         </div>
                     </div>
-                        <div class="rehab-slider__image" id="rehab-slider__image" role="img" itemprop="image">
+                        <div class="rehab-slider__image fade-in-right delay-3" id="rehab-slider__image" role="img" itemprop="image">
                             <img class="rehab-slider__img" src="./img/kandinsky-download-1743150491923.png" alt="Реабилитация пожилых людей" itemprop="url"/>
+                    </div>
+                </div>
+               
+                
+                <!-- Slide 2 -->
+                <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
+                    <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
+                        <h2 class="rehab-slider__title fade-in delay-1" id="rehab-slider__title" itemprop="name">Дом с  любовью к пожилым</h2>
+                        <ul class="feature-list wave-in" role="list" itemprop="description">
+                            <li class="feature-list__item">Уход за пожилыми людьми</li>
+                            <li class="feature-list__item">Пятиразовое сбалансированное питание</li>
+                            <li class="feature-list__item">Регулярный мониторинг здоровья</li>
+                            <li class="feature-list__item">Веселый досуг</li>
+                        </ul>
+                        <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="mainEntityOfPage">
+                            <a href="#" class="button__slider button--primary fade-in-left delay-3" role="link">Бесплатная консультация</a>
+                            <a href="#" class="button__slider  button--secondary fade-in-left delay-4" role="link">Посещение пансионата</a>
+                        </div>
+                    </div>
+                    <div class="rehab-slider__image fade-in-right delay-2" id="rehab-slider__image" itemprop="image" role="img">
+                        <img class="rehab-slider__img" src="./img/slider-item_1.jpg" alt="Реабилитация пожилых людей" itemprop="url">
                     </div>
                 </div>
             </div>
@@ -119,10 +120,226 @@
                 </form>
             </div>
         </div>
+        <!-- <div class="divider"></div> -->
+        <section class="info-pansionat" id="info-pansionat">
+          <div class="info-pansionat__image-section fade-in">
+              <div class="info-pansionat__main-image">
+                  <img src="img/c5d168bf_2a69_4aa8_806a_518ebe89fd20 (1).jpg" alt="Здание пансионата">
+              </div>
+              <div class="info-pansionat__small-images">
+                <div class="info-pansionat__room-image">
+                    <img src="img/8mTdrgFAn2oIM8X9rIdrCrJc8E6VooOesXgaVoT673ePrPzhOxSvNQMGd1plzFkI_9nicl13dKaFSZXGSCtNyuYgmdu1hE9O_XLg3O2m7u9jODHqdsFATfZrCBXSKW3V6e6espqVKyBWYrY-UcrOCd2_xDTZUkMTQbkxoYxbyP7xFTy51_UOOMrSxT0swpm4QitxD-fjwmwECdt.webp" alt="Комната в пансионате">
+                </div>
+                <div class="info-pansionat__people-image">
+                    <img src="img/67413990-15e5-50a2-ac07-e403ffc6238a.jpeg" alt="Пожилые люди">
+                </div>
+              </div>
+          </div>
+          <div class="info-pansionat__content">
+              <h2 class="info-pansionat__title fade-in-left delay-1">Добро пожаловать в «Опека»</h2>
+              <p class="info-pansionat__description fade-in-right delay-3">
+                  Наш пансионат расположен в городе Ставрополь. 
+                  Отдельный уютный дом с собственной чистой территорией для прогулок. Хороший ремонт, оборудованное пространство, 
+                  доступная среда и хорошие люди - вот чем мы гордимся!
+              </p>
+          </div>
+      </section>
 
-        <!-- <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
+        <section class="pensions"  id="pensions">
+            <div class="pensions__header">
+                <h3 class="pensions__title fade-in">Мы предлагаем нашим гостям</h3>
+            </div>
+            <p class="pensions__description" fade-in delay-1>
+                Благоустроенные места в новом корпусе с ремонтом, индивидуальной мебелью, ТВ, оборудованными санузлами.
+            </p>
+            <div class="pensions__slider-container">
+                <div class="pensions__slider">
+                 
+                    <div class="pension-card fade-in-left delay-2">
+                        <div class="pension-card__image">
+                            <img class="pension-card__img" src="img/b00160021d93a.jpg" alt="Пансионат Источник">
+                        </div>
+                        <div class="pension-card__content">
+                            <h3 class="pension-card__name"><a href="#">Двухместная комната</a></h3>
+                            <div class="pension-card__description">
+                                Для пары гостей      
+                            </div>
+                            <div class="pension-card__button">
+                                <a href="#">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                 
+                    <div class="pension-card fade-in-right delay-3">
+                        <div class="pension-card__image">
+                            <img class="pension-card__img" src="img/XXXL.webp" alt="Пансионат Лесозаводской">
+                           
+                        </div>
+                        <div class="pension-card__content">
+                            <h3 class="pension-card__name"><a href="#">Трехместная комната</a></h3>
+                            <div class="pension-card__description">
+                                Для тех, кому необходимо общение       
+                            </div>
+                            <div class="pension-card__button">
+                                <a href="#">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="divider"></div> -->
+        <section class="benefits" id="benefits">
+        <h3 class="benefits-title">Проживание по системе «Всё включено»</h2>
+        <p class="benefits-description">Оказываем полный перечень услуг без лишних доплат</p>
+        <div class="benefits-container wave-in">
+            <div class="benefit-item">
+                <h4>5-разовое питание</h4>
+                <p>Разнообразное, свежее питание - каждый день готовит повар. Помогаем в измельчении пищи по необходимости</p>
+            </div>
+            
+            <div class="benefit-item">
+                <h4>Контроль и поддержка здоровья</h4>
+                <p>Контроль давления, сахара, ведение динамических листов, контроль приема лекарств, дежурный специалист с образованием, тревожная кнопка</p>
+            </div>
+            
+            <div class="benefit-item">
+                <h4>Гигиена и ежедневный уход</h4>
+                <p>Чистое белье каждый день, стирка вещей, помощь в гигиене, принятии душа, помощь при переодеваниях, обработка пролежней</p>
+            </div>
+            
+            <div class="benefit-item">
+                <h4>Оборудованная среда</h4>
+                <p>Бесплатно доступны инвалидные коляски, ходунки, трости, специальный туалет, и многое другое. На территории есть пандусы, поручни и всё необходимое</p>
+            </div>
+            
+            <div class="benefit-item">
+                <h4>Программы активности</h4>
+                <p>Зарядка и гимнастика, легкие массажи, прогулки, развивающие упражнения для поддержания повседневных навыков</p>
+            </div>
 
-          <section class="news" itemscope itemtype="https://schema.org/NewsArticle">
+            <div class="benefit-item">
+                <h4>Интересный досуг по интересам</h4>
+                <p>Разнообразный ежедневный досуг: концерты, караоке, настольные игры, соревнования по шахматам, киновечера, праздники и многое другое!</p>
+            </div>
+        </div>
+        </section> 
+        <!-- <div class="divider"></div> -->
+        <section class="documents">
+            <h2 class="documents__title fade-in delay-1">Поможем быстро в любой срочной ситуации</h2>
+            <p class="documents__description fade-in delay-2">Для заселения нужны документы:</p>
+            <div class="documents__steps">
+                <div class="documents__step fade-in delay-1">
+                    <span class="documents__step__number">1</span>
+                    <div class="documents__step__line"></div>
+                    <p class="documents__step__description">Паспорт постояльца</p>
+                </div>
+                <div class="documents__step fade-in delay-2">
+                    <span class="documents__step__number">2</span>
+                    <div class="documents__step__line"></div>
+                    <p class="documents__step__description">Паспорт родственника</p>
+                </div>
+                <div class="documents__step fade-in delay-3">
+                    <span class="documents__step__number">3</span>
+                    <div class="documents__step__line"></div>
+                    <p class="documents__step__description">Полис ОМС</p>
+                </div>
+                <div class="documents__step fade-in delay-4">
+                    <span class="documents__step__number">4</span>
+                    <div class="documents__step__line"></div>
+                    <p class="documents__step__description">Медицинская карта</p>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="divider"></div> -->
+        <section class="pansions-populated">
+            <h2 class="pansions-populated__title fade-in delay-1">Хотите заселить своего Близкого?</h2>
+            <p class="pansions-populated__description fade-in delay-2">Оставьте телефон, чтобы не платить за связь, мы сами позвоним и всё расскажем</p>
+            <button class="pansions-populated__button button__slider fade-in delay-3">Перезвоните мне</button>
+        </section>
+        <section class="comparison">
+            <h2 class="comparison__title">Доверьте своих Родных профессионалам, оцените преимущества и выгоды</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr class="fade-in-left delay-1">
+                        <th class="services fade-in delay-1">Виды услуг</th>
+                        <th class="fade-in delay-2">Пансионат, от 1400 руб.</th>
+                        <th class="fade-in delay-3">Сиделка, от 2500 руб.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="services fade-in delay-2">Круглосуточный присмотр</td>
+                        <td><span class="available fade-in-left delay-1"></span></td>
+                        <td><span class="unavailable fade-in-left delay-1"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-2">Контроль приема лекарств и проведения процедур</td>
+                        <td><span class="available fade-in-left delay-2"></span></td>
+                        <td><span class="available fade-in-left delay-2"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-3">Пятиразовое сбалансированное питание</td>
+                        <td><span class="available fade-in-left delay-2"></span></td>
+                        <td><span class="unavailable fade-in-left delay-2"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-3">Смена постельного белья</td>
+                        <td><span class="available fade-in-left delay-2"></span></td>
+                        <td><span class="available fade-in-left delay-2"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-4">Помощь в приёме пищи</td>
+                        <td><span class="available fade-in-left delay-3"></span></td>
+                        <td><span class="available fade-in-left delay-3"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-4">Профессиональная психологическая помощь</td>
+                        <td><span class="available fade-in-left delay-3"></span></td>
+                        <td><span class="unavailable fade-in-left delay-3"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-4">Развлекательные программы и досуг</td>
+                        <td><span class="available fade-in-left delay-3"></span></td>
+                        <td><span class="unavailable fade-in-left delay-3"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-4">Санитарно-гигиенический уход</td>
+                        <td><span class="available fade-in-left delay-4"></span></td>
+                        <td><span class="available fade-in-left delay-1"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-5">Социальная адаптация</td>
+                        <td><span class="available fade-in-left delay-4"></span></td>
+                        <td><span class="unavailable fade-in-left delay-4"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-5">Специально оснащенное помещение</td>
+                        <td><span class="available fade-in-left delay-5"></span></td>
+                        <td><span class="unavailable fade-in-left delay-5"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="services fade-in delay-5">Все для удобства постояльца</td>
+                        <td><span class="available fade-in-left delay-5"></span></td>
+                        <td><span class="unavailable fade-in-left delay-5"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="address-map" id="address-map" itemscope itemtype="https://schema.org/Organization">
+            <div class="address-map__content">
+                <h2 class="address-map__title fade-in delay-1" itemprop="name">Звоните, приезжайте, мы всегда на связи и рядом!</h2>
+                <a href="tel:7 (933) 181-02-35" class="address-map__phone fade-in delay-2">+7 933 181-02-35</a>
+                <p class="address-map__description" itemprop="description fade-in delay-3">Ставрополь, проспект Кулакова 28Б/3</p>
+            </div>
+            <div class="address-map__map fade-in-right delay-4" id="map" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            </div>
+        </section>
+        <!-- <div class="divider"></div> -->
+
+          <!-- <section class="news" itemscope itemtype="https://schema.org/NewsArticle">
             <h2 class="news__title" itemprop="name">Новости</h2>
             <div class="news__bottom">
                 <div class="news__navigation" itemprop="navigation">
@@ -165,19 +382,34 @@
               </div>
             </div>
           </section> -->
-          <div class="divider"></div>
-          <section>
-            <div class="footer__logo" >
-                <div>
-                    <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" >
-                </div>
-            </div>
-          </section>
+          <!-- <div class="divider"></div> -->
           <footer>
+            <div class="footer__container">
+                <div class="footer__logo" >
+                    <div>
+                        <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" >
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li class="footer__list__item">
+                            <a href="#info-pansionat" class="footer__link">Наш дом</a>
+                        </li>
+                        <li class="footer__list__item">
+                            <a href="#benefits" class="footer__link">Услуги</a>
+                        </li>
+                        <li class="footer__list__item">
+                            <a href="#pensions" class="footer__link">Комнаты</a>
+                        </li>
+                        <li class="footer__list__item">
+                            <a href="#address-map" class="footer__link">Контакты</a>
+                        </li>
+                </nav>
+            </div>
             <div class="container">
                 <div class="footer-content">
                     <div class="copyright">
-                        © 2025," СТАВРОПОЛЬ ОПЕКА ". Все права защищены.
+                        © Частный пансионат для пожилых "Опека". Все права защищены
                         <div class="privacy-policy">Политика конфиденциальности</div>
                     </div>
                 </div>
