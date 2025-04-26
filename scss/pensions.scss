@@ -118,6 +118,7 @@
 .wave-in:nth-child(4) { transition-delay: 0.4s; }
 .wave-in:nth-child(5) { transition-delay: 0.5s; }
 .wave-in:nth-child(6) { transition-delay: 0.6s; }
+
 @include xl-down {
   .pensions {
     width: 95%;
@@ -140,23 +141,35 @@
 }
 
 @include md-down {
+  .pensions {
+    padding: 10px;
+    &__slider {
+      display: flex;
+      flex-direction: column;
+    }
+  }
   .pensions__title {
     font-size: 24px;
+    text-align: left;
   }
-  
   .pensions__header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
-  // .pension-card {
-  //   flex: 0 0 calc(100% - 30px);
-  // }
+  .pension-card {
+    flex: 0 0 calc(100% - 30px);
+  }
 }
 
 @include sm-down {
   .pensions {
     padding: 10px;
+    margin: 30px auto;
+
+    &__container {
+      overflow: visible;
+    }
     
     &__title {
       font-size: 20px;
@@ -165,17 +178,18 @@
     &__description {
       font-size: 14px;
       margin-bottom: 15px;
+      line-height: 1.4;
     }
 
-    &__slider {
-      display: flex;
-      flex-direction: column;
+    &__controls {
+      width: 100%;
+      justify-content: flex-end;
     }
   }
   
   .pension-card {
     margin-bottom: 15px;
-    flex: 0 0 calc(70% - 30px);
+    flex: 0 0 calc(100% - 20px);
     
     &__name {
       font-size: 18px;
@@ -193,8 +207,13 @@
 
 @include xs-down {
   .pension-card {
+    height: 450px;
     &__name {
-      font-size: 16px;
+      font-size: 18px;
+    }
+    &__button {
+      width: 35px;
+      height: 35px;
     }
     
     &__price,
@@ -206,9 +225,19 @@
 }
 
 @include xxs-down {
+  .pensions {
+    &__title {
+      font-size: 20px;
+    }
+  }
   .pension-card {
+    height: 400px;
     &__name {
       font-size: 15px;
+    }
+
+    &__image {
+      height: 180px;
     }
   }
 }

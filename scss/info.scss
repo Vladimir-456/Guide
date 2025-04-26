@@ -120,13 +120,13 @@
         padding-bottom: 14px;
         padding-left: 20px;
         padding-right: 20px;
-        background-color: #2ecc71;
+        background-color: $secondary-color;
         color: white;
         text-decoration: none;
         transition: background-color 0.3s ease, color 0.3s ease;
 
         &:hover {
-            background-color: #7a1c1f;
+            background-color: #2ecc71;
         }
     }
 }
@@ -197,10 +197,10 @@
   @include xs-down {
     .pansions-populated {
       padding: 10px;
-      margin: 40px auto;
+      margin: 30px auto;
 
       &__title {
-        font-size: 25px;
+        font-size: 23px;
       }
 
       &__description {
@@ -227,9 +227,11 @@
   @include xxs-down {
     .info-pansionat {
       margin: 25px auto;
-      
+      &__content {
+        width: 100%;
+      }
       &__content h2 {
-        font-size: 22px;
+        font-size: 21px;
       }
       
       &__content p {

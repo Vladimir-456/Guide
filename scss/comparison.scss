@@ -4,7 +4,7 @@
 
 .comparison {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 40px auto;
     padding: 20px;
 
     &__title {
@@ -21,6 +21,7 @@
         overflow: hidden;
         margin-bottom: 30px;
         border-collapse: collapse;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
         th, td {
             padding: 15px;
@@ -42,9 +43,9 @@
         .available, .unavailable {
             display: inline-block;
             position: relative;
-            transform: translateX(130px);
             width: 24px;
             height: 24px;
+            margin: 0 auto;
         }
 
         .available::before {
@@ -81,108 +82,139 @@
                 background-color: #0eb654;
             }
         }
+        
+        // Центрирование элементов в ячейках, кроме первой колонки
+        td:not(.services) {
+            text-align: center;
+        }
+    }
+    
+    // Добавляем возможность горизонтальной прокрутки таблицы на мобильных устройствах
+    &-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; // Плавная прокрутка на iOS
+        border-radius: 12px; // Сохраняем скругленные углы
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+}
+
+@include xl-down {
+    .comparison {
+        max-width: 95%;
+    }
+}
+
+@include lg-down {
+    .comparison {
+        max-width: 90%;
+        
+        &-table {
+            th, td {
+                padding: 12px 10px;
+            }
+        }
     }
 }
 
 @include md-down {
     .comparison {
-        padding: 10px;
+        padding: 15px 10px;
         
         &__title {
-            padding: 10px;
-            font-size: 25px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            // text-align: center;
         }
         
         &-table {
-            thead, tbody, tfoot, th, td, tr {
-                display: block;
-            }
+            min-width: 650px; // Минимальная ширина таблицы для скролла
             
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-            
-            tr {
-                margin-bottom: 25px; // Increased space between rows
-                border-bottom: 2px solid #e6d0c4;
-                border-radius: 8px;
-                overflow: hidden;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            }
-            
-            td {
-                position: relative;
-                padding: 15px 15px 15px 50%; // Better padding
-                text-align: left;
-                border-bottom: 1px solid #e6d0c4;
-                min-height: 50px; // Ensure minimum height for all cells
-                
-                &::before {
-                    position: absolute;
-                    top: 50%;
-                    left: 15px;
-                    width: 45%;
-                    padding-right: 10px;
-                    text-align: left;
-                    font-weight: bold;
-                    transform: translateY(-50%); // Center vertically
-                }
-                .unavailable, .available {
-                    transform: translateX(140px);
-                }
-                // // Fix for checkmarks and X marks
-                // .available, .unavailable {
-                //     transform: translateX(0); // Reset the transform
-                //     margin: 0 auto;
-                //     display: block;
-                // }
+            th, td {
+                padding: 12px 8px;
+                font-size: 14px;
             }
             
             .services {
-                text-align: center;
-                padding: 15px;
-                font-weight: bold;
-                width: 100%;
-                color: $secondary-color; // Make service names more visible
-                font-size: 17px; // Bigger font for better readability
-                background-color: rgba(230, 208, 196, 0.1); // Light background
+                width: 45%;
+                font-size: 14px;
             }
             
-            // Label content for mobile view
-            tbody tr td:nth-of-type(2):before { 
-                content: "Пансионат, от 1400 руб."; 
+            .reserve-btn {
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
-            tbody tr td:nth-of-type(3):before { 
-                content: "Сиделка, от 2500 руб."; 
-            }
-            
-            // Center buttons in mobile view
-            td:last-child {
-                text-align: center;
-                padding-left: 15px; // Reset padding for button container
-                
-                .reserve-btn {
-                    margin: 10px auto;
-                    display: block;
-                    width: 80%; // Make button wider on mobile
-                    max-width: 200px;
-                }
-            }
-            
-            // Animation for rows
+            // Анимация для строк таблицы
             tbody tr {
                 opacity: 0;
                 animation: fadeInRow 0.5s ease forwards;
             }
             
-            // Stagger animation for rows
+            // Каскадная анимация для строк
             @for $i from 1 through 10 {
                 tbody tr:nth-child(#{$i}) {
                     animation-delay: #{$i * 0.1}s;
                 }
+            }
+        }
+    }
+}
+
+@include sm-down {
+    .comparison {
+        // padding: 10px 5px;
+        
+        &__title {
+            font-size: 22px;
+        }
+        
+        &-table {
+            min-width: 600px; // Чуть меньше минимальная ширина
+            
+            th, td {
+                padding: 10px 6px;
+                font-size: 13px;
+            }
+            
+            .services {
+                font-size: 13px;
+            }
+            
+            .reserve-btn {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .available, .unavailable {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .available::before, .unavailable::before {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@include xs-down {
+    .comparison {
+        &__title {
+            font-size: 20px;
+        }
+        
+        &-table {
+            min-width: 550px;
+            
+            th, td {
+                padding: 8px 5px;
+                font-size: 12px;
+            }
+            
+            .reserve-btn {
+                padding: 5px 10px;
+                font-size: 12px;
             }
         }
     }

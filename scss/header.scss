@@ -3,95 +3,147 @@
 @use 'animation' as *;
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 10px 0;
-    background-color: white;
-    border-radius: 5px;
-    z-index: 100; 
-    
-    &__container {
-        @include flex-container(row,space-between, center, no-wrap);
-        max-width: $max-width;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    &__logo {
-        @include flex-container(column,center, center, no-wrap);
-        
-        &-img {
-            width: 80px;
-            height: 80px;
-            margin-right: 10px;
-            
-        }
-        
-        &-text {
-            font-size: 40px;
-            font-weight: 700;
-            color: $secondary-color;
-            text-decoration: none;
-            @include fluid-type(375px, 576px, 26px, 32px);
-            
-        }
-        
-        &__location {
-            margin-right: 10px;
-            margin-left: 25px;
-            margin-top: 5px;
-        }
-    }
-    
-    &__location {
-        margin-right: 20px;
-        text-transform: uppercase;
-        font-weight: 500;
-        margin-top: 20px;
-        @include fluid-type(375px, 576px, 11px, 14px);
-    }
-    
-    &__contacts {
-      @include flex-container(column,flex-start, center, no-wrap);
-    }
-    
-    &__phone {
-        margin-bottom: 5px;
-        color: #000;
-        font-weight: 700;
-        font-size: 20px;
-        text-decoration: none;
-        // @include fluid-type(375px, 992px, 12px, 16px);
-        
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-    
-    &__hours {
-        margin-top: 13px;
-        font-size: 14px;
-        color: $secondary-color;
-        // @include fluid-type(375px, 576px, 10px, 12px);
-
-        &:hover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  // Облегчена тень
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 100; 
+  transition: all 0.3s ease;  // Плавная анимация при скролле
+  
+  &__container {
+      @include flex-container(row, space-between, center, no-wrap);
+      max-width: $max-width;
+      margin: 0 auto;
+      padding: 0 20px;
+  }
+  
+  &__logo {
+      @include flex-container(column, center, center, no-wrap);
+      
+      &-img {
+          width: 80px;
+          height: 80px;
+          margin-right: 10px;
+          transition: all 0.3s ease;  // Плавное изменение размера
+      }
+      
+      &-text {
+          font-size: 40px;
+          font-weight: 700;
+          color: $secondary-color;
+          text-decoration: none;
+          @include fluid-type(375px, 576px, 26px, 32px);
+      }
+      
+      &__location {
+          margin-right: 10px;
+          margin-left: 25px;
+          margin-top: 5px;
+      }
+  }
+  
+  &__location {
+      margin-right: 20px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 20px;
+      @include fluid-type(375px, 576px, 11px, 14px);
+  }
+  
+  &__contacts {
+      @include flex-container(column, flex-start, center, no-wrap);
+  }
+  
+  &__phone {
+      margin-bottom: 5px;
+      color: #000;
+      font-weight: 700;
+      font-size: 20px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      &:hover {
           text-decoration: underline;
-        }
-    }
-    
-    &__actions {
-        @include flex-container(row,flex-start, center, no-wrap);
-    }
+          color: $secondary-color;  // Добавлен цвет при наведении
+      }
+  }
+  
+  &__hours {
+      margin-top: 13px;
+      font-size: 14px;
+      color: $secondary-color;
+      transition: color 0.2s ease;
+
+      &:hover {
+        text-decoration: underline;
+      }
+  }
+  
+  &__actions {
+      @include flex-container(row, flex-start, center, no-wrap);
+  }
+
+  // Добавим эффект компактной шапки при скролле
+  &.scrolled {
+      padding: 5px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      .header__logo-img {
+          width: 60px;
+          height: 60px;
+      }
+  }
 }
 
 .nav {
+  // Добавляем контейнер для мобильного меню
+  &__mobile-toggle {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      position: relative;
+      
+      span {
+          display: block;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: $secondary-color;
+          border-radius: 3px;
+          transition: all 0.3s ease;
+          
+          &:nth-child(1) { top: 0; }
+          &:nth-child(2) { top: 10px; }
+          &:nth-child(3) { top: 20px; }
+      }
+      
+      &.active {
+          span {
+              &:nth-child(1) {
+                  transform: rotate(45deg);
+                  top: 10px;
+              }
+              &:nth-child(2) {
+                  opacity: 0;
+              }
+              &:nth-child(3) {
+                  transform: rotate(-45deg);
+                  top: 10px;
+              }
+          }
+      }
+  }
+
   &__list {
       list-style-type: none;
       margin-top: 15px;
       order: 1;
+      padding: 0;
       @include flex-container(row, center, center, no-wrap);
   }
 
@@ -110,7 +162,8 @@
               display: block;
               opacity: 1;
               visibility: visible;
-              transition: opacity 0.3s ease, visibility 0.3s;
+              transform: translateY(0);
+              transition: opacity 0.3s ease, visibility 0.3s, transform 0.3s;
           }
       }
   }
@@ -123,17 +176,31 @@
       transition: color 0.3s ease;
       text-decoration: none;
       @include flex-container(row, flex-start, center, no-wrap);
-    
+      
       &:hover {
-          color: #23527c;
+          color: $secondary-color;  // Используем переменную для согласованности
           
-
           &::after {
               transform: rotate(180deg);
           }
       }
+
+      // Добавляем индикатор для пунктов с выпадающим меню
+      &--has-dropdown {
+          &::after {
+              content: "";
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              margin-left: 5px;
+              border-right: 2px solid;
+              border-bottom: 2px solid;
+              transform: rotate(45deg);
+              transition: transform 0.3s ease;
+          }
+      }
   }
- 
+
   &__dropdown {
       display: none;
       position: absolute;
@@ -147,269 +214,284 @@
       padding: 10px 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, visibility 0.3s, transform 0.3s;
 
       &-item {
           display: block;
           padding: 8px 15px;
           text-decoration: none;
           color: #333;
-          transition: background-color 0.3s ease;
+          transition: background-color 0.3s ease, color 0.3s ease;
+          font-size: 14px;
 
           &:hover {
-              background-color: #f1f1f1;
+              background-color: #f5f5f5;
+              color: $secondary-color;
           }
       }
   }
 }
 
 .button {
-    padding: 8px 20px;
-    border: none;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    @include fluid-type(375px, 768px, 12px, 14px);
-    
-    &--call {
-        @include button-header($secondary-color, white, 15px);
-        // animation: bounce 2s infinite;
-        &:hover {
-            background-color: #085a17;
-        }
-    }
-    
-    &--primary {
-        background-color: $primary-color;
-        color: white;
-        padding: 12px 20px;
-        font-weight: 500;
-        
-        &:hover {
-            background-color:#2525ff;
-        }
-    }
-    
-    &--secondary {
-        background-color: $secondary-color;
-        color: white;
-        // padding: 12px 20px;
-        font-weight: 500;
-        
-        &:hover {
-            background-color: #8bc34a;
-        }
-    }
+  padding: 8px 20px;
+  border: none;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;  // Центрируем текст
+  display: inline-block;  // Лучше для кнопок-ссылок
+  @include fluid-type(375px, 768px, 12px, 14px);
+  
+  &--call {
+      @include button-header($secondary-color, white, 15px);
+      &:hover {
+        background-color: #0cca5b;  // Используем функцию darken вместо хардкода
+      }
+  }
+  
+  &--primary {
+      background-color: $primary-color;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 500;
+      
+      &:hover {
+          background-color: #0cca5b;
+      }
+  }
+  
+  &--secondary {
+      background-color: $secondary-color;
+      color: white;
+      font-weight: 500;
+      
+      &:hover {
+          background-color: #28a85d;
+      }
+  }
 }
+
+// Улучшенные медиа-запросы
 @include xl-down {
-    .header__container {
-        width: 95%;
-        max-width: 100%;
-    }
+  .header__container {
+      width: 95%;
+      max-width: 100%;
+  }
 }
+
 @include lg-down {
-    .header {
-        &__container {
+  .header {
+      &__container {
           flex-wrap: wrap;
           justify-content: center;
           padding: 0 15px;
-        }
-        
-        &__logo {
+      }
+      
+      &__logo {
           order: 1;
           margin-right: 0;
           margin-bottom: 10px;
           
           &-img {
-            transform: translateY(5px);
+              transform: translateY(5px);
           }
-        }
-        
-        &__location {
+      }
+      
+      &__location {
           order: 2;
           margin: 10px 20px;
           text-align: center;
-        }
-        
-        &__contacts {
+      }
+      
+      &__contacts {
           order: 3;
           margin: 10px 0;
-        }
-        
-        &__actions {
+      }
+      
+      &__actions {
           order: 4;
           flex-wrap: wrap;
           justify-content: center;
           margin: 10px 0;
           width: 100%;
-        }
-        
-        &__search {
-          margin-top: 10px;
-          width: 100%;
-          max-width: 300px;
-        }
       }
+  }
 
-      .nav {
-        &__list {
+  .nav {
+      &__list {
           flex-wrap: wrap;
           justify-content: center;
           padding: 0 10px;
-        }
-        
-        &__item {
-          margin: 0 15px 10px;
-        }
       }
+      
+      &__item {
+          margin: 0 15px 10px;
+      }
+  }
 }
 
 @include md-down {
-    .header {
-        position: relative;
-        &__container {
+  .nav__mobile-toggle {
+      display: block;
+      order: 2;
+      margin-left: auto;
+  }
+  
+  .header {
+      position: relative;
+      &__container {
           padding: 0 10px;
           margin-top: 0;
-        }
-        
-        &__actions {
+      }
+      
+      &__actions {
           flex-direction: column;
           align-items: center;
           margin-bottom: 10px;
-        }
-        &__logo {
+      }
+      
+      &__logo {
           margin-top: 10px;
-    
+          order: 1;
+          
           &-img {
-            transform: translateY(5px);
+              transform: translateY(5px);
           }
+          
           &-text {
-            margin-bottom: 10px;
+              margin-bottom: 10px;
           }
-        }
-    }
-    .button {
+      }
+  }
+  
+  .button {
       &--primary,
       &--secondary {
-        width: 50%;
-        margin-bottom: 0;
-      }
-    }
-    .nav {
-        &__list {
-          margin-top: 10px;
-        }
-        
-        &__item {
-          margin-right: 10px;
+          width: 50%;
           margin-bottom: 10px;
-        }
       }
+  }
+  
+  .nav {
+      width: 100%;
+      order: 5;
+      
+      &__list {
+          margin-top: 10px;
+          display: none;  // Скрываем по умолчанию
+          flex-direction: column;
+          width: 100%;
+          
+          &.active {
+              display: flex;  // Показываем при нажатии на бургер
+          }
+      }
+      
+      &__item {
+          margin-right: 0;
+          margin-bottom: 10px;
+          width: 100%;
+          text-align: center;
+          
+          .nav__dropdown {
+              position: static;
+              width: 100%;
+              box-shadow: none;
+              margin-top: 5px;
+              display: none;
+              
+              &.show {
+                  display: block;
+              }
+          }
+      }
+  }
 }
 
 @include sm-down {
-    .header {
-        position: relative;
-        &__container {
+  .header {
+      position: relative;
+      &__container {
           padding: 0 5px;
-        }
-        
-        &__logo-img {
-          width: 80px;
-          height: 80px;
-        }
-        
-        &__location {
+      }
+      
+      &__logo-img {
+          width: 70px;  // Уменьшен размер для мобильных
+          height: 70px;
+      }
+      
+      &__location {
           font-size: 12px;
           margin: 5px 10px;
-        }
-        
-        &__phone {
+      }
+      
+      &__phone {
           font-size: 14px;
-        }
-        
-        &__hours {
+      }
+      
+      &__hours {
           margin-left: 15px;
           font-size: 12px;
           margin-top: 8px;
-        }
-        
-        &__search {
-          max-width: 100%;
-        }
-    }
+      }
+  }
 }
 
 @include xs-down {
-    .header {
-        position: relative;
-        &__logo-img {
-          width: 70px;
-          height: 70px;
-        }
-        &__logo__location {
-          margin-left: 10px;
-        }
+  .header {
+      position: relative;
+      &__logo-img {
+          width: 60px;
+          height: 60px;
       }
       
-      .button {
-        width: 70%;
-        padding: 10px 8px;
-        font-size: 12px;
-    }
-
-    .nav {
-        &__list {
-          display: flex;
-          flex-direction: column;
-        }
-        
-        &__item {
-          margin-right: 0;
-          font-size: 12px;
-          margin-bottom: 10px;
-          
-          &:last-child {
-            margin-right: 0;
-            margin-bottom: 0;
-          }
-        }
+      &__logo__location {
+          margin-left: 10px;
       }
+  }
+  
+  .button {
+      width: 70%;
+      padding: 10px 8px;
+      font-size: 12px;
+  }
 }
 
 @include xxs-down {
-    .header {
-        position: relative;
-        &__logo {
+  .header {
+      position: relative;
+      &__logo {
           margin-left: 5px;
-        }
-        &__logo-img {
-          width: 60px;
-          height: 60px;
+      }
+      
+      &__logo-img {
+          width: 50px;  // Еще меньше для очень маленьких экранов
+          height: 50px;
           transform: translateY(3px);
-        }
-        &__logo__location {
+      }
+      
+      &__logo__location {
           margin-top: 5px;
           margin-right: 5px;
-        }
-                
       }
-      .button {
-        font-size: 12px;
-        
-
-        &--call {
+  }
+  
+  .button {
+      font-size: 12px;
+      
+      &--call {
           margin: 0 auto;
           font-size: 13px;
           margin-bottom: 10px;
-        }
+      }
 
-        &--primary,
-        &--secondary {
+      &--primary,
+      &--secondary {
           font-size: 12px;
           margin-bottom: 10px;
           width: 100%;
-        }
-    }
+      }
+  }
 }
