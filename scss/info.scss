@@ -196,11 +196,11 @@
   
   @include xs-down {
     .pansions-populated {
-      padding: 10px;
+      padding: 0 20px;
       margin: 30px auto;
 
       &__title {
-        font-size: 23px;
+        font-size: 25px;
       }
 
       &__description {
@@ -231,7 +231,7 @@
         width: 100%;
       }
       &__content h2 {
-        font-size: 21px;
+        font-size: 23px;
       }
       
       &__content p {

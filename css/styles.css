@@ -3512,11 +3512,11 @@ i {
     padding: 3px 6px;
   }
   .pansions-populated {
-    padding: 10px;
+    padding: 0 20px;
     margin: 30px auto;
   }
   .pansions-populated__title {
-    font-size: 23px;
+    font-size: 25px;
   }
   .pansions-populated__description {
     font-size: 16px;
@@ -3545,7 +3545,7 @@ i {
     width: 100%;
   }
   .info-pansionat__content h2 {
-    font-size: 21px;
+    font-size: 23px;
   }
   .info-pansionat__content p {
     font-size: 15px;
@@ -3846,6 +3846,9 @@ i {
     font-size: 10px;
     padding: 3px 6px;
   }
+  .comparison {
+    padding: 0 20px;
+  }
   .comparison__title {
     font-size: 20px;
   }
@@ -3934,6 +3937,7 @@ i {
     margin: 15px;
   }
   .address-map {
+    padding: 0 20px;
     margin: 0 auto;
     gap: 5px;
   }
