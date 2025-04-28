@@ -89,21 +89,21 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
     
     try {
       // Отправляем email как раньше
-      const mailOptions = {
-        from: 'babic34@mail.ru',
-        to: 'vlad.stavros@bk.ru',
-        subject: 'Новая заявка с сайта Опека',
-        html: `
-        <h2>Поступила новая заявка</h2>
-        <p><strong>Имя:</strong> ${name}</p>
-        <p><strong>Телефон:</strong> ${phone}</p>
-        <p><strong>Согласие на обработку данных:</strong> ${agreement ? 'Да' : 'Нет'}</p>
-        <p><strong>Подписка на рассылку:</strong> ${newsletter ? 'Да' : 'Нет'}</p>
-        <p><strong>Дата заявки:</strong> ${new Date().toLocaleString('ru-RU')}</p>
-      `
-      };
+      // const mailOptions = {
+      //   from: 'babic34@mail.ru',
+      //   to: 'vlad.stavros@bk.ru',
+      //   subject: 'Новая заявка с сайта Опека',
+      //   html: `
+      //   <h2>Поступила новая заявка</h2>
+      //   <p><strong>Имя:</strong> ${name}</p>
+      //   <p><strong>Телефон:</strong> ${phone}</p>
+      //   <p><strong>Согласие на обработку данных:</strong> ${agreement ? 'Да' : 'Нет'}</p>
+      //   <p><strong>Подписка на рассылку:</strong> ${newsletter ? 'Да' : 'Нет'}</p>
+      //   <p><strong>Дата заявки:</strong> ${new Date().toLocaleString('ru-RU')}</p>
+      // `
+      // };
       
-      await transporter.sendMail(mailOptions);
+      // await transporter.sendMail(mailOptions);
       
       // Добавляем отправку в Telegram
       await bot.sendMessage(TELEGRAM_CHAT_ID, telegramMessage, { parse_mode: 'Markdown' });
