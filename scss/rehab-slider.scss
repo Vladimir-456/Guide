@@ -8,20 +8,20 @@
     width: 100%;
     margin: 0 auto;
     border-radius: 20px;
-    overflow: hidden;
+    // overflow: hidden;
     padding: 0;
     
     &__container {
         padding: 0;
         margin: 0 auto;
         width: 100%;
-        margin-top: 160px;
+        margin-top: 150px;
     }
     
     &__item {
         display: flex;
         border-radius: 20px;
-        overflow: hidden;
+        // overflow: hidden;
         box-shadow: none;
         padding: 0;
         position: relative;
@@ -53,20 +53,20 @@
         right: 0;
         top: 0;
         transform: translateY(5px);
-        width: 50%;
+        width: 40%;
         height: auto;
         border-radius: 7px;
         border-radius: 20px;
-        overflow: hidden;
+        // overflow: hidden;
         z-index: 1;
     }
     
     &__img {
-        width: 96%;
+        width: 60%;
         height: auto;
         object-fit: cover;
         object-position: center;
-        transform: translateY(10px);
+        transform: translateY(50px);
         border: none;
         box-shadow: none;
         border-radius: 0;
@@ -216,14 +216,16 @@
         
         &__image {
           position: relative;
-          width: 90%;
+          width: 60%;
           transform: none;
           margin-bottom: 20px;
           order: 1;
         }
         
         &__img {
-          width: 100%;
+          transform: translateY(-5px);
+          transform: translateX(120px);
+          width: 70%;
         }
         
         &__buttons {
