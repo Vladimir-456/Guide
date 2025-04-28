@@ -80,61 +80,46 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
     const { name, phone, agreement, newsletter } = req.body;
     
     // Формируем сообщение для Telegram
-    const telegramMessage = `
-🔔 *Новая заявка с сайта Опека*
-👤 *Имя:* ${name}
-📱 *Телефон:* ${phone}
-📝 *Согласие на обработку данных:* ${agreement ? 'Да' : 'Нет'}
-📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'}
-🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')}
+    const telegramMessage = ` 
+🔔 *Новая заявка с сайта Опека* 
+👤 *Имя:* ${name} 
+📱 *Телефон:* ${phone} 
+📝 *Согласие на обработку данных:* ${agreement ? 'Да' : 'Нет'} 
+📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'} 
+🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')} 
 `;
     
-    try {
-
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+    // Используем только один метод отправки - через axios
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      try {
         // Отправляем сообщение в Telegram через HTTP запрос
         await axios.post(
           `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
           {
-            chat_id:  TELEGRAM_CHAT_ID,
+            chat_id: TELEGRAM_CHAT_ID,
             text: telegramMessage,
             parse_mode: 'Markdown'
           }
         );
         console.log('Сообщение успешно отправлено в Telegram');
-      } else {
-        console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
+        
+        res.status(201).json({
+          success: true,
+          message: 'Заявка успешно отправлена',
+        });
+      } catch (telegramError) {
+        console.error('Ошибка отправки в Telegram:', telegramError);
+        // Даже если отправка в Telegram не удалась, мы всё равно принимаем заявку
+        res.status(201).json({
+          success: true,
+          message: 'Заявка принята, но возникла проблема с отправкой уведомления',
+        });
       }
-      // Отправляем email как раньше
-      // const mailOptions = {
-      //   from: 'babic34@mail.ru',
-      //   to: 'vlad.stavros@bk.ru',
-      //   subject: 'Новая заявка с сайта Опека',
-      //   html: `
-      //   <h2>Поступила новая заявка</h2>
-      //   <p><strong>Имя:</strong> ${name}</p>
-      //   <p><strong>Телефон:</strong> ${phone}</p>
-      //   <p><strong>Согласие на обработку данных:</strong> ${agreement ? 'Да' : 'Нет'}</p>
-      //   <p><strong>Подписка на рассылку:</strong> ${newsletter ? 'Да' : 'Нет'}</p>
-      //   <p><strong>Дата заявки:</strong> ${new Date().toLocaleString('ru-RU')}</p>
-      // `
-      // };
-      
-      // await transporter.sendMail(mailOptions);
-      
-      // Добавляем отправку в Telegram
-      await bot.sendMessage(TELEGRAM_CHAT_ID, telegramMessage, { parse_mode: 'Markdown' });
-      
+    } else {
+      console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
       res.status(201).json({
         success: true,
-        message: 'Заявка успешно отправлена',
-      });
-      
-    } catch (error) {
-      console.error('Ошибка отправки уведомления:', error);
-      res.status(201).json({
-        success: true,
-        message: 'Заявка принята, но возникла проблема с отправкой уведомления',
+        message: 'Заявка принята',
       });
     }
   } catch (error) {
