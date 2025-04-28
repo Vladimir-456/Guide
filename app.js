@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const TelegramBot = require('node-telegram-bot-api');
 
 const { validateHandler } = require('./middleware/validate');
 const { newsData, relatedNews } = require('./mokki/data');
@@ -20,6 +21,11 @@ app.use(express.static(__dirname));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
+const TELEGRAM_CHAT_ID = '768659338';
+
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -70,7 +76,19 @@ app.get('/promotion', (req, res) => {
 app.post('/api/callback', validateHandler, limiter, async (req, res) => {
   try {
     const { name, phone, agreement, newsletter } = req.body;
+    
+    // Формируем сообщение для Telegram
+    const telegramMessage = `
+🔔 *Новая заявка с сайта Опека*
+👤 *Имя:* ${name}
+📱 *Телефон:* ${phone}
+📝 *Согласие на обработку данных:* ${agreement ? 'Да' : 'Нет'}
+📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'}
+🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')}
+`;
+    
     try {
+      // Отправляем email как раньше
       const mailOptions = {
         from: 'babic34@mail.ru',
         to: 'vlad.stavros@bk.ru',
@@ -84,18 +102,22 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
         <p><strong>Дата заявки:</strong> ${new Date().toLocaleString('ru-RU')}</p>
       `
       };
-
+      
       await transporter.sendMail(mailOptions);
-      res.status(201).json({ 
-        success: true, 
-        message: 'Заявка успешно отправлена', 
+      
+      // Добавляем отправку в Telegram
+      await bot.sendMessage(TELEGRAM_CHAT_ID, telegramMessage, { parse_mode: 'Markdown' });
+      
+      res.status(201).json({
+        success: true,
+        message: 'Заявка успешно отправлена',
       });
       
-    } catch (emailError) {
-      console.error('Ошибка отправки email:', emailError);
-      res.status(201).json({ 
-        success: true, 
-        message: 'Заявка принята, но возникла проблема с отправкой уведомления', 
+    } catch (error) {
+      console.error('Ошибка отправки уведомления:', error);
+      res.status(201).json({
+        success: true,
+        message: 'Заявка принята, но возникла проблема с отправкой уведомления',
       });
     }
   } catch (error) {
