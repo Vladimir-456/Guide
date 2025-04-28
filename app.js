@@ -16,7 +16,7 @@ const rateLimit = require('express-rate-limit');
 const PORT = 5500;
 
 const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
-const TELEGRAM_CHAT_ID = '768659338';
+const TELEGRAM_CHAT_ID = '-4618771405';
 
 app.use(cors());
 app.use(bodyParser.json());
