@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const TelegramBot = require('node-telegram-bot-api');
@@ -14,6 +15,9 @@ const app = express();
 const rateLimit = require('express-rate-limit');
 const PORT = 5500;
 
+const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
+const TELEGRAM_CHAT_ID = '768659338';
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,8 +26,6 @@ app.use(express.static(__dirname));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
-const TELEGRAM_CHAT_ID = '768659338';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
 
@@ -88,6 +90,21 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
 `;
     
     try {
+
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+        // Отправляем сообщение в Telegram через HTTP запрос
+        await axios.post(
+          `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+          {
+            chat_id:  TELEGRAM_CHAT_ID,
+            text: telegramMessage,
+            parse_mode: 'Markdown'
+          }
+        );
+        console.log('Сообщение успешно отправлено в Telegram');
+      } else {
+        console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
+      }
       // Отправляем email как раньше
       // const mailOptions = {
       //   from: 'babic34@mail.ru',
@@ -121,7 +138,7 @@ app.post('/api/callback', validateHandler, limiter, async (req, res) => {
       });
     }
   } catch (error) {
-    console.error(error);
+    console.error('Подробная ошибка:', error.message, error.stack);
     res.status(500).json({ success: false, message: 'Внутренняя ошибка сервера' });
   }
 });
