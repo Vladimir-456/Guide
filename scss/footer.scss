@@ -385,7 +385,9 @@
     }
     
     &__list {
+      margin-top: 5px;
       &__item {
+        margin: 0;
         a {
           font-size: 14px;
         }

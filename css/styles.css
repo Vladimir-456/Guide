@@ -833,6 +833,12 @@ footer__logo {
     width: 80px;
     height: 80px;
   }
+  .footer__list {
+    margin-top: 5px;
+  }
+  .footer__list__item {
+    margin: 0;
+  }
   .footer__list__item a {
     font-size: 14px;
   }
