@@ -550,7 +550,7 @@
 /* Подвал */
 footer {
   background-color: white;
-  padding: 30px 0;
+  padding: 10px 0;
   border-radius: 5px;
 }
 footer .footer__container {
@@ -694,18 +694,18 @@ footer__logo {
   .header__content__logo__text {
     font-size: 11px;
   }
-  .footer {
+  footer {
     margin-top: 40px;
   }
-  .footer__logo img {
+  footer__logo img {
     width: 70px;
     height: 70px;
   }
-  .footer__list {
+  footer__list {
     align-items: center;
     flex-wrap: wrap;
   }
-  .footer__list__item {
+  footer__list__item {
     margin-right: 10px;
     margin-left: 20px;
     margin-bottom: 8px;
@@ -817,8 +817,8 @@ footer__logo {
     margin: 15px;
   }
   .header__content__logo img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
   .header__content__logo__text {
     font-size: 9px;
@@ -830,8 +830,8 @@ footer__logo {
     margin-bottom: 0;
   }
   .footer__logo img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
   .footer__list__item a {
     font-size: 14px;
@@ -1353,17 +1353,22 @@ footer__logo {
   }
 }
 @media (max-width: 576px) {
-  .benefit-title {
-    font-size: 18px;
+  .benefits-title {
+    font-size: 22px;
+    margin-bottom: 15px;
   }
-  .benefit-underline {
+  .benefits-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .benefits-underline {
     width: 50px;
   }
-  .benefit-item__icon {
+  .benefits-item__icon {
     width: 50px;
     height: 50px;
   }
-  .benefit-item__icon svg {
+  .benefits-item__icon svg {
     width: 60px;
     height: 60px;
   }
@@ -1376,6 +1381,22 @@ footer__logo {
   .location-tag {
     font-size: 10px;
     padding: 3px 6px;
+  }
+  .benefits-title {
+    font-size: 22px;
+  }
+  .benefits-description {
+    font-size: 15px;
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+  .benefits-item__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .benefits-item__icon svg {
+    width: 50px;
+    height: 50px;
   }
 }
 @media (max-width: 375px) {
@@ -2136,10 +2157,14 @@ i {
     margin-top: 20px;
   }
   .rehab-slider__title {
-    font-size: 16px;
+    font-size: 19px;
+  }
+  .rehab-slider__img {
+    width: 80%;
+    transform: translateX(76px);
   }
   .feature-list__item {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 @media (max-width: 375px) {
@@ -3515,7 +3540,7 @@ i {
     margin: 30px auto;
   }
   .pansions-populated__title {
-    font-size: 25px;
+    font-size: 23px;
   }
   .pansions-populated__description {
     font-size: 16px;
@@ -3538,16 +3563,27 @@ i {
     margin: 15px;
   }
   .info-pansionat {
-    margin: 25px auto;
+    margin: 20px auto;
   }
   .info-pansionat__content {
     width: 100%;
   }
   .info-pansionat__content h2 {
-    font-size: 23px;
+    font-size: 22px;
   }
   .info-pansionat__content p {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .pansions-populated {
+    margin: 20px auto;
+  }
+  .pansions-populated__title {
+    font-size: 22px;
+  }
+  .pansions-populated__description {
+    font-size: 14px;
+    margin-bottom: 20px;
   }
 }
 .documents {
@@ -3640,26 +3676,38 @@ i {
     top: 15px;
   }
   .documents__step__description {
-    font-size: 13px;
-    line-height: 1.3;
+    font-size: 12px;
+    line-height: 1.2;
   }
   .documents__step:nth-child(3) {
     padding: 10px;
   }
   .documents__title {
-    font-size: 25px;
+    font-size: 23px;
     margin-bottom: 15px;
+  }
+  .documents__description {
+    font-size: 15px;
   }
 }
 @media (max-width: 375px) {
   .divider {
     margin: 15px;
   }
+  .documents {
+    margin: 20px auto;
+  }
+  .documents__title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .documents__description {
+    font-size: 14px;
+  }
 }
 .comparison {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
 }
 .comparison__title {
   color: #129e4c;
@@ -3757,11 +3805,8 @@ i {
   }
 }
 @media (max-width: 768px) {
-  .comparison {
-    padding: 15px 10px;
-  }
   .comparison__title {
-    font-size: 24px;
+    font-size: 23px;
     margin-bottom: 20px;
   }
   .comparison-table {
@@ -3815,11 +3860,19 @@ i {
   }
 }
 @media (max-width: 576px) {
+  .comparison {
+    margin: 20px auto;
+  }
   .comparison__title {
     font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .comparison-table-wrapper {
+    box-shadow: none;
   }
   .comparison-table {
-    min-width: 600px;
+    min-width: 100%;
+    box-shadow: none;
   }
   .comparison-table th, .comparison-table td {
     padding: 10px 6px;
@@ -3827,6 +3880,7 @@ i {
   }
   .comparison-table .services {
     font-size: 13px;
+    width: 70%;
   }
   .comparison-table .reserve-btn {
     padding: 6px 12px;
@@ -3839,6 +3893,35 @@ i {
   .comparison-table .available::before, .comparison-table .unavailable::before {
     font-size: 16px;
   }
+  .comparison-mobile {
+    display: block;
+    width: 100%;
+  }
+  .comparison-mobile__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e6d0c4;
+    background-color: #fff;
+  }
+  .comparison-mobile__item:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+  .comparison-mobile__item:last-child {
+    border-radius: 0 0 12px 12px;
+    border-bottom: none;
+  }
+  .comparison-mobile__service {
+    color: gray;
+    font-size: 14px;
+    width: 75%;
+  }
+  .comparison-mobile__value {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+  }
 }
 @media (max-width: 440px) {
   .location-tag {
@@ -3846,17 +3929,45 @@ i {
     padding: 3px 6px;
   }
   .comparison {
-    padding: 0 20px;
+    margin: 15px auto;
   }
   .comparison__title {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .comparison-mobile__item {
+    padding: 10px;
+  }
+  .comparison-mobile__service {
+    font-size: 13px;
   }
   .comparison-table {
-    min-width: 550px;
+    border-radius: 12px;
   }
   .comparison-table th, .comparison-table td {
     padding: 8px 5px;
     font-size: 12px;
+  }
+  .comparison-table .services {
+    width: 65%;
+    padding-right: 5px;
+  }
+  .comparison-table tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .comparison-table th, .comparison-table td {
+    flex: 1;
+  }
+  .comparison-table th:first-child, .comparison-table td:first-child {
+    flex: 2;
+  }
+  .comparison-table .available, .comparison-table .unavailable {
+    width: 18px;
+    height: 18px;
+  }
+  .comparison-table .available::before, .comparison-table .unavailable::before {
+    font-size: 14px;
   }
   .comparison-table .reserve-btn {
     padding: 5px 10px;
@@ -3915,7 +4026,14 @@ i {
   .address-map {
     margin: 30px auto;
     gap: 10px;
+    padding: 0 20px;
     flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+  }
+  .address-map__content {
+    width: 100%;
+    margin-bottom: 50px;
   }
   .address-map__title {
     margin-bottom: 10px;
@@ -3923,6 +4041,15 @@ i {
   }
   .address-map__map {
     margin-top: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .address-map {
+    padding: 0 15px;
+  }
+  .address-map__map {
+    height: 380px;
   }
 }
 @media (max-width: 440px) {
@@ -3930,15 +4057,40 @@ i {
     font-size: 10px;
     padding: 3px 6px;
   }
+  .address-map {
+    padding: 0;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  .address-map__content {
+    margin-bottom: 30px;
+    padding: 0 25px;
+  }
+  .address-map__title {
+    margin-bottom: 10px;
+    font-size: 23px;
+  }
+  .address-map__phone {
+    font-size: 18px;
+  }
+  .address-map__map {
+    height: 450px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
 }
 @media (max-width: 375px) {
   .divider {
     margin: 15px;
   }
   .address-map {
-    padding: 0 20px;
-    margin: 0 auto;
     gap: 5px;
+  }
+  .address-map__content {
+    padding: 0 20px;
+  }
+  .address-map__map {
+    height: 350px;
   }
 }
 * {

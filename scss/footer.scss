@@ -29,14 +29,12 @@
   /* Подвал */
   footer {
     background-color: white;
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
-    padding: 30px 0;
+    padding: 10px 0;
     border-radius: 5px;
 
 
     .footer__container {
       max-width: 1200px;
-      // margin: 0 auto;
       display: flex;
       gap: 15px;
       align-items: center;
@@ -209,7 +207,7 @@
     }
   }
   
-  .footer {
+  footer {
     margin-top: 40px;
     
     &__logo {
@@ -366,8 +364,8 @@
   .header__content {
     &__logo {
       img {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
       }
       
       &__text {
@@ -381,8 +379,8 @@
     &__logo {
       margin-bottom: 0;
       img {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
       }
     }
     

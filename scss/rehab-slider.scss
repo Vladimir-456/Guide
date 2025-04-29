@@ -279,13 +279,17 @@
         }
         
         &__title {
-          font-size: 16px;
+          font-size: 19px;
+        }
+        &__img {
+          width: 80%;
+          transform: translateX(76px);
         }
     }
 
     .feature-list {
         &__item {
-          font-size: 13px;
+          font-size: 14px;
         }
       }
 }

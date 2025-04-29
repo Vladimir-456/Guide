@@ -5,7 +5,7 @@
 .comparison {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 20px;
+    // padding: 20px;
 
     &__title {
         color: $secondary-color;
@@ -119,10 +119,10 @@
 
 @include md-down {
     .comparison {
-        padding: 15px 10px;
+        // padding: 15px 10px;
         
         &__title {
-            font-size: 24px;
+            font-size: 23px;
             margin-bottom: 20px;
             // text-align: center;
         }
@@ -164,13 +164,21 @@
 @include sm-down {
     .comparison {
         // padding: 10px 5px;
+        margin: 20px auto;
         
         &__title {
             font-size: 22px;
+            margin-bottom: 15px;
+            // padding: 0 15px;
+        }
+        
+        &-table-wrapper {
+            box-shadow: none; // Убираем тень для обертки на маленьких экранах
         }
         
         &-table {
-            min-width: 600px; // Чуть меньше минимальная ширина
+            min-width: 100%; // Изменяем фиксированную ширину на 100%
+            box-shadow: none; // Убираем тень
             
             th, td {
                 padding: 10px 6px;
@@ -179,6 +187,7 @@
             
             .services {
                 font-size: 13px;
+                width: 70%; // Увеличиваем ширину колонки с услугами
             }
             
             .reserve-btn {
@@ -195,22 +204,103 @@
                 font-size: 16px;
             }
         }
+        
+        // Преобразуем таблицу в мобильный формат
+        &-mobile {
+            display: block;
+            width: 100%;
+            
+            &__item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 15px;
+                border-bottom: 1px solid #e6d0c4;
+                background-color: #fff;
+                
+                &:first-child {
+                    border-radius: 12px 12px 0 0;
+                }
+                
+                &:last-child {
+                    border-radius: 0 0 12px 12px;
+                    border-bottom: none;
+                }
+            }
+            
+            &__service {
+                color: gray;
+                font-size: 14px;
+                width: 75%;
+            }
+            
+            &__value {
+                display: flex;
+                justify-content: center;
+                width: 25%;
+            }
+        }
     }
 }
 
 @include xs-down {
     .comparison {
-        padding: 0 20px;
+        // padding: 0 10px;
+        margin: 15px auto;
+        
         &__title {
-            font-size: 20px;
+            font-size: $font-size-title-small;
+            // padding: 0 10px;
+            margin-bottom: 15px;
         }
         
+        &-mobile {
+            &__item {
+                padding: 10px;
+            }
+            
+            &__service {
+                font-size: 13px;
+            }
+        }
+        
+        // Для двухколоночных таблиц создаем специальный стиль
         &-table {
-            min-width: 550px;
+            // Основная таблица теперь имеет простую структуру
+            border-radius: 12px;
             
             th, td {
                 padding: 8px 5px;
                 font-size: 12px;
+            }
+            
+            // Перестраиваем две колонки для лучшей видимости
+            .services {
+                width: 65%;
+                padding-right: 5px;
+            }
+            
+            tr {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            th, td {
+                flex: 1;
+            }
+            
+            th:first-child, td:first-child {
+                flex: 2;
+            }
+            
+            // Уменьшаем размер элементов
+            .available, .unavailable {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .available::before, .unavailable::before {
+                font-size: 14px;
             }
             
             .reserve-btn {

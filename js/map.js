@@ -1,12 +1,12 @@
 export const initializeMap = () => {
     ymaps.ready(() => {
       const map = new ymaps.Map('map', {
-        center: [45.078645, 41.929853],
+        center: [45.078245, 41.930779],
         zoom: 16
       });
       
       // Создаем метку с информацией об организации
-      const organizationPlacemark = new ymaps.Placemark([45.078645, 41.929853], {
+      const organizationPlacemark = new ymaps.Placemark([45.078245, 41.930779], {
         balloonContentHeader: 'Опека',
         balloonContentBody: `
           <p>Телефон: +7 (933) 181-02-35</p>

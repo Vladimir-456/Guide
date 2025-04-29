@@ -105,8 +105,8 @@
             }
 
             &__description {
-                font-size: 13px;
-                line-height: 1.3;
+                font-size: 12px;
+                line-height: 1.2;
             }
 
             &:nth-child(3) {
@@ -114,12 +114,24 @@
             }
         }
         &__title {
-            font-size: 25px;
+            font-size: 23px;
             margin-bottom: 15px;
+        }
+        &__description {
+            font-size: 15px;
         }
     }
 }
 
 @include xxs-down {
-
+    .documents {
+        margin: 20px auto;
+        &__title {
+            font-size: $font-size-title-small;
+            margin-bottom: 15px;
+        }
+        &__description {
+            font-size: 14px;
+        }
+    }
 }
