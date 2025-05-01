@@ -48,15 +48,33 @@
                         <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url">
                     </div>
                 </div>
+                <nav class="header__nav" id="header__nav" role="navigation">
+                    <ul class="header__list" id="header__list" role="list">
+                        <li class="header__item"><a class="header__link" href="#info-pansionat" role="link">О нас</a></li>
+                        <li class="header__item"><a class="header__link" href="#benefits" role="link">Услуги</a></li>
+                        <li class="header__item"><a class="header__link" href="#comparison" role="link">Преимущества</a></li>
+                        <li class="header__item"><a class="header__link" href="#contacts" role="link">Статьи</a></li>
+                    </ul>
+                </nav>
                 <div class="header__contacts">
                     <a class="header__phone">+ 7 933 181-02-35</a>
                     <span class="header__hours">Режим работы: с 9:00 до 18:00</span>
                 </div>
                 <div class="header__actions">
-                    <a href="#" class="button__slider button--call" role="link">Заказать звонок</a>
+                    <a href="#" class="button button--anketa" role="link"> Заполнить анкету</a>
+                    <a href="#" class="button button__slider button--call" role="link">Заказать звонок</a>
                 </div>
             </div>
         </header>
+        <section class="stock" id="stock">
+            <div class="stock__container">
+                <div class="stock__badge">Акция мая</div>
+                <h2 class="stock__title" itemprop="name">Выгодное предложение</h2>
+                <div class="stock__content">
+                    <p class="stock__description" itemprop="description">Доставка лежачих больных по краю - бесплатно!</p>
+                </div>
+            </div>
+        </section>
         <section class="rehab-slider" id="rehab-slider" itemscope itemtype="https://schema.org/Organization">
             <div class="rehab-slider__container" id="rehab-slider__container" role="banner">
                 <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
@@ -206,8 +224,26 @@
             <p class="pansions-populated__description fade-in delay-2">Оставьте телефон, чтобы не платить за связь, мы сами позвоним и всё расскажем.</p>
             <button class="pansions-populated__button button__slider fade-in delay-3">Перезвоните мне</button>
         </section>
-
-        <section class="comparison">
+        <section >
+            <div class="transportation">
+                <div class="transportation__image fade-in delay-2">
+                    <img src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт">
+                </div>
+                <div class="transportation__content">
+                    <h2 class="transportation__title fade-in delay-3" >Перевозка лежачих</h2>
+                    <ul class="transportation__list fade-in delay-2">
+                        <li class="transportation__list__item fade-in delay-1">От кровати до кровати</li>
+                        <li class="transportation__list__item fade-in delay-2">Из любой точки города</li>
+                        <li class="transportation__list__item fade-in delay-3">От дома до кровати</li>
+                        <li class="transportation__list__item fade-in delay-4">Специализированная машина</li>
+                    </ul>
+                    <div class="transportation__button">
+                        <a href="#" class="button button__slider button--call" role="link">Оформить заявку</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="comparison" id="comparison">
             <h2 class="comparison__title">Доверьте своих Родных профессионалам, оцените преимущества и выгоды</h2>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
