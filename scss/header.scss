@@ -19,6 +19,7 @@
       max-width: $max-width;
       margin: 0 auto;
       padding: 0 20px;
+      flex: 1 0 100%;
   }
   
   &__logo {
@@ -310,6 +311,7 @@
 
 @include xs-down {
   .header {
+      min-width: 480px;
       position: relative;
       &__logo-img {
           width: 70px;
@@ -343,7 +345,11 @@
 
 @include xxs-down {
   .header {
-      position: relative;
+    min-width: 390px;
+    position: relative;
+      &__container {
+        width: 100%;
+      }
       &__logo {
           margin-left: 5px;
       }

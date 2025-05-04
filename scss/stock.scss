@@ -2,12 +2,18 @@
 @use 'mixin' as *;
 
 .stock {
-    margin-top: 130px;
+    margin: 0 auto;
+    width: 100%;
     max-width: 1200px;
     padding: 0 20px;
     position: relative;
+    
+    // Устанавливаем минимальную ширину для контейнера
+    min-width: 320px;
 
     &__container {
+        display: flex;
+        flex-direction: column;
         border-radius: 10px;
         box-shadow: 0 15px 30px rgba(161, 161, 161, 0.12);
         padding: 30px;
@@ -15,7 +21,34 @@
         overflow: hidden;
         z-index: 1;
     }
-
+    
+    &__image {
+        display: flex;
+        gap: 30px;
+        margin-left: auto;
+        width: 100px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        &__preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 60px; // Добавляем минимальную ширину
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    
     &__badge {
         position: absolute;
         top: 5px;
@@ -32,8 +65,9 @@
     }
 
     &__title {
+        box-sizing: border-box;
         color: $secondary-color;
-        font-size: 25px;
+        font-size: clamp(22px, 4vw, 25px); // Используем clamp для плавного масштабирования шрифта
         font-weight: 700;
         margin-bottom: 20px;
         position: relative;
@@ -43,11 +77,12 @@
     &__content {
         position: relative;
         z-index: 2;
+        width: 100%;
     }
 
     &__description {
         color: #555;
-        font-size: 18px;
+        font-size: clamp(16px, 3vw, 18px); // Используем clamp для плавного масштабирования шрифта
         line-height: 1.6;
         margin-bottom: 25px;
         max-width: 700px;
@@ -68,46 +103,26 @@
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         border-radius: 50%;
-        width: 120px;
-        height: 120px;
+        width: clamp(90px, 15vw, 120px); // Используем clamp для плавного масштабирования
+        height: clamp(90px, 15vw, 120px); // Используем clamp для плавного масштабирования
+        min-width: 90px; // Устанавливаем минимальную ширину
+        min-height: 90px; // Устанавливаем минимальную высоту
         justify-content: center;
         position: relative;
         border: 2px dashed rgba(255, 255, 255, 0.5);
 
         &-value {
-            font-size: 36px;
+            font-size: clamp(28px, 5vw, 36px); // Используем clamp для плавного масштабирования шрифта
             font-weight: 800;
             color: #fff;
             line-height: 1;
         }
 
         &-period {
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px); // Используем clamp для плавного масштабирования шрифта
             color: rgba(255, 255, 255, 0.8);
             margin-top: 5px;
         }
-    }
-
-    &__button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        color: $primary-color;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 14px 28px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-            background-color: #b20202;
-            color: #fff;
-        }
-
     }
 
     &__decoration {
@@ -150,64 +165,96 @@
     }
 }
 
-@include xl-down {
-    // Стили для экранов XL
-}
-
-@include lg-down {
+// Responsive styles using min-width for desktop-first approach
+@media (min-width: 1400px) {
     .stock {
-        margin-top: 180px;
+        margin-top: 130px;
     }
 }
 
-@include md-down {
+@media (min-width: 992px) and (max-width: 1399px) {
     .stock {
-        margin-top: 30px;
+        margin-top: 120px;
     }
-
 }
 
-@include sm-down {
+@media (min-width: 768px) and (max-width: 991px) {
     .stock {
-        margin-top: 30px;
+        margin-top: 100px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .stock {
+        margin-top: 60px;
+        
+        &__container {
+            padding: 25px;
+        }
+        
+        &__discount {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+@media (min-width: 480px) and (max-width: 575px) {
+    .stock {
+        margin-top: 40px;
+        
         &__container {
             padding: 20px;
         }
-    }
-
-}
-
-@include xs-down {
-    .stock {
-        &__container {
-            padding: 10px;
-        }
-
+        
         &__title {
-            margin-top: 24px;
-            font-size: 23px;
+            margin-top: 20px;
             margin-bottom: 15px;
         }
+        
         &__badge {
             font-size: 12px;
             padding: 6px 12px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            z-index: 2;
         }
     }
 }
 
-@include xxs-down {
+@media (max-width: 479px) {
     .stock {
+        margin-top: 30px;
+        
         &__container {
-            padding: 10px;
+            padding: 15px;
         }
+        
         &__title {
             margin-top: 24px;
-            font-size: 22px;
             margin-bottom: 15px;
         }
+        
+        &__badge {
+            font-size: 12px;
+            padding: 6px 12px;
+            right: 15px;
+        }
+        
+        &__offer {
+            justify-content: center;
+        }
+        
+        &__discount {
+            width: 90px;
+            height: 90px;
+        }
+        
+        &__image {
+            gap: 15px;
+            width: 80px;
+            
+            &__preview {
+                width: 60px;
+                height: 60px;
+            }
+        }
     }
-
 }

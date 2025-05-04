@@ -1,6 +1,8 @@
 import { setupSlider } from "./slider.js";
 import { initModal } from "./modal.js";
 import { initializeMap } from "./map.js";
+import { initProfileModal } from "./questionnaire.js";
+
 document.addEventListener('DOMContentLoaded', () => {
      // Функция настройки обзервера для стандартных анимаций
   function setupIntersectionObserver() {
@@ -42,4 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSlider();
   initializeMap();
   initModal();
+  initProfileModal();
 });

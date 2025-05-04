@@ -20,6 +20,7 @@
 @use "comparison";
 @use "map";
 @use "stock";
+@use "profile-modal";
 * {
     margin: 0;
     padding: 0;
@@ -29,8 +30,6 @@
 
 .page {
     font-family: Open-Sans, sans-serif;
-    
-    // background: linear-gradient(90deg, #ffffff,#b8e4ff);
   }
   
   .page__container {
