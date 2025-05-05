@@ -1,31 +1,51 @@
-export const initializeMap = () => {
+export function initializeMap() {
+
+    // Дожидаемся загрузки API и DOM
     ymaps.ready(() => {
-      const map = new ymaps.Map('map', {
-        center: [45.078245, 41.930779],
-        zoom: 16
-      });
-      
-      // Создаем метку с информацией об организации
-      const organizationPlacemark = new ymaps.Placemark([45.078245, 41.930779], {
-        balloonContentHeader: 'Опека',
-        balloonContentBody: `
-          <p>Телефон: +7 (933) 181-02-35</p>
-          <p>Режим работы: Пн-Пт 9:00-18:00</p>
-        `,
-        hintContent: 'Опека'
-      }, {
-        // Используем свою иконку для метки
-        iconLayout: 'default#image',
-        iconImageHref: '../img/map-edit.jpg', // Путь к изображению иконки
-        iconImageSize: [30, 30],      // Размер иконки
-        iconImageBorderRadius: 50,
-        iconImageOffset: [-16, -15]   // Смещение иконки
-      });
-      
-      // Добавляем метку на карту
-      map.geoObjects.add(organizationPlacemark);
-      
-      // Опционально: открываем балун с информацией
-      // organizationPlacemark.balloon.open();
+        console.log('API Яндекс.Карт загружен');
+        
+        // Координаты пансионата
+        const coordinates = [45.078245, 41.930779];
+        console.log('Координаты:', coordinates);
+        
+        // Проверяем наличие элемента карты
+        const mapElement = document.getElementById('map');
+        if (!mapElement) {
+            console.error('Элемент карты не найден');
+            // Пробуем инициализировать карту через 1 секунду
+            setTimeout(initializeMap, 1000);
+            return;
+        }
+        
+        try {
+            // Создаем карту
+            const map = new ymaps.Map('map', {
+                center: coordinates,
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl']
+            });
+
+            // Создаем метку
+            const placemark = new ymaps.Placemark(coordinates, {
+                balloonContent: 'Пансионат "Опека"<br>проспект Кулакова 28Б/3',
+                hintContent: 'Пансионат "Опека"'
+            }, {
+                preset: 'islands#redHomeIcon'
+            });
+
+            // Добавляем метку на карту
+            map.geoObjects.add(placemark);
+            console.log('Метка добавлена на карту');
+
+            // Отключаем скролл карты до клика на ней
+            map.behaviors.disable('scrollZoom');
+            map.events.add('click', function() {
+                map.behaviors.enable('scrollZoom');
+            });
+        } catch (error) {
+            console.error('Ошибка при создании карты:', error);
+            // Пробуем инициализировать карту через 1 секунду
+            setTimeout(initializeMap, 1000);
+        }
     });
-  }
+}

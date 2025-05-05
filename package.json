@@ -1,11 +1,30 @@
 {
-  "devDependencies": {
-    "node-telegram-bot-api": "0.66.0",
-    "sass": "^1.85.1"
-  },
+  "name": "guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "scss": "sass scss/main.scss css/styles.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch scss/main.scss:css/styles.css",
+    "minify:js": "terser js/main.js -o dist/js/main.min.js --module -c -m && terser js/slider.js -o dist/js/slider.min.js --module -c -m && terser js/modal.js -o dist/js/modal.min.js --module -c -m && terser js/map.js -o dist/js/map.min.js --module -c -m && terser js/questionnaire.js -o dist/js/questionnaire.min.js --module -c -m",
+    "minify:css": "postcss css/styles.css -o dist/css/styles.min.css",
+    "build": "npm run scss && npm run minify:js && npm run minify:css",
+    "dev": "nodemon --watch scss --watch js --watch css --ext scss,js,css --exec \"npm run build\"",
     "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^6.1.1",
+    "nodemon": "^3.1.0",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^9.5.2",
+    "sass": "^1.72.0",
+    "terser": "^5.29.2"
   },
   "dependencies": {
     "axios": "^1.9.0",

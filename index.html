@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Сеть пансионатов для пожилых Опека. Работаем в городе Ставрополь">
-        <!-- Yandex.Metrika counter -->
+    <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -21,7 +21,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/101457366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    <link href="./css/styles.css" rel="stylesheet">
+    <link href="./dist/css/styles.min.css" rel="stylesheet">
     <link rel="icon" href="./img/favicon-16x16.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -30,8 +30,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=6f99a5c3-9f9d-4cad-b11c-d628befa5f1c&lang=ru_RU" type="text/javascript"></script>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
-    <link rel='icon' href='./img/favicon-16x16.png' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +43,7 @@
             <div class="header__container" id="header__container" itemprop="mainEntityOfPage">
                 <div class="header__logo" id="header__logo" itemprop="logo">
                     <div>
-                        <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url">
+                        <img class="header__logo-img lazy" data-src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url" loading="lazy">
                     </div>
                 </div>
                 <nav class="header__nav" id="header__nav" role="navigation">
@@ -69,7 +67,7 @@
         <section class="stock" id="stock">
             <div class="stock__container">
                 <div class="stock__image">
-                    <img src="./img/0480e74d-56d4-4daf-b762-0a09595cb6eb.jpeg" alt="stock">
+                    <img class="lazy" data-src="./img/0480e74d-56d4-4daf-b762-0a09595cb6eb.jpeg" alt="stock" loading="lazy">
                 </div>
                 <h2 class="stock__title" itemprop="name">ВЫГОДНОЕ ПРЕДЛОЖЕНИЕ</h2>
                 <div class="stock__content">
@@ -95,7 +93,7 @@
                         </div>
                     </div>
                         <div class="rehab-slider__image fade-in-right delay-3" id="rehab-slider__image" role="img" itemprop="image">
-                            <img class="rehab-slider__img" src="./img/logo_edit.jpg" alt="Реабилитация пожилых людей" itemprop="url"/>
+                            <img class="rehab-slider__img lazy" data-src="./img/logo_edit.jpg" alt="Реабилитация пожилых людей" itemprop="url" loading="lazy"/>
                     </div>
                 </div>
             </div>
@@ -283,14 +281,14 @@
         <section class="info-pansionat" id="info-pansionat">
           <div class="info-pansionat__image-section fade-in">
               <div class="info-pansionat__main-image">
-                  <img src="img/531f180f-f344-471e-847e-52ac9a32afbd.jpeg" alt="Здание пансионата">
+                  <img class="lazy" data-src="./img/531f180f-f344-471e-847e-52ac9a32afbd.jpeg" alt="Здание пансионата" loading="lazy">
               </div>
               <div class="info-pansionat__small-images">
                 <div class="info-pansionat__room-image">
-                    <img src="img/b4c777de-ce48-4c15-bb95-fa6099d9b7e9.jpeg" alt="Комната в пансионате">
+                    <img class="lazy" data-src="./img/b4c777de-ce48-4c15-bb95-fa6099d9b7e9.jpeg" alt="Комната в пансионате" loading="lazy">
                 </div>
                 <div class="info-pansionat__people-image">
-                    <img src="img/baa2ce27-fd15-404c-975a-58e8800d429c.jpeg" alt="Пожилые люди">
+                    <img class="lazy" data-src="./img/baa2ce27-fd15-404c-975a-58e8800d429c.jpeg" alt="Пожилые люди" loading="lazy">
                 </div>
               </div>
           </div>
@@ -375,7 +373,7 @@
         <section >
             <div class="transportation">
                 <div class="transportation__image fade-in delay-2">
-                    <img src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт">
+                    <img class="lazy" data-src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт" loading="lazy">
                 </div>
                 <div class="transportation__content">
                     <h2 class="transportation__title fade-in delay-3" >Перевозка лежачих</h2>
@@ -474,7 +472,7 @@
                 <div class="footer__container">
                     <div class="footer__logo" >
                         <div>
-                            <img class="header__logo-img" src="./img/logo_edit.jpg" alt="ОПЕКА" >
+                            <img class="header__logo-img lazy" data-src="./img/logo_edit.jpg" alt="ОПЕКА" loading="lazy">
                         </div>
                     </div>
                     <nav class="footer__nav">

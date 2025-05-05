@@ -1,3 +1,7 @@
+@use "varibles";
+@use "mixin";
+@use "animations";
+@use "lazy-load";
 @use "header";
 @use "footer";
 @use "news";
@@ -7,38 +11,33 @@
 @use "assesment";
 @use "pensions";
 @use "promotions";
-@use "rehab-slider";
 @use "promotions-template";
 @use "modal";
 @use "news-item";
 @use "reviews-detail";
 @use "news-template";
 @use "response";
-@use "mixin";
-@use "info";
-@use "documents";
 @use "comparison";
 @use "map";
 @use "stock";
+@use "rehab-slider";
+@use "info";
+@use "documents";
 @use "profile-modal";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
+}
 
 .page {
     font-family: Open-Sans, sans-serif;
-  }
-  
-  .page__container {
+}
+
+.page__container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
-
-
-
-
   

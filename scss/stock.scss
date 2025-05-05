@@ -2,13 +2,11 @@
 @use 'mixin' as *;
 
 .stock {
+    position: relative;
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
     padding: 0 20px;
-    position: relative;
-    
-    // Устанавливаем минимальную ширину для контейнера
     min-width: 320px;
 
     &__container {
@@ -48,22 +46,6 @@
             }
         }
     }
-    
-    &__badge {
-        position: absolute;
-        top: 5px;
-        right: 30px;
-        background-color: #b20202;
-        color: #fff;
-        font-weight: 700;
-        font-size: 14px;
-        text-transform: uppercase;
-        padding: 8px 16px;
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 2;
-    }
-
     &__title {
         box-sizing: border-box;
         color: $secondary-color;
