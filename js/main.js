@@ -1,7 +1,8 @@
-import { setupSlider } from "../js/slider.js";
-import { initModal } from "../js/modal.js";
-import { initializeMap } from "../js/map.js";
-import { initProfileModal } from "../js/questionnaire.js";
+// import { setupSlider } from './slider.js';
+import { initModal } from './modal.js';
+import { initializeMap } from './map.js';
+import { initProfileModal } from './questionnaire.js';
+import { initValidate } from './validate.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Общий Intersection Observer для всех анимаций
@@ -20,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Анимация для изображений
                 if (entry.target.classList.contains('lazy') && entry.intersectionRatio >= 0.5) {
                     const img = entry.target;
-                    console.log('Загрузка изображения:', img.dataset.src);
                     
                     img.classList.add('loading');
                     
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     tempImg.src = img.dataset.src;
                     
                     tempImg.onload = () => {
-                        console.log('Изображение успешно загружено:', img.dataset.src);
                         img.src = img.dataset.src;
                         img.removeAttribute("data-src");
                         img.classList.remove("lazy", "loading", "lazy-placeholder");
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                     
                     tempImg.onerror = () => {
-                        console.error(`Ошибка загрузки изображения: ${img.dataset.src}`);
                         img.classList.remove("loading", "lazy-placeholder");
                         img.classList.add("error");
                     };
@@ -52,16 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Наблюдаем за всеми элементами с анимацией
     const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .wave-in');
-    console.log('Найдено элементов для анимации:', animatedElements.length);
     animatedElements.forEach(element => {
         observer.observe(element);
     });
 
     // Наблюдаем за всеми изображениями с ленивой загрузкой
     const lazyImages = document.querySelectorAll("img[data-src]");
-    console.log('Найдено изображений для ленивой загрузки:', lazyImages.length);
     lazyImages.forEach(img => {
-        console.log('Начинаем наблюдение за изображением:', img.dataset.src);
         if (!img.classList.contains('lazy-placeholder')) {
             img.classList.add('lazy-placeholder');
         }
@@ -80,8 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    setupSlider();
+    // setupSlider();
     initializeMap();
     initModal();
     initProfileModal();
+    initValidate();
 });

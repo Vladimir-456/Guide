@@ -1,0 +1,16 @@
+{
+    "compress": {
+        "dead_code": true,
+        "drop_console": false,
+        "drop_debugger": true,
+        "pure_funcs": ["console.log"]
+    },
+    "mangle": {
+        "toplevel": true,
+        "reserved": ["$", "jQuery"]
+    },
+    "output": {
+        "beautify": false,
+        "comments": false
+    }
+}

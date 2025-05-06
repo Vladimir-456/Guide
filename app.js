@@ -1,22 +1,19 @@
+
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
-const TelegramBot = require('node-telegram-bot-api');
 
-const { validateHandler } = require('./middleware/validate');
-const { newsData, relatedNews } = require('./mokki/data');
-const { reviewsData } = require('./mokki/mokki-reviews');
+
+const { newsData, relatedNews } = require('./mokki/data.js');
+const { reviewsData } = require('./mokki/mokki-reviews.js');
+const { callbackTelegramMessage } = require('./middleware/callback.js');
 
 const app = express();
 const rateLimit = require('express-rate-limit');
 const PORT = 5500;
-
-const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
-const TELEGRAM_CHAT_ID = '-4618771405';
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,8 +23,13 @@ app.use(express.static(__dirname));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+const TelegramBot = require('node-telegram-bot-api');
+
+const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
+const TELEGRAM_CHAT_ID = '-4618771405';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
+
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -35,13 +37,6 @@ const limiter = rateLimit({
   message: 'Слишком много запросов с этого IP, пожалуйста, повторите попытку позже'
 });
 
-const transporter = nodemailer.createTransport({
-  service: 'mail.ru',
-  auth: {
-    user: 'babic34@mail.ru',
-    pass: 'KdHAMKwavmJ9jfg3v0z4'
-  }
-})
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -63,7 +58,53 @@ app.get('/news', (req, res) => {
 app.get('/reviews', (req, res) => {
   res.render('reviews', { reviewsData });
 })
+app.post('/api/application', (req, res) => {
+  const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;
+  console.log(services);
+  const typesMapping = {
+    'self': 'Для себя',
+    'relative': 'Для родственников',
+  }
+  const mobilityMapping = {
+    'independent': 'Самостоятельно передвигается',
+    'assistance': 'Требуется помощь при передвижении',
+    'wheelchair': 'Передвигается на коляске',
+    'bedridden': 'Лежачий больной',
+  }
+  const didYouFindUsMapping = {
+    'internet': 'Интернет',
+    'social': 'Социальные сети',
+    'friends': 'Рекомендации знакомых',
+    'doctors': 'Направление врача',
+    'other': 'Другое',
+  }
+  const servicesMapping = {
+    'permanent': 'Постоянное проживание',
+    'temporary': 'Временное проживание',
+    'rehabilitation': 'Реабилитация после травм',
+    'dementia': 'Уход при деменции',
+    'hospice': 'Паллиативная помощь',
+  }
+  const typeText = typesMapping[applicationType] || 'Не указано';
+  const mobilityText = mobilityMapping[mobility] || 'Не указана';
+  const didYouFindUsText = didYouFindUsMapping[howDidYouFindUs] || 'Не указано';
+  const servicesText = servicesMapping[services] || 'Не указано';
+  console.log(servicesText);
 
+  const telegramMessage = `Заполнение анкеты на сайте Опека:
+  👤 ФИО: ${fullName}
+  📱 Телефон: ${phone}
+  📧 Email: ${email}
+  📋 Тип заявки: ${typeText}
+  🏥 Диагнозы: ${diagnoses || 'Не указаны'}
+  🚶 Мобильность: ${mobilityText}
+  🛠️ Необходимые услуги: ${servicesText}
+  💬 Дополнительная информация: ${additionalInfo || 'Не указана'}
+  ℹ️ Как нашли нас: ${didYouFindUsText}
+  ✅ Согласие на обработку данных: ${agreement ? 'Да' : 'Нет'}`;
+
+  callbackTelegramMessage(telegramMessage, res);
+})
 app.get('/reviews/:id', (req, res) => {
   const reviewItem = reviewsData.find(item => item.id === parseInt(req.params.id));
   if (reviewItem) {
@@ -75,55 +116,20 @@ app.get('/reviews/:id', (req, res) => {
 app.get('/promotion', (req, res) => {
   res.render('promotion');
 })
-app.post('/api/callback', validateHandler, limiter, async (req, res) => {
+app.post('/api/callback', limiter, async (req, res) => {
   try {
     const { name, phone, agreement, newsletter } = req.body;
-    
-    // Формируем сообщение для Telegram
-    const telegramMessage = ` 
-🔔 *Новая заявка с сайта Опека* 
-👤 *Имя:* ${name} 
-📱 *Телефон:* ${phone} 
-📝 *Согласие на обработку данных:* ${agreement ? 'Да' : 'Нет'} 
-📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'} 
-🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')} 
-`;
-    
-    // Используем только один метод отправки - через axios
-    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-      try {
-        // Отправляем сообщение в Telegram через HTTP запрос
-        await axios.post(
-          `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-          {
-            chat_id: TELEGRAM_CHAT_ID,
-            text: telegramMessage,
-            parse_mode: 'Markdown'
-          }
-        );
-        console.log('Сообщение успешно отправлено в Telegram');
-        
-        res.status(201).json({
-          success: true,
-          message: 'Заявка успешно отправлена',
-        });
-      } catch (telegramError) {
-        console.error('Ошибка отправки в Telegram:', telegramError);
-        // Даже если отправка в Telegram не удалась, мы всё равно принимаем заявку
-        res.status(201).json({
-          success: true,
-          message: 'Заявка принята, но возникла проблема с отправкой уведомления',
-        });
-      }
-    } else {
-      console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
-      res.status(201).json({
-        success: true,
-        message: 'Заявка принята',
-      });
-    }
+      const telegramMessage = ` 
+      🔔 *Новая заявка с сайта Опека* 
+      👤 *Имя:* ${name} 
+      📱 *Телефон:* ${phone} 
+      📝 *Согласие на обработку данных:* ${agreement ? 'Да' : 'Нет'} 
+      📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'} 
+      🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')} 
+      `;
+    await callbackTelegramMessage(telegramMessage, res);
+
   } catch (error) {
-    console.error('Подробная ошибка:', error.message, error.stack);
     res.status(500).json({ success: false, message: 'Внутренняя ошибка сервера' });
   }
 });

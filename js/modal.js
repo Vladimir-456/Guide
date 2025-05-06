@@ -1,3 +1,5 @@
+import { initValidateCallback } from './validate.js';
+
 const modalCloseBtn = document.querySelector('.modal__close');
 const modal = document.querySelector('.modal__overlay');
 const sliderButtons = document.querySelectorAll('.button__slider');
@@ -25,20 +27,19 @@ const formatedData = (data) => {
     }
 });
 }
-const onFormSubmit = (evt) => {
+const onFormSubmit = async (evt) => {
   evt.preventDefault();
+  const validator = initValidateCallback();
+  const isValid = await validator.revalidate();
+  if(!isValid) {
+    return;
+  }
   const formData = new FormData(evt.target);
   const formDataObj = {};
   formData.forEach((value, key) => {
-    // Для чекбоксов (согласие с обработкой данных)
-    if (key === 'agreement' || key === 'newsletter') {
-        formDataObj[key] = value === 'on' || value === 'true';
-    } else {
-        formDataObj[key] = value;
-    }
+    formDataObj[key] = value;
   });
-  console.log(formDataObj);
-  // formatedData(formData);
+  
   fetch(API_URL , {
     method: 'POST',
     headers: {
