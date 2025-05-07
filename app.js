@@ -1,16 +1,18 @@
-
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 const cors = require('cors');
-
+const nodemailer = require('nodemailer');
+const TelegramBot = require('node-telegram-bot-api');
+const rateLimit = require('express-rate-limit');
 
 const { newsData, relatedNews } = require('./mokki/data');
 const { reviewsData } = require('./mokki/mokki-reviews');
 const { callbackTelegramMessage } = require('./middleware/callback');
 
 const app = express();
-const rateLimit = require('express-rate-limit');
 const PORT = 5500;
 
 app.use(cors());
@@ -21,20 +23,16 @@ app.use(express.static(__dirname));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-const TelegramBot = require('node-telegram-bot-api');
-
 const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
 const TELEGRAM_CHAT_ID = '-4618771405';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
-
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
   message: 'Слишком много запросов с этого IP, пожалуйста, повторите попытку позже'
 });
-
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -56,6 +54,7 @@ app.get('/news', (req, res) => {
 app.get('/reviews', (req, res) => {
   res.render('reviews', { reviewsData });
 })
+
 app.post('/api/application', (req, res) => {
   const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;
   console.log(services);
@@ -103,6 +102,7 @@ app.post('/api/application', (req, res) => {
 
   callbackTelegramMessage(telegramMessage, res);
 })
+
 app.get('/reviews/:id', (req, res) => {
   const reviewItem = reviewsData.find(item => item.id === parseInt(req.params.id));
   if (reviewItem) {
@@ -111,9 +111,11 @@ app.get('/reviews/:id', (req, res) => {
     res.status(404).send('Review item not found');
   }
 })
+
 app.get('/promotion', (req, res) => {
   res.render('promotion');
 })
+
 app.post('/api/callback', limiter, async (req, res) => {
   try {
     const { name, phone, agreement, newsletter } = req.body;

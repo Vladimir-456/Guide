@@ -1,9 +1,9 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
 const TELEGRAM_CHAT_ID = '-4618771405';
 
-export const callbackTelegramMessage = async (telegramMessage, res) => {
+const callbackTelegramMessage = async (telegramMessage, res) => {
     if (!telegramMessage) {
         console.error('No message provided for Telegram');
         return res.status(400).json({
@@ -44,4 +44,6 @@ export const callbackTelegramMessage = async (telegramMessage, res) => {
             message: 'Заявка принята, но возникла проблема с отправкой уведомления'
         });
     }
-}
+};
+
+module.exports = { callbackTelegramMessage };
