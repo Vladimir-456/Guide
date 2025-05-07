@@ -1,15 +1,13 @@
 
-require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const axios = require('axios');
 const cors = require('cors');
 
 
-const { newsData, relatedNews } = require('./mokki/data.js');
-const { reviewsData } = require('./mokki/mokki-reviews.js');
-const { callbackTelegramMessage } = require('./middleware/callback.js');
+const { newsData, relatedNews } = require('./mokki/data');
+const { reviewsData } = require('./mokki/mokki-reviews');
+const { callbackTelegramMessage } = require('./middleware/callback');
 
 const app = express();
 const rateLimit = require('express-rate-limit');
