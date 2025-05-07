@@ -10,7 +10,7 @@ const rateLimit = require('express-rate-limit');
 
 const { newsData, relatedNews } = require('./mokki/data');
 const { reviewsData } = require('./mokki/mokki-reviews');
-const { callbackTelegramMessage } = require('./middleware/callback');
+// const { callbackTelegramMessage } = require('./middleware/callback');
 
 const app = express();
 const PORT = 5500;
@@ -55,7 +55,7 @@ app.get('/reviews', (req, res) => {
   res.render('reviews', { reviewsData });
 })
 
-app.post('/api/application', (req, res) => {
+app.post('/api/application', async (req, res) => {
   const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;
   console.log(services);
   const typesMapping = {
@@ -99,8 +99,47 @@ app.post('/api/application', (req, res) => {
   💬 Дополнительная информация: ${additionalInfo || 'Не указана'}
   ℹ️ Как нашли нас: ${didYouFindUsText}
   ✅ Согласие на обработку данных: ${agreement ? 'Да' : 'Нет'}`;
+  if (!telegramMessage) {
+    console.error('No message provided for Telegram');
+    return res.status(400).json({
+        success: false,
+        message: 'No message provided'
+    });
+}
 
-  callbackTelegramMessage(telegramMessage, res);
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+        console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
+        return res.status(201).json({
+            success: true,
+            message: 'Заявка принята'
+        });
+    }
+
+    try {
+        await axios.post(
+            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+            {
+                chat_id: TELEGRAM_CHAT_ID,
+                text: telegramMessage,
+                parse_mode: 'Markdown'
+            }
+        );
+
+        console.log('Сообщение успешно отправлено в Telegram');
+        
+        return res.status(201).json({
+            success: true,
+            message: 'Заявка успешно отправлена'
+        });
+
+    } catch (telegramError) {
+        console.error('Ошибка отправки в Telegram:', telegramError);
+        return res.status(201).json({
+            success: true,
+            message: 'Заявка принята, но возникла проблема с отправкой уведомления'
+        });
+    }
+  // callbackTelegramMessage(telegramMessage, res);
 })
 
 app.get('/reviews/:id', (req, res) => {
@@ -127,7 +166,46 @@ app.post('/api/callback', limiter, async (req, res) => {
       📨 *Подписка на рассылку:* ${newsletter ? 'Да' : 'Нет'} 
       🕒 *Дата заявки:* ${new Date().toLocaleString('ru-RU')} 
       `;
-    await callbackTelegramMessage(telegramMessage, res);
+      if (!telegramMessage) {
+        console.error('No message provided for Telegram');
+        return res.status(400).json({
+            success: false,
+            message: 'No message provided'
+        });
+    }
+    
+        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+            console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
+            return res.status(201).json({
+                success: true,
+                message: 'Заявка принята'
+            });
+        }
+    
+        try {
+            await axios.post(
+                `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+                {
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: telegramMessage,
+                    parse_mode: 'Markdown'
+                }
+            );
+    
+            console.log('Сообщение успешно отправлено в Telegram');
+            
+            return res.status(201).json({
+                success: true,
+                message: 'Заявка успешно отправлена'
+            });
+    
+        } catch (telegramError) {
+            console.error('Ошибка отправки в Telegram:', telegramError);
+            return res.status(201).json({
+                success: true,
+                message: 'Заявка принята, но возникла проблема с отправкой уведомления'
+            });
+        }
 
   } catch (error) {
     res.status(500).json({ success: false, message: 'Внутренняя ошибка сервера' });
