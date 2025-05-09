@@ -1,10 +1,24 @@
- <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="copyright">
-                        © 2025,"СТАВРОПОЛЬ ОПЕКА". Все права защищены.
-                        <div class="privacy-policy">Политика конфиденциальности</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
+footer
+    .footer__container
+        .footer__logo
+            div
+                img.header__logo-img(
+                    src="../img/logo_edit.jpg"
+                    alt="ОПЕКА"
+                )
+        nav.footer__nav
+            ul.footer__list
+                li.footer__list__item
+                    a.footer__link(href="#info-pansionat") Дом
+                li.footer__list__item
+                    a.footer__link(href="#benefits") Услуги
+                li.footer__list__item
+                    a.footer__link(href="#pensions") Комнаты
+                li.footer__list__item
+                    a.footer__link(href="#address-map") Контакты
+    .container
+        .footer-content
+            .copyright
+                | © Частный пансионат для пожилых "Опека". Все права защищены
+                .privacy-policy Политика конфиденциальности

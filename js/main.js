@@ -1,4 +1,4 @@
-// import { setupSlider } from './slider.js';
+import { setupSlider } from './slider.js';
 import { initModal } from './modal.js';
 import { initializeMap } from './map.js';
 import { initProfileModal } from './questionnaire.js';
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // setupSlider();
+    setupSlider();
     initializeMap();
     initModal();
     initProfileModal();

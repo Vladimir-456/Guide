@@ -4,24 +4,37 @@ block content
   .container-news
     .news-detail__item
       article.news-detail
-      .news-detail__header
-        h1.news-detail__title= newsItem.title
-        .news-detail__date= newsItem.date
-      if newsItem.image
-        .news-detail__image
-          img(src=newsItem.image, alt=newsItem.title)
-          .image-overlay
-      
-      .news-detail__content!= newsItem.content
-      .news-detail__navigation
-        a(href="/").back-button Вернуться назад
+        .news-detail__header
+          h1.news-detail__title= newsItem.title
+          .news-detail__meta
+            .news-detail__date= newsItem.date
+        if newsItem.image
+          .news-detail__image-wrapper
+            .news-detail__image
+              img(src=newsItem.image, alt=newsItem.title)
+        .news-detail__content
+          each section in newsItem.content.sections
+            case section.type
+              when 'heading'
+                h2.news-detail__heading= section.text
+              when 'paragraph'
+                p.news-detail__paragraph= section.text
+              when 'list'
+                ul.news-detail__list
+                  each item in section.items
+                    li.news-detail__list-item= item
+        .news-detail__navigation
+          a(href="/").back-button
+            span.back-button__icon ←
+            span.back-button__text Вернуться назад
     .sidebar
-      h3 Другие новости
-      each item in relatedNews
-        .related-news
-          a(href=`/news/${item.slug}`)
-            h4=item.title
-            .related-news__date= item.date
+      h3.sidebar__title Другие новости
+      .sidebar__news
+        each item in relatedNews
+          .related-news
+            a.related-news__link(href=`/news/${item.slug}`)
+              h4.related-news__title= item.title
+              .related-news__date= item.date
 
     
 

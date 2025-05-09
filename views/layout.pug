@@ -1,86 +1,50 @@
 doctype html
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>      
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel='icon' href='./img/favicon-16x16.png' type='image/x-icon'>
-    <link href="../css/styles.css" rel="stylesheet">
-<title>Опека Ставрополь</title>
-</head>
-<body>
-  <body class="page">
-    <div class="page__container">
-        <header class="header">
-            <div class="header__container">
-                <div class="header__logo">
-                    <div>
-                    <a href="/" style="text-decoration: none;">
-                        <img class="header__logo-img" src="../img/logo_edit.jpg" alt="ОПЕКА">
-                        //- <span class="header__logo-text">ПЕКА</span>
-                    </a>
-                    </div>
-                    //- <div class="header__logo__location">
-                    //-     <span class="header__location">Ставрополь</span>
-                    //- </div>
-                </div>
-                <div class="header__contacts">
-                    <a class="header__phone" href="tel:+88005555403">+7 933 181-02-35</a>
-                    <span class="header__hours">Режим работы: с 9:00 до 18:00</span>
-                </div>
-                <div class="header__actions">
-                    <a href="tel:+88005555403" class="button button--call">Заказать звонок</a>
-                    <input type="text" class="header__search" placeholder="Поиск...">
-                </div>
-            </div>
-            //- <nav class="nav">
-            //-     <ul class="nav__list">
-            //-         <li class="nav__item"><a href="#" class="nav__link">О компании</a>
-            //-             <div class="nav__dropdown">
-            //-                 <a href="#" class="nav__dropdown-item">История</a>
-            //-                 <a href="#" class="nav__dropdown-item">Миссия</a>
-            //-                 <a href="#" class="nav__dropdown-item">Наша команда</a>
-            //-                 <a href="#" class="nav__dropdown-item">Лицензии</a>
-            //-                 <a href="#" class="nav__dropdown-item">Документы</a>
-            //-             </div>
-            //-         </li>
-            //-         <li class="nav__item"><a href="#" class="nav__link">Услуги</a>
-            //-             <div class="nav__dropdown">
-            //-                 <a href="#" class="nav__dropdown-item">Услуги сиделок</a>
-            //-                 <a href="#" class="nav__dropdown-item">Опека документы</a>
-            //-                 <a href="#" class="nav__dropdown-item">Медицина</a>
-            //-                 <a href="#" class="nav__dropdown-item">Опека Еда</a>
-            //-                 <a href="#" class="nav__dropdown-item">Программа восстановления</a>
-            //-             </div>
-            //-         </li>
-            //-         <li class="nav__item"><a href="/promotion" class="nav__link">Акции</a></li>
-            //-         <li class="nav__item"><a href="/reviews" class="nav__link">Отзывы</a></li>
-            //-         <li class="nav__item"><a href="/news" class="nav__link">Новости</a></li>
-            //-         <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
-            //-     </ul>
-            //- </nav>
-        </header>
-        .news__item__block
-            block content
-            //- include footer
-
-            //- .header__logo
-            //-          <img class="header__logo-img" src="../img/logo.jpg" alt="ОПЕКА">
-            //-          <span class="header__logo-text">ПЕКА</span>
-            //-          .header__logo__location
-            //-             <span class="header__location">Ставрополь</span>
-            //- .container
-            //-     .footer-content
-            //-         .copyright
-            //-         p © 2025,"СТАВРОПОЛЬ ОПЕКА". Все права защищены.
-            //-         .privacy-policy
-            //-             a(href="#").privacy-link Политика конфиденциальности
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")
+        link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")      
+        script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js")
+        link(href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet")
+        link(rel="icon" href="./img/favicon-16x16.png" type="image/x-icon")
+        link(href="/css/styles.css" rel="stylesheet")
+        title Опека Ставрополь
+    body.page
+        .page__container
+            header.header#header(itemprop="header")
+                .header__container#header__container(itemprop="mainEntityOfPage")
+                    .header__logo#header__logo(itemprop="logo")
+                        div
+                            img.header__logo-img(src="/img/logo_edit.jpg" alt="ОПЕКА")
+                    nav.header__nav#header__nav(role="navigation")
+                        ul.header__list#header__list(role="list")
+                            li.header__item
+                                a.header__link(href="/#info-pansionat" role="link") О нас
+                            li.header__item
+                                a.header__link(href="/#benefits" role="link") Услуги
+                            li.header__item
+                                a.header__link(href="/#comparison" role="link") Преимущества
+                            li.header__item
+                                a.header__link(href="/#contacts" role="link") Статьи
+                    .header__contacts
+                        a.header__phone + 7 933 181-02-35
+                        span.header__hours Режим работы: с 9:00 до 18:00
+                    .header__actions
+                        a.button.button--anketa(href="/" role="link") Заполнить анкету
+                        a.button.button__slider.button--call(href="/" role="link") Заказать звонок
+            .news__item__block
+                block content
+                .footer__layout
+                    include footer
+                    include forms
+        script(type="module" src="/js/validate.js")
+        script(type="module" src="/js/modal.js")
+        script(type="module" src="/js/questionnaire.js")
+        script(type="module" src="/js/main.js")

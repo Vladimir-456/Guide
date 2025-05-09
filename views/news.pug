@@ -9,7 +9,7 @@ block content
             img(src=item.image, alt=item.title)
           .news-item__content
             h3
-              a(href="/news/" + item.id)= item.title
+              a(href="/news/" + item.slug)= item.title
             p= item.shortContent
             .news-item__date= item.date
     .divider

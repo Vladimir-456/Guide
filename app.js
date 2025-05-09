@@ -4,9 +4,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
 const TelegramBot = require('node-telegram-bot-api');
 const rateLimit = require('express-rate-limit');
+// const newsRoutes = require('./routes/news');
+// const connectDB = require('./config/database');
 
 const { newsData, relatedNews } = require('./mokki/data');
 const { reviewsData } = require('./mokki/mokki-reviews');
@@ -38,8 +39,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/news/:id', (req, res) => {
-  const newsItem = newsData.find(item => item.id === parseInt(req.params.id));
+// connectDB();
+
+// app.use('/news', newsRoutes);
+
+app.get('/news/:slug', (req, res) => {
+  const newsItem = newsData.find(item => item.slug === req.params.slug);
   if (newsItem) {
     res.render('news-detail', { newsItem, relatedNews });
   } else {
@@ -50,10 +55,6 @@ app.get('/news/:id', (req, res) => {
 app.get('/news', (req, res) => {
   res.render('news', { newsData });
 });
-
-app.get('/reviews', (req, res) => {
-  res.render('reviews', { reviewsData });
-})
 
 app.post('/api/application', async (req, res) => {
   const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;

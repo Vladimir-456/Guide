@@ -1,6 +1,7 @@
-
 @use 'varibles' as *;
 @use 'mixin' as *;
+@use 'animation' as *;
+
 .modal__overlay {
     display: none;
     position: fixed;
@@ -13,52 +14,264 @@
 }
 
 .modal {
-    position: relative;
+    position: fixed;
     top: 50%;
     left: 50%;
-    width: 500px;
-    height: auto;
     transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 40px;
+    animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+
+    // Стилизация скроллбара
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $secondary-color;
+        border-radius: 4px;
+        
+        &:hover {
+            background: #0fdf2e;
+        }
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -48%) scale(0.96);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    &__header {
+        position: relative;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgba($secondary-color, 0.1);
+        background: linear-gradient(90deg, rgba($secondary-color, 0.05), transparent);
+        padding: 20px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: linear-gradient(90deg, rgba($secondary-color, 0.1), transparent);
+            transform: translateX(5px);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #1a1a1a;
+            font-weight: 600;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -22px;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background: linear-gradient(90deg, $secondary-color, transparent);
+                transition: width 0.3s ease;
+            }
+        }
+
+        &:hover h2:after {
+            width: 100px;
+        }
+    }
 
     &__close {
         position: absolute;
-        top: -5px;
-        right: -70px;
-        width: 50px;
-        height: 50px;
+        top: 0;
+        right: 0;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
-        background-color: #f0f0f0;
+        background: rgba(245, 245, 245, 0.8);
+        backdrop-filter: blur(4px);
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 24px;
         cursor: pointer;
-        font-size: 20px;
-        color: #888;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transform-origin: center;
+        
+        &:hover {
+            background: #fff;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: $secondary-color;
+        }
+
+        &:active {
+            transform: rotate(90deg) scale(0.95);
+        }
     }
-    &__header {
-        padding: 10px;
-        margin-bottom: 20px;
 
-        &__phone {
-            font-size: 22px;
-            font-weight: 700;
-            color: black;
-        }
-        &__whatsapp {
-            margin-top: 5px;
-            font-size: 20px;
-            font-weight: 700;
-            color: black;
+    &__content {
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #2c3e50;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent);
+            z-index: -1;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        &__whatsapp a {
-            text-decoration: none;
-            color: #25D366;
+        &:hover::before {
+            opacity: 1;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            position: relative;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba($secondary-color, 0.05);
+                transform: translateX(5px);
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            filter: brightness(0.98);
+
+            &:hover {
+                transform: scale(1.02);
+                filter: brightness(1);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba($secondary-color, 0.2), transparent);
+        }
+
+        button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent
+                );
+                transition: 0.5s;
+            }
+
+            &.btn-primary {
+                color: white;
+                box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba($secondary-color, 0.3);
+
+                    &::before {
+                        left: 100%;
+                    }
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+
+            &.btn-secondary {
+                background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+                color: #2c3e50;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+                &:hover {
+                    background: linear-gradient(135deg, #e8e8e8, #f5f5f5);
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+                    &::before {
+                        left: 100%;
+                    }
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
         }
     }
 }
@@ -151,68 +364,53 @@
 
 @include lg-down {
     .modal {
-        width: 450px;
-        padding: 18px;
+        width: 95%;
+        padding: 30px;
+
+        &__header h2 {
+            font-size: 24px;
+        }
     }
 }
 
 @include md-down {
     .modal {
-        width: 90%;
-        max-width: 420px;
-        
-        &__close {
-            right: -50px;
-            width: 40px;
-            height: 40px;
-            font-size: 18px;
-        }
-        
+        padding: 20px;
+
         &__header {
-            padding: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+
+            h2 {
+                font-size: 22px;
+            }
         }
-    }
-    
-    .modal__form {
-        &__control {
-            padding: 10px;
+
+        &__content {
             font-size: 15px;
         }
-    }
-    
-    .submit-button {
-        padding: 10px;
+
+        &__footer {
+            flex-direction: column;
+            gap: 10px;
+
+            button {
+                width: 100%;
+            }
+        }
     }
 }
 
 @include sm-down {
     .modal {
-        width: 90%;
         padding: 15px;
-        
-        &__close {
-            top: 10px;
-            right: 10px;
-            width: 35px;
-            height: 35px;
-            background-color: transparent;
-            color: #333;
+
+        &__header h2 {
+            font-size: 20px;
         }
-        
-        &__header {
-            &__phone {
-                font-size: 18px;
-            }
-            &__whatsapp {
-                font-size: 16px;
-            }
-        }
-    }
-    
-    .checkbox__group {
-        label {
-            font-size: 11px;
+
+        &__content {
+            font-size: 14px;
         }
     }
 }
@@ -244,7 +442,6 @@
         font-size: 13px;
     }
 }
-
 
 @include xxs-down {
     .modal {
@@ -332,5 +529,36 @@
     // Уменьшаем отступы между чекбоксами
     .modal__form .checkbox__group + .checkbox__group {
         margin-top: -2px;
+    }
+}
+
+// Затемнение фона
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: none;
+
+    &.active {
+        opacity: 1;
+        animation: overlayFadeIn 0.3s ease;
+    }
+
+    @keyframes overlayFadeIn {
+        from {
+            backdrop-filter: blur(0);
+            background: rgba(0, 0, 0, 0);
+        }
+        to {
+            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.5);
+        }
     }
 }
