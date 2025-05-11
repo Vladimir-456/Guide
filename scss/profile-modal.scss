@@ -22,6 +22,7 @@
   transition: $hover-transition;
   text-decoration: none;
 }
+
 .profile-modal__overlay {
   display: none;
   position: fixed;
@@ -33,6 +34,7 @@
   z-index: 1000;
   display: none;
 }
+
 // Основные стили модального окна
 .profile-modal {
   position: fixed;
@@ -52,7 +54,6 @@
   padding: 40px;
   animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-  
   // Стилизация скроллбара
   &::-webkit-scrollbar {
       width: 8px;
@@ -71,6 +72,7 @@
           background: #0fdf2e;
       }
   }
+
   &__header {
     background-color: $primary-color;
     height: 60px;
@@ -79,13 +81,13 @@
   }
   
   &__close {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(245, 245, 245, 0.8);
+    background: rgba(245, 245, 245, 0.9);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -94,6 +96,7 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1001;
     
     &:hover {
       background: #fff;
@@ -125,7 +128,7 @@
       
       h3 {
         color: #1a1a1a;
-        font-size: 22px;
+        font-size: clamp(18px, 2vw, 22px);
         margin-bottom: 25px;
         padding-bottom: 12px;
         border-bottom: 2px solid $secondary-color;
@@ -210,9 +213,11 @@
     &__row {
       @include flex(row, space-between);
       gap: 15px;
+      flex-wrap: wrap;
       
       .profile-modal__form__group {
         flex: 1;
+        min-width: 250px;
       }
     }
     
@@ -381,37 +386,55 @@
 }
 
 // Адаптивные стили
+@include xl-down {
+  .profile-modal {
+    padding: 30px;
+    
+    &__form {
+      padding: 20px 40px 30px;
+    }
+  }
+}
+
 @include lg-down {
   .profile-modal {
-    width: 95%;
-    padding: 30px;
-  }
-
-  .profile-modal__form__section {
-    padding: 20px;
-  }
-
-  .radio-group, .checkbox-group {
-    grid-template-columns: 1fr;
+    padding: 25px;
+    
+    &__form {
+      padding: 20px 30px 30px;
+    }
   }
 }
 
 @include md-down {
   .profile-modal {
     padding: 20px;
-  }
-
-  .form-group {
-    input, select, textarea {
-      padding: 12px 15px;
-      font-size: 15px;
+    width: 95%;
+    
+    &__form {
+      padding: 15px 20px 25px;
+      
+      &__section {
+        padding: 20px;
+        margin-bottom: 25px;
+      }
+      
+      &__row {
+        flex-direction: column;
+        gap: 20px;
+        
+        .profile-modal__form__group {
+          width: 100%;
+        }
+      }
     }
-  }
-
-  .profile-modal__form__actions {
-    .submit-button {
-      padding: 14px 36px;
-      font-size: 16px;
+    
+    &__close {
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
     }
   }
 }
@@ -419,23 +442,200 @@
 @include sm-down {
   .profile-modal {
     padding: 15px;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    
+    &__form {
+      padding: 10px 15px 20px;
+      
+      &__section {
+        padding: 15px;
+        margin-bottom: 20px;
+        
+        h3 {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+      }
+      
+      &__group {
+        margin-bottom: 15px;
+        
+        label {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+          padding: 12px 15px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+    &__close {
+      top: 5px;
+      right: 5px;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+    }
   }
+}
 
-  .profile-modal__form__section {
-    padding: 15px;
-    margin-bottom: 20px;
+@include xs-down {
+  .profile-modal {
+    padding: 10px;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    
+    &__form {
+      padding: 8px 10px 15px;
+      
+      &__section {
+        padding: 10px;
+        margin-bottom: 15px;
+        
+        h3 {
+          font-size: 15px;
+          margin-bottom: 12px;
+          padding-bottom: 8px;
+        }
+      }
+      
+      &__group {
+        margin-bottom: 12px;
+        
+        label {
+          font-size: 13px;
+          margin-bottom: 6px;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+          padding: 8px 10px;
+          font-size: 13px;
+          border-radius: 8px;
+        }
+      }
 
-    h3 {
-      font-size: 20px;
-      margin-bottom: 20px;
+      &__actions {
+        margin-top: 30px;
+        
+        .submit-button {
+          padding: 12px 30px;
+          font-size: 15px;
+          border-radius: 8px;
+        }
+      }
+    }
+    
+    &__close {
+      top: 5px;
+      right: 5px;
+      width: 26px;
+      height: 26px;
+      font-size: 14px;
     }
   }
 
-  .form-group {
-    margin-bottom: 20px;
+  .radio-group,
+  .checkbox-group {
+    gap: 12px;
+    margin-top: 12px;
+    
+    .radio-item,
+    .checkbox-item {
+      padding-left: 32px;
+      
+      input[type="radio"] + label,
+      input[type="checkbox"] + label {
+        padding: 8px 0;
+        font-size: 13px;
+        
+        &:before {
+          left: -32px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
 
+  .checkbox-item.agreement {
     label {
-      font-size: 14px;
+      font-size: 12px;
+    }
+  }
+}
+
+// Добавляем стили для очень маленьких экранов
+@include xxs-down {
+  .profile-modal {
+    padding: 5px;
+    
+    &__form {
+      padding: 5px 8px 12px;
+      
+      &__section {
+        padding: 8px;
+        margin-bottom: 12px;
+        
+        h3 {
+          font-size: 14px;
+          margin-bottom: 10px;
+          padding-bottom: 6px;
+        }
+      }
+      
+      &__group {
+        margin-bottom: 10px;
+        
+        label {
+          font-size: 12px;
+          margin-bottom: 4px;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+          padding: 6px 8px;
+          font-size: 12px;
+          border-radius: 6px;
+        }
+      }
+
+      &__actions {
+        margin-top: 20px;
+        
+        .submit-button {
+          padding: 10px 24px;
+          font-size: 14px;
+          border-radius: 6px;
+        }
+      }
+    }
+    
+    &__close {
+      top: 3px;
+      right: 3px;
+      width: 24px;
+      height: 24px;
+      font-size: 12px;
     }
   }
 }

@@ -56,13 +56,11 @@
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 2px solid rgba($secondary-color, 0.1);
-        background: linear-gradient(90deg, rgba($secondary-color, 0.05), transparent);
-        padding: 30px;
+        padding: 20px;
         border-radius: 12px;
         transition: all 0.3s ease;
 
         &:hover {
-            background: linear-gradient(90deg, rgba($secondary-color, 0.1), transparent);
             transform: translateX(5px);
         }
 
@@ -367,6 +365,7 @@
         padding: 20px;
 
         &__header {
+            margin-top: 40px;
             margin-bottom: 20px;
             padding-bottom: 15px;
 
@@ -395,6 +394,7 @@
         padding: 15px;
 
         &__header h2 {
+            margin-top: 30px;
             font-size: 20px;
         }
 
@@ -411,6 +411,7 @@
         left: 45%;
         
         &__header {
+            margin-top: 25px;
             padding: 5px;
             margin-bottom: 12px;
         }
@@ -439,6 +440,7 @@
         min-width: 300px;
         padding: 8px;
         &__header {
+            margin-top: 25px;
             padding: 2px;
             margin-bottom: 8px;
             
@@ -460,7 +462,8 @@
         }
 
         &__close {
-            top: 10px;
+            top: 20px;
+            right: 30px;
         }
 
     }
