@@ -6,11 +6,8 @@ const axios = require('axios');
 const cors = require('cors');
 const TelegramBot = require('node-telegram-bot-api');
 const rateLimit = require('express-rate-limit');
-// const newsRoutes = require('./routes/news');
-// const connectDB = require('./config/database');
 
 const { newsData, relatedNews } = require('./mokki/data');
-const { reviewsData } = require('./mokki/mokki-reviews');
 const { callbackTelegramMessage } = require('./middleware/callback');
 
 const app = express();
@@ -103,15 +100,6 @@ app.post('/api/application', async (req, res) => {
 
   callbackTelegramMessage(telegramMessage, res);
   // callbackTelegramMessage(telegramMessage, res);
-})
-
-app.get('/reviews/:id', (req, res) => {
-  const reviewItem = reviewsData.find(item => item.id === parseInt(req.params.id));
-  if (reviewItem) {
-    res.render('reviews-detail', { reviewItem });
-  } else {
-    res.status(404).send('Review item not found');
-  }
 })
 
 app.get('/promotion', (req, res) => {
