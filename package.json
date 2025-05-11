@@ -8,8 +8,8 @@
     "scss": "sass --watch scss/main.scss:css/styles.css",
     "minify:js": "terser js/main.js -o dist/js/main.min.js --module -c drop_console=true -m && terser js/slider.js -o dist/js/slider.min.js --module -c drop_console=true -m && terser js/modal.js -o dist/js/modal.min.js --module -c drop_console=true -m && terser js/map.js -o dist/js/map.min.js --module -c drop_console=true -m && terser js/questionnaire.js -o dist/js/questionnaire.min.js --module -c drop_console=true -m",
     "minify:css": "postcss css/styles.css -o dist/css/styles.min.css",
-    "build": "npm run scss && npm run minify:js && npm run minify:css",
-    "dev": "nodemon --watch scss --watch js --watch css --ext scss,js,css --exec \"npm run build\"",
+    "build": "npm run scss && npm run minify:css && npm run minify:js",
+    "dev": "concurrently \"npm run scss\" \"npm run minify:css -- --watch\" \"npm run minify:js -- --watch\"",
     "start": "node app.js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.19",
+    "concurrently": "^9.1.2",
     "cssnano": "^6.1.1",
     "nodemon": "^3.1.0",
     "postcss": "^8.4.38",

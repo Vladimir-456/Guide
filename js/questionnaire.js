@@ -1,6 +1,6 @@
 import { initValidate } from './validate.js';
 
-const profileModal = document.querySelector('.profile-modal');
+const profileModal = document.querySelector('.profile-modal__overlay');
 const profileModalCloseBtn = document.querySelector('.profile-modal__close');
 const profileModalForm = document.querySelector('#profile-modal__form');
 const profileModalButton = document.querySelector('.button--anketa');

@@ -1,19 +1,19 @@
 import { initValidateCallback } from './validate.js';
 
 const modalCloseBtn = document.querySelector('.modal__close');
-const modal = document.querySelector('.modal__overlay');
+const modalOverlay = document.querySelector('.modal__overlay');
 const sliderButtons = document.querySelectorAll('.button__slider');
 const form = document.querySelector('.modal__form');
 
 const API_URL = '/api/callback';
 
 function openModalView() {
-    modal.style.display = 'block';
+    modalOverlay.style.display = 'block';
     modalCloseBtn.addEventListener('click', closeModalView);
 }
 
 function closeModalView() {
-    modal.style.display = 'none';
+    modalOverlay .style.display = 'none';
     form.reset();
     modalCloseBtn.removeEventListener('click', closeModalView);
 }
@@ -68,10 +68,6 @@ const onFormSubmit = async (evt) => {
 }
 
 export const initModal = () => {
-    if (!modal || !modalCloseBtn || !form) {
-        console.error('Modal elements not found');
-        return;
-    }
 
     sliderButtons.forEach(button => {
         button.addEventListener('click', openModalView);

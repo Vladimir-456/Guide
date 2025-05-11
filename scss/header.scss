@@ -7,75 +7,77 @@
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  // Облегчена тень
-  padding: 10px 0;
-  background-color: white;
-  border-radius: 5px;
-  z-index: 100; 
-  transition: all 0.3s ease;  // Плавная анимация при скролле
+  box-shadow: 
+  0 2px 10px rgba(0, 0, 0, 0.1),
+  0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: headerSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &--hidden {
+      transform: translateY(-100%);
+  }
   
   &__container {
       @include flex-container(row, space-between, center, no-wrap);
       max-width: $max-width;
       margin: 0 auto;
-      padding: 0 20px;
-      flex: 1 0 100%;
+      padding: 0 30px;
+      gap: 30px;
   }
   
   &__logo {
-      @include flex-container(column, center, center, no-wrap);
-      
+      @include flex-container(row, flex-start, center, no-wrap);
+      gap: 15px;
       &-img {
-          width: 90px;
-          height: 90px;
-          margin-right: 10px;
-          transition: all 0.3s ease;  // Плавное изменение размера
+        width: clamp(60px, 5vw, 90px);
+        height: clamp(60px, 5vw, 90px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          
+          &:hover {
+            transform: scale(1.05) rotate(-2deg);
+          }
       }
-      
-      &-text {
-          font-size: 40px;
-          font-weight: 700;
-          color: $secondary-color;
-          text-decoration: none;
-          @include fluid-type(375px, 576px, 26px, 32px);
-      }
-
   }
   
   
   &__contacts {
-      @include flex-container(column, flex-start, center, no-wrap);
+      @include flex-container(column, flex-start, flex-start, no-wrap);
+      gap: 8px;
   }
   
   &__phone {
-      color: #4e4e4e;
-      font-weight: 600;
-      font-size: 17px;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      
-      &:hover {
-          text-decoration: underline;
-          color: $secondary-color;  // Добавлен цвет при наведении
-      }
+    color: $text-color;
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    &:hover {
+        color: $secondary-color;
+        transform: translateX(-3px);
+    }
   }
   
   &__hours {
-      margin-top: 13px;
-      font-size: 14px;
-      color: $secondary-color;
-      transition: color 0.2s ease;
-
-      &:hover {
-        text-decoration: underline;
-      }
+    font-size: clamp(12px, 1vw, 14px);
+    color: rgba($text-color, 0.7);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        color: $secondary-color;
+    }
   }
   
   &__actions {
-    margin-left: 25px;
     display: flex;
     gap: 15px;
-    align-items: center;
   }
 
   // Добавим эффект компактной шапки при скролле
@@ -94,36 +96,61 @@
   }
   &__item {
     margin-top: 10px;
-    margin-right: 20px;
+    margin-right: 25px;
     list-style: none;
     a {
-        color: #129e4c;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        position: relative;
-
-        &:hover {
-          color: #1adc6b;
-        }
-    }
+      color: $secondary-color;
+      text-decoration: none;
+      font-size: clamp(14px, 1.2vw, 16px);
+      font-weight: 500;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $secondary-color;
+          transition: width 0.3s ease;
+      }
+      
+      &:hover {
+          color: #0cca5b;
+          
+          &::after {
+              width: 100%;
+          }
+      }
+  }
   }
 }
 
 .button {
-  padding: 8px 20px;
-  border: none;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;  // Центрируем текст
-  display: inline-block;  // Лучше для кнопок-ссылок
-  @include fluid-type(375px, 768px, 12px, 14px);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: clamp(13px, 1.1vw, 15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    &::before {
+        left: 100%;
+    }
+}
+
   
   &--call {
     background-color: $secondary-color;
+    border-radius: 8px;
     color: white;
     padding: 12px 20px;
     font-weight: 500;
@@ -146,6 +173,9 @@
 
   &--anketa {
     background-color: $primary-color;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
       color: white;
       padding: 12px 20px;
       font-weight: 500;

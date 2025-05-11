@@ -11,6 +11,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    display: none;
 }
 
 .modal {
@@ -30,7 +31,6 @@
     z-index: 1000;
     padding: 40px;
     animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: none;
 
     // Стилизация скроллбара
     &::-webkit-scrollbar {
@@ -51,24 +51,13 @@
         }
     }
 
-    @keyframes modalSlideIn {
-        from {
-            opacity: 0;
-            transform: translate(-50%, -48%) scale(0.96);
-        }
-        to {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-
     &__header {
         position: relative;
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 2px solid rgba($secondary-color, 0.1);
         background: linear-gradient(90deg, rgba($secondary-color, 0.05), transparent);
-        padding: 20px;
+        padding: 30px;
         border-radius: 12px;
         transition: all 0.3s ease;
 
@@ -78,18 +67,18 @@
         }
 
         h2 {
-            font-size: 28px;
-            color: #1a1a1a;
+            font-size: clamp(20px, 2.5vw, 28px);
             font-weight: 600;
-            margin: 0;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid $secondary-color;
             position: relative;
-            display: inline-block;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
             &:after {
                 content: '';
                 position: absolute;
-                bottom: -22px;
+                bottom: -30px;
                 left: 0;
                 width: 50px;
                 height: 2px;
@@ -105,8 +94,8 @@
 
     &__close {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 10px;
+        right: 10px;
         width: 36px;
         height: 36px;
         border-radius: 50%;
@@ -193,7 +182,7 @@
     &__footer {
         display: flex;
         justify-content: flex-end;
-        gap: 15px;
+        gap: 20px;
         padding-top: 20px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         position: relative;
@@ -209,7 +198,7 @@
         }
 
         button {
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 500;
@@ -417,8 +406,9 @@
 
 @include xs-down {
     .modal {
-        width: 95%;
+        width: 80%;
         padding: 12px;
+        left: 45%;
         
         &__header {
             padding: 5px;
@@ -446,10 +436,8 @@
 @include xxs-down {
     .modal {
         width: 100%;
+        min-width: 300px;
         padding: 8px;
-        max-height: 100vh;
-        overflow-y: auto;
-        
         &__header {
             padding: 2px;
             margin-bottom: 8px;
@@ -462,6 +450,19 @@
                 margin-top: 2px;
             }
         }
+        
+        &__content {
+            font-size: 13px;
+        }
+        
+        &__footer {
+            gap: 5px;
+        }
+
+        &__close {
+            top: 10px;
+        }
+
     }
     
     .modal__form {
@@ -487,10 +488,8 @@
         }
         
         label {
-            font-size: 8px;
+            font-size: 12px;
             line-height: 1.1;
-            max-height: 60px;
-            overflow-y: auto;
         }
     }
     
@@ -507,24 +506,7 @@
         font-size: 11px;
     }
     
-    .modal__close {
-        width: 25px;
-        height: 25px;
-        top: 2px;
-        right: 2px;
-        font-size: 14px;
-    }
-    
-    // Добавим возможность прокрутки для длинного текста соглашения
-    .agreement-container {
-        max-height: 60px;
-        overflow-y: auto;
-        font-size: 8px;
-        line-height: 1.1;
-        border: 1px solid #eee;
-        padding: 3px;
-        margin-bottom: 5px;
-    }
+
     
     // Уменьшаем отступы между чекбоксами
     .modal__form .checkbox__group + .checkbox__group {

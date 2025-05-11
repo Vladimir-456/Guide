@@ -98,153 +98,155 @@
                 </div>
             </div>
         </section>
-        <div id="profile-modal" class="profile-modal">
-            <div class="profile-modal__close" id="closeModal">×</div>
-            <div class="profile-modal__header"></div>
-            <form id="profile-modal__form">
-                <!-- Тип обращения -->
-                <div class="profile-modal__form__section">
-                    <h3>Тип обращения</h3>
-                    <div class="profile-modal__form__group radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="forSelf" name="applicationType" value="self" checked>
-                            <label for="forSelf">Для себя</label>
+        <div class="profile-modal__overlay">
+            <div id="profile-modal" class="profile-modal">
+                <div class="profile-modal__close" id="closeModal">×</div>
+                <div class="profile-modal__header"></div>
+                <form id="profile-modal__form">
+                    <!-- Тип обращения -->
+                    <div class="profile-modal__form__section">
+                        <h3>Тип обращения</h3>
+                        <div class="profile-modal__form__group radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="forSelf" name="applicationType" value="self" checked>
+                                <label for="forSelf">Для себя</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="forRelative" name="applicationType" value="relative">
+                                <label for="forRelative">Для родственника</label>
+                            </div>
                         </div>
-                        <div class="radio-item">
-                            <input type="radio" id="forRelative" name="applicationType" value="relative">
-                            <label for="forRelative">Для родственника</label>
-                        </div>
                     </div>
-                </div>
-
-                <!-- Информация о заявителе -->
-                <div class="profile-modal__form__section">
-                    <h3>Ваши данные</h3>
-                    <div class="form-group">
-                        <label for="fullName">ФИО <span class="required">*</span></label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя">
-                    </div>
-                    
-                    <div class="profile-modal__form__group">
-                        <label for="phone">Телефон <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
-                    </div>
-                    
-                    <div class="profile-modal__form__group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Введите email для связи">
-                    </div>
-                </div>
-                
-                <!-- Информация о пациенте (скрыто по умолчанию) -->
-                <div class="profile-modal__form__section" id="patientSection" style="display: none;">
-                    <h3>Информация о пациенте</h3>
-                    <div class="form-group">
-                        <label for="patientName">ФИО пациента <span class="required">*</span></label>
-                        <input type="text" id="patientName" name="patientName" placeholder="Введите полное имя пациента">
-                    </div>
-                    
-                    <div class="profile-modal__form__row">
-                        <div class="profile-modal__form__group">
-                            <label for="patientAge">Возраст <span class="required">*</span></label>
-                            <input type="number" id="patientAge" name="patientAge" min="18" max="120" placeholder="Возраст">
+    
+                    <!-- Информация о заявителе -->
+                    <div class="profile-modal__form__section">
+                        <h3>Ваши данные</h3>
+                        <div class="form-group">
+                            <label for="fullName">ФИО <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя">
                         </div>
                         
                         <div class="profile-modal__form__group">
-                            <label for="patientGender">Пол <span class="required">*</span></label>
-                            <select id="patientGender" name="patientGender">
-                                <option value="" disabled selected>Выберите пол</option>
-                                <option value="male">Мужской</option>
-                                <option value="female">Женский</option>
+                            <label for="phone">Телефон <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                        </div>
+                        
+                        <div class="profile-modal__form__group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Введите email для связи">
+                        </div>
+                    </div>
+                    
+                    <!-- Информация о пациенте (скрыто по умолчанию) -->
+                    <div class="profile-modal__form__section" id="patientSection" style="display: none;">
+                        <h3>Информация о пациенте</h3>
+                        <div class="form-group">
+                            <label for="patientName">ФИО пациента <span class="required">*</span></label>
+                            <input type="text" id="patientName" name="patientName" placeholder="Введите полное имя пациента">
+                        </div>
+                        
+                        <div class="profile-modal__form__row">
+                            <div class="profile-modal__form__group">
+                                <label for="patientAge">Возраст <span class="required">*</span></label>
+                                <input type="number" id="patientAge" name="patientAge" min="18" max="120" placeholder="Возраст">
+                            </div>
+                            
+                            <div class="profile-modal__form__group">
+                                <label for="patientGender">Пол <span class="required">*</span></label>
+                                <select id="patientGender" name="patientGender">
+                                    <option value="" disabled selected>Выберите пол</option>
+                                    <option value="male">Мужской</option>
+                                    <option value="female">Женский</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Услуги -->
+                    <div class="profile-modal__form__section">
+                        <h3>Необходимые услуги</h3>
+                        <div class="profile-modal__form__group checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service1" name="services" value="permanent">
+                                <label for="service1">Постоянное проживание</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service2" name="services" value="temporary">
+                                <label for="service2">Временное проживание</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service3" name="services" value="rehabilitation">
+                                <label for="service3">Реабилитация после травм</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service4" name="services" value="dementia">
+                                <label for="service4">Уход при деменции</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service5" name="services" value="hospice">
+                                <label for="service5">Паллиативная помощь</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Состояние здоровья -->
+                    <div class="profile-modal__form__section">
+                        <h3>Состояние здоровья</h3>
+                        <div class="form-group">
+                            <label for="mobility">Подвижность</label>
+                            <select id="mobility" name="mobility">
+                                <option value="" disabled selected>Выберите уровень подвижности</option>
+                                <option value="independent">Самостоятельно передвигается</option>
+                                <option value="assistance">Требуется помощь при передвижении</option>
+                                <option value="wheelchair">Передвигается на коляске</option>
+                                <option value="bedridden">Лежачий больной</option>
+                            </select>
+                        </div>
+                        
+                        <div class="profile-modal__form__group">
+                            <label for="diagnoses">Основные диагнозы</label>
+                            <textarea id="diagnoses" name="diagnoses" rows="3" placeholder="Укажите основные диагнозы и состояния здоровья"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Дополнительная информация -->
+                    <div class="profile-modal__form__section">
+                        <h3>Дополнительная информация</h3>
+                        <div class="profile-modal__form__group">
+                            <label for="additionalInfo">Ваши пожелания, вопросы или комментарии</label>
+                            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Опишите дополнительные пожелания или задайте вопросы"></textarea>
+                        </div>
+                        
+                        <div class="profile-modal__form__group">
+                            <label for="howDidYouFindUs">Как вы о нас узнали?</label>
+                            <select id="howDidYouFindUs" name="howDidYouFindUs">
+                                <option value="" disabled selected>Выберите вариант</option>
+                                <option value="internet">Интернет</option>
+                                <option value="social">Социальные сети</option>
+                                <option value="friends">Рекомендации знакомых</option>
+                                <option value="doctors">Направление врача</option>
+                                <option value="other">Другое</option>
                             </select>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Услуги -->
-                <div class="profile-modal__form__section">
-                    <h3>Необходимые услуги</h3>
-                    <div class="profile-modal__form__group checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="service1" name="services" value="permanent">
-                            <label for="service1">Постоянное проживание</label>
+                    
+                    <!-- Согласие на обработку данных -->
+                    <div class="profile-modal__form__section">
+                        <div class="profile-modal__form__group checkbox-group">
+                            <div class="checkbox-item agreement">
+                                <input type="checkbox" id="agreement" name="agreement" required>
+                                <label for="agreement">Я согласен на <a href="#" class="policy-link">обработку персональных данных</a> <span class="required">*</span></label>
+                            </div>
                         </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="service2" name="services" value="temporary">
-                            <label for="service2">Временное проживание</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="service3" name="services" value="rehabilitation">
-                            <label for="service3">Реабилитация после травм</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="service4" name="services" value="dementia">
-                            <label for="service4">Уход при деменции</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="service5" name="services" value="hospice">
-                            <label for="service5">Паллиативная помощь</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Состояние здоровья -->
-                <div class="profile-modal__form__section">
-                    <h3>Состояние здоровья</h3>
-                    <div class="form-group">
-                        <label for="mobility">Подвижность</label>
-                        <select id="mobility" name="mobility">
-                            <option value="" disabled selected>Выберите уровень подвижности</option>
-                            <option value="independent">Самостоятельно передвигается</option>
-                            <option value="assistance">Требуется помощь при передвижении</option>
-                            <option value="wheelchair">Передвигается на коляске</option>
-                            <option value="bedridden">Лежачий больной</option>
-                        </select>
                     </div>
                     
-                    <div class="profile-modal__form__group">
-                        <label for="diagnoses">Основные диагнозы</label>
-                        <textarea id="diagnoses" name="diagnoses" rows="3" placeholder="Укажите основные диагнозы и состояния здоровья"></textarea>
+                    <div class="profile-modal__form__actions">
+                        <button type="submit" class="btn-primary submit-button">Отправить заявку</button>
                     </div>
-                </div>
-                
-                <!-- Дополнительная информация -->
-                <div class="profile-modal__form__section">
-                    <h3>Дополнительная информация</h3>
-                    <div class="profile-modal__form__group">
-                        <label for="additionalInfo">Ваши пожелания, вопросы или комментарии</label>
-                        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Опишите дополнительные пожелания или задайте вопросы"></textarea>
-                    </div>
-                    
-                    <div class="profile-modal__form__group">
-                        <label for="howDidYouFindUs">Как вы о нас узнали?</label>
-                        <select id="howDidYouFindUs" name="howDidYouFindUs">
-                            <option value="" disabled selected>Выберите вариант</option>
-                            <option value="internet">Интернет</option>
-                            <option value="social">Социальные сети</option>
-                            <option value="friends">Рекомендации знакомых</option>
-                            <option value="doctors">Направление врача</option>
-                            <option value="other">Другое</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <!-- Согласие на обработку данных -->
-                <div class="profile-modal__form__section">
-                    <div class="profile-modal__form__group checkbox-group">
-                        <div class="checkbox-item agreement">
-                            <input type="checkbox" id="agreement" name="agreement" required>
-                            <label for="agreement">Я согласен на <a href="#" class="policy-link">обработку персональных данных</a> <span class="required">*</span></label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="profile-modal__form__actions">
-                    <button type="submit" class="btn-primary submit-button">Отправить заявку</button>
-                </div>
-            </form>
-
+                </form>
+            </div>
         </div>
+       
         <div class="modal__overlay">
             <div class="modal">
                 <div class="modal__close" id="closeModal">×</div>
@@ -265,7 +267,7 @@
                     <button type="submit" class="submit-button button--primary">Отправить</button>
                      <div class="checkbox__group">
                         <input type="checkbox" id="agreement" name="agreement" required>
-                        <label for="agreement"  class="agreement-text">Я согласен на обработку моих персональных данных, включая трансграничную передачу и передачу третьим лицам, уполномоченным для осуществления целей маркетинга, рекламы и изучения мнений. Я прочитал <a href="#">Политику обработки и защиты персональных данных</a> и согласен с ее положениями</label>
+                        <label for="agreement"  class="agreement-text">Я согласен на обработку моих персональных данных</label>
                       </div>
                       
                       <div class="checkbox__group">
@@ -301,9 +303,9 @@
               </p>
           </div>
       </section>
-      <section class="news" id="news" itemtype="https://schema.org/NewsArticle">
-            <h2 class="news__title" itemprop="name">Статьи</h2>
-            <div class="news__bottom">
+      <section class="news fade-in" id="news" itemtype="https://schema.org/NewsArticle">
+            <h2 class="news__title fade-in delay-1" itemprop="name">Статьи</h2>
+            <div class="news__bottom fade-in delay-2">
                 <div class="news__navigation" itemprop="navigation">
                   <button role="button" class="nav__arrow prev">&#10094;</button>
                   <button  role="button" class="nav__arrow next">&#10095;</button>
@@ -311,7 +313,7 @@
                 </div>
               </div>
             <div class="news-slider" itemprop="slider">
-              <div class="news__item" itemprop="articleBody">
+              <div class="news__item fade-in delay-3" itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/67413990-15e5-50a2-ac07-e403ffc6238a.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
@@ -322,7 +324,7 @@
                 </div>
               </div>
               
-              <div class="news__item" itemprop="articleBody">
+              <div class="news__item fade-in delay-4" itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/IMG_756600.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
@@ -332,7 +334,7 @@
                   <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
               </div>
-              <div class="news__item" itemprop="articleBody">
+              <div class="news__item " itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/28dadb3d-b0a7-555b-bc19-867f70bf5005.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>

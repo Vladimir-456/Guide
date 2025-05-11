@@ -2,62 +2,116 @@
 @use 'mixin' as *;
 
 .benefits {
-  max-width: 1200px;
+  max-width: $max-width;
   padding: 40px 20px;
   border-radius: 16px;
-  margin: 60px auto;
-}
-  
-.benefits-title {
-  color: #129e4c;
-  font-size: 26px;
-  margin-bottom: 25px;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 15px;
-}
-.benefits-description {
-  // width: 100%;
-  color: $text-color;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 60px;
-  font-weight: 400;
-  max-width: 800px;
-}
+  margin: 90px auto;
+  background: linear-gradient(145deg, #ffffff, #fcfdff);
+  backdrop-filter: blur(10px);
 
-.benefits-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  position: relative;
-  z-index: 2;
-}
-  
-  .benefit-item {
-    padding: 30px;
-    display: flex;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    flex-direction: column;
-    align-items: flex-start;
-    width: calc(33.333% - 20px);
-    min-width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid #129e4c;
+  &-title {
+    color: $secondary-color;
+    font-size: $font-size-title;
+    margin-bottom: 30px;
+    font-weight: 500;
+    // Добавляем анимацию
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    
+    // Добавляем подчеркивание при наведении
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $secondary-color;
+        transition: width 0.3s ease;
+    }
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transform: translateX(10px);
+        
+        &::after {
+            width: 45%;
+        }
+    }
+  }
+
+    &-description {
+      color: $text-color;
+      font-size: clamp(14px, 1.7vw, 18px);
+      line-height: 1.6;
+      margin-bottom: 50px;
+      font-weight: 400;
+      max-width: 800px;
+      opacity: 0.9;
+    }
+
+    &-container {
+      @include flex-container(row, flex-start, flex-start, wrap);
+      gap: 30px;
+      position: relative;
+      z-index: 2;
+      padding: 20px 0;
+    }
+}
+
+  .benefit-item {
+    padding: 40px;
+    @include flex-container(column, flex-start, flex-start, no-wrap);
+    background-color: #fff;
+    border-radius: 12px;
+    // Улучшаем тень
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    width: calc(43.333% - 30px);
+    min-width: 300px;
+    // Улучшаем анимацию
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    // Добавляем градиентную границу
+    border-top: 4px solid;
+    border-image: linear-gradient(90deg, #129e4c, #2ecc71) 1;
+    // Добавляем эффект при наведении
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 
+            0 12px 24px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+
+        &::before {
+            opacity: 1;
+        }
+
+        h4 {
+            color: #2ecc71;
+        }
     }
 
     h4 {
-      color: #129e4c;
-      font-size: 22px;
+      color: $secondary-color;
+      font-size: clamp(18px, 2vw, 22px);
       margin-bottom: 15px;
-      font-weight: 600;
+      font-weight: 500;
+      // Добавляем анимацию
+      transition: color 0.3s ease;
     }
     p {
       color: $text-color;
@@ -76,105 +130,104 @@
   .benefit-underline {
     width: 50px;
     height: 2px;
-    background-color: #2a7d9e;
+    background: linear-gradient(90deg, #2a7d9e, #2ecc71);
     margin-top: 10px;
-  }
-  
-@include xl-down {
- 
-}
+    transition: width 0.3s ease;
     
+    &:hover {
+        width: 100px;
+    }
+}
+  
+  @include xl-down {
+    .benefits {
+        margin: 70px auto;
+        padding: 30px 15px;
+    }
+}
+
 @include lg-down {
-
+    .benefits {
+        margin: 60px auto;
+        
+        &-container {
+            gap: 20px;
+        }
+        
+        .benefit-item {
+            width: calc(50% - 20px);
+        }
+    }
 }
-    
+
 @include md-down {
-  .benefit-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 0;
-    
-    &__icon {
-      margin-right: 0;
-      margin-bottom: 10px;
+    .benefits {
+        margin: 50px auto;
+        
+        &-container {
+            gap: 15px;
+        }
+        
+        .benefit-item {
+            width: 100%;
+            min-width: 280px;
+            padding: 30px;
+        }
     }
-    
-    &__content {
-      width: 100%;
-    }
-    
-    &:last-child {
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-  }
 }
-    
+
 @include sm-down {
-  .benefits {
-    &-title {
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-    
-    &-description {
-      font-size: 16px;
-      margin-bottom: 40px;
-    }
-    
-    &-underline {
-      width: 50px;
-    }
-    
-    &-item {
-      &__icon {
-        width: 50px;
-        height: 50px;
+    .benefits {
+        margin: 40px auto;
+        padding: 20px 10px;
         
-        svg {
-          width: 60px;
-          height: 60px;
+        &-title {
+            font-size: 22px;
+            margin-bottom: 15px;
         }
-      }
+        
+        &-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-item {
+            padding: 20px;
+            
+            h4 {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 14px;
+            }
+        }
     }
-  }
-  
-  .button {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
 }
-    
+
 @include xs-down {
-  .benefits {
-    &-title {
-      font-size: $font-size-title-small;
-    }
-    &-description {
-      font-size: 15px;
-      margin-bottom: 40px;
-      line-height: 1.4;
-    }
-    
-    &-item {
-      &__icon {
-        width: 40px;
-        height: 40px;
+    .benefits {
+        margin: 30px auto;
         
-        svg {
-          width: 50px;
-          height: 50px;
+        &-title {
+            font-size: $font-size-title-small;
         }
-      }
+        
+        &-description {
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .benefit-item {
+            padding: 15px;
+            
+            h4 {
+                font-size: 16px;
+            }
+            
+            p {
+                font-size: 13px;
+            }
+        }
     }
-  }
-
 }
-    
-@include xxs-down {
-
-}
-      
-    
-    
