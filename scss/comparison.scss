@@ -4,14 +4,14 @@
 
 .comparison {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 90px auto;
     // padding: 20px;
 
     &__title {
         color: $secondary-color;
         font-size: $font-size-title;
         margin-bottom: 30px;
-        font-weight: 600;
+        font-weight: 400;
     }
 
     &-table {
