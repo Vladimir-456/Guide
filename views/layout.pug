@@ -22,6 +22,7 @@ html(lang="en")
                 .header__container#header__container(itemprop="mainEntityOfPage")
                     .header__logo#header__logo(itemprop="logo")
                         div
+                        a(href="/")
                             img.header__logo-img(src="/img/logo_edit.jpg" alt="ОПЕКА")
                     nav.header__nav#header__nav(role="navigation")
                         ul.header__list#header__list(role="list")
@@ -37,14 +38,15 @@ html(lang="en")
                         a.header__phone + 7 933 181-02-35
                         span.header__hours Режим работы: с 9:00 до 18:00
                     .header__actions
-                        a.button.button--anketa(href="" role="link") Заполнить анкету
-                        a.button.button__slider.button--call(href="/" role="link") Заказать звонок
+                     a.button.button--anketa(href="/" role="link") Заполнить анкету
+                     a.button.button__slider.button--call(href="/" role="link") Заказать звонок
             .news__item__block
                 block content
                 .footer__layout
                     include footer
-                    //- include forms
-        script(type="module" src="/js/validate.js")
-        script(type="module" src="/js/modal.js")
+                    include forms
+        //- script(type="module" src="/js/validate.js")
+        //- script(type="module" src="/js/modal.js")
         script(type="module" src="/js/questionnaire.js")
-        script(type="module" src="/js/main.js")
+        //- script(type="module" src="/js/main.js")
+        //- script(type="module" src="/js/modal-pug.js")

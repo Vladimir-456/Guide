@@ -53,6 +53,9 @@
         font-size: clamp(16px, 3vw, 18px); // Используем clamp для плавного масштабирования шрифта
         line-height: 1.4;
         margin-bottom: 25px;
+        b {
+            color: $secondary-color;
+        }  
     }
 
     &__offer {

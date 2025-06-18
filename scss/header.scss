@@ -2,6 +2,22 @@
 @use 'mixin' as *;
 @use 'animation' as *;
 
+:root {
+  --header-padding: clamp(0.5rem, 2vw, 2rem);
+  --logo-size: clamp(60px, 8vw, 100px);
+  --nav-gap: clamp(0.625rem, 2vw, 1.875rem);
+  --font-base: clamp(0.875rem, 2vw, 1.125rem);
+  --font-small: clamp(0.75rem, 1.5vw, 1rem);
+  --container-width: min(95%, 1400px);
+  --border-radius: clamp(0.25rem, 1vw, 1rem);
+
+  // отступы
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1.5vw, 1rem);
+  --space-md: clamp(1rem, 2.5vw, 2rem);
+  --space-lg: clamp(1.5rem, 3vw, 3rem);
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -20,7 +36,17 @@
   &--hidden {
       transform: translateY(-100%);
   }
-  
+  &__text {
+    color: $secondary-color;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      color: #0cca5b; 
+    }
+  }
   &__container {
       @include flex-container(row, space-between, center, no-wrap);
       max-width: $max-width;
@@ -32,6 +58,7 @@
   &__logo {
       @include flex-container(row, flex-start, center, no-wrap);
       gap: 10px;
+      margin-right: 20px;
       &-img {
         width: clamp(60px, 5vw, 90px);
         height: clamp(60px, 5vw, 90px);
@@ -48,7 +75,9 @@
       @include flex-container(column, flex-start, flex-start, no-wrap);
       gap: 10px;
   }
-  
+  &__text {
+        display: none;
+      }
   &__phone {
     color: $text-color;
     font-size: clamp(14px, 1.2vw, 16px);
@@ -196,7 +225,7 @@
   }
 }
 
-// Улучшенные медиа-запросы
+
 @include xl-down {
   .header__container {
       width: 95%;
@@ -210,6 +239,9 @@
           flex-wrap: wrap;
           justify-content: center;
           padding: 0 15px;
+      }
+      &__text {
+        display: none;
       }
       
       &__logo {
@@ -248,8 +280,9 @@
 
 @include md-down {
   .header {
-      position: relative;
+    position: static;
       &__container {
+        width: 100%;
           padding: 0 10px;
           margin-top: 0;
       }
@@ -274,20 +307,24 @@
       }
       
       &__contacts {
-        display: none;
+        order: 1;
+        margin-left: 10px;
+        // @include flex-container(row, flex-start, flex-start, no-wrap);
+        // gap: 10px;
       }
       &__phone {
-        font-size: 15px;
+        font-size: 16px;
     }
     
     &__hours {
-        margin-left: 15px;
-        font-size: 13px;
-        margin-top: 8px;
+      display: none;
+        // margin-left: 15px;
+        // font-size: 15px;
+        // margin-top: 8px;
     }
       &__nav {
-          margin-left: 20px;
-          margin-right: 20px;
+          margin-left: 10px;
+          margin-right: 10px;
           order: 2;
       }
       &__list {
@@ -304,9 +341,11 @@
 
 @include sm-down {
   .header {
-      position: relative;
       &__container {
           padding: 0 5px;
+      }
+      &__text {
+        display: block;
       }
       
       &__logo-img {
@@ -315,20 +354,20 @@
       }
       &__nav {
         margin-bottom: 0;
-          margin-left: 10px;
-          margin-right: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
       }
       &__list {
         margin-top: 5px;
       }
       &__item {
-        margin-right: 10px;
+        margin-right: 15px;
         a {
-          font-size: 14px;
+          font-size: 15px;
         }
       }
       &__phone {
-          font-size: 14px;
+          font-size: 17px;
       }
       
       &__hours {
@@ -341,8 +380,7 @@
 
 @include xs-down {
   .header {
-      min-width: 480px;
-      position: relative;
+    
       &__logo-img {
           width: 80px;
           height: 80px;
@@ -352,8 +390,8 @@
           margin-left: 10px;
       }
       &__nav {
-        // margin-left: 10px;
-        // margin-right: 15px;
+        margin-left: 10px;
+        margin-right: 15px;
         margin-top: 0;
       }
       &__item {
@@ -376,14 +414,19 @@
 
 @include xxs-down {
   .header {
-    min-width: 390px;
-    position: relative;
       &__container {
         width: 100%;
       }
       &__logo {
           margin-bottom: 0;
           margin-left: 5px;
+      }
+      &__phone {
+        margin: 0 auto;
+      }
+      &__text {
+        text-align: center;
+        margin: 0 auto;
       }
       
       &__logo-img {

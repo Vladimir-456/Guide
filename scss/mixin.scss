@@ -31,10 +31,10 @@
 // 440px
 @mixin xs-down {
     @media (max-width: $breakpoint-xs) {
-        .location-tag {
-            font-size: 10px;
-            padding: 3px 6px;
-          }
+        // .location-tag {
+        //     font-size: 10px;
+        //     padding: 3px 6px;
+        //   }
       @content;
     }
 }
