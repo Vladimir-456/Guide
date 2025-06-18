@@ -9,9 +9,10 @@
   
     &__title {
       font-size: 27px;
-      margin-bottom: 30px;
+      margin-top: 40px;
+      margin-bottom: 20px;
       font-weight: 500;
-      margin-left: 40px;
+      margin-left: 20px;
       color: $secondary-color;
     }
   
@@ -194,7 +195,7 @@
 @include sm-down {
   .news {
     &__title {
-      font-size: 20px;
+      font-size: 23px;
       margin-bottom: 15px;
     }
     
@@ -254,13 +255,12 @@
 
 @include xxs-down {
   .news {
-    &__title {
-      margin-right: 10px;
-    }
+    padding: 10px 0;
+    min-width: 475px;
     &__item {
       width: 100%;
       h3 {
-        font-size: 15px;
+        font-size: 16px;
       }
       
       p {
@@ -269,7 +269,7 @@
     }
   }
   .all-news {
-    font-size: 12px;
+    font-size: 13px;
   }
 
 }

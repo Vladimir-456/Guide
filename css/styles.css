@@ -681,7 +681,7 @@ img.lazy.error::after {
     margin: 15px;
   }
   .header {
-    min-width: 450px;
+    min-width: 475px;
   }
   .header__container {
     width: 100%;
@@ -1022,6 +1022,10 @@ footer__logo {
   .header__content__logo__text {
     font-size: 9px;
   }
+  footer {
+    min-width: 475px;
+    margin-top: 0;
+  }
   .footer {
     padding: 15px 0;
   }
@@ -1056,9 +1060,10 @@ footer__logo {
 }
 .news__title {
   font-size: 27px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   font-weight: 500;
-  margin-left: 40px;
+  margin-left: 20px;
   color: #129e4c;
 }
 .news-slider {
@@ -1214,7 +1219,7 @@ footer__logo {
 }
 @media (max-width: 576px) {
   .news__title {
-    font-size: 20px;
+    font-size: 23px;
     margin-bottom: 15px;
   }
   .news__item {
@@ -1260,20 +1265,21 @@ footer__logo {
   .divider {
     margin: 15px;
   }
-  .news__title {
-    margin-right: 10px;
+  .news {
+    padding: 10px 0;
+    min-width: 475px;
   }
   .news__item {
     width: 100%;
   }
   .news__item h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
   .news__item p {
     font-size: 14px;
   }
   .all-news {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 .reviews {
@@ -1676,6 +1682,31 @@ footer__logo {
   }
   .benefits .benefit-item p {
     font-size: 13px;
+  }
+}
+@media (max-width: 375px) {
+  .divider {
+    margin: 15px;
+  }
+  .benefits {
+    min-width: 475px;
+    margin: 20px auto;
+  }
+  .benefits-title {
+    font-size: 22px;
+  }
+  .benefits-description {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .benefits .benefit-item {
+    padding: 10px;
+  }
+  .benefits .benefit-item h4 {
+    font-size: 15px;
+  }
+  .benefits .benefit-item p {
+    font-size: 12px;
   }
 }
 .pension-card {
@@ -3574,11 +3605,13 @@ i {
 }
 @media (max-width: 440px) {
   .comparison {
+    padding: 0 10px;
     margin: 15px auto;
+    min-width: 475px;
   }
   .comparison__title {
     font-size: 22px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
   .comparison-mobile__item {
     padding: 10px;
@@ -3858,6 +3891,30 @@ i {
     font-size: 15px;
   }
 }
+@media (max-width: 375px) {
+  .divider {
+    margin: 15px;
+  }
+  .transportation {
+    margin: 30px auto;
+    padding: 15px;
+    min-width: 475px;
+  }
+  .transportation__title {
+    font-size: 22px;
+  }
+  .address-map {
+    margin: 30px auto;
+    padding: 5px;
+    min-width: 475px;
+  }
+  .address-map__title {
+    font-size: 22px;
+  }
+  .address-map__map {
+    margin-top: 10px;
+  }
+}
 .stock {
   position: relative;
   margin: 0 auto;
@@ -4025,7 +4082,7 @@ i {
 @media (max-width: 479px) {
   .stock {
     margin-top: 30px;
-    min-width: 470px;
+    min-width: 475px;
   }
   .stock__container {
     padding: 15px;
@@ -4247,7 +4304,7 @@ i {
 }
 @media (max-width: 576px) {
   .rehab-slider__title {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 15px;
   }
   .rehab-slider__container {
@@ -4255,30 +4312,35 @@ i {
   }
   .rehab-slider__buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
   .feature-list__item {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
     padding-left: 25px;
   }
 }
 @media (max-width: 440px) {
   .rehab-slider__content {
-    padding: 15px 10px;
+    padding: 20px 10px;
   }
   .rehab-slider__container {
     margin-top: 15px;
   }
   .rehab-slider__title {
-    font-size: 18px;
+    font-size: 23px;
   }
   .rehab-slider__img {
     width: 90%;
     transform: translateX(60px);
   }
   .rehab-slider__buttons {
-    gap: 8px;
+    gap: 10px;
+  }
+  .rehab-slider .feature-list__item {
+    font-size: 15px;
+    margin-bottom: 8px;
+    padding-left: 20px;
   }
 }
 .info-pansionat {
@@ -4495,6 +4557,7 @@ i {
     margin: 15px;
   }
   .info-pansionat {
+    min-width: 475px;
     margin: 20px auto;
   }
   .info-pansionat__content {
@@ -4509,11 +4572,14 @@ i {
   }
   .pansions-populated {
     margin: 20px auto;
+    min-width: 475px;
   }
   .pansions-populated__title {
     font-size: 22px;
   }
   .pansions-populated__description {
+    width: 90%;
+    line-height: 1.5;
     font-size: 14px;
     margin-bottom: 20px;
   }
@@ -4702,6 +4768,33 @@ i {
   .documents__step__number {
     width: 30px;
     height: 30px;
+    font-size: 12px;
+  }
+  .documents__step__description {
+    font-size: 12px;
+  }
+}
+@media (max-width: 375px) {
+  .divider {
+    margin: 15px;
+  }
+  .documents {
+    min-width: 475px;
+    margin: 25px auto;
+  }
+  .documents__title {
+    font-size: 22px;
+  }
+  .documents__description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .documents__step {
+    max-width: 100px;
+  }
+  .documents__step__number {
+    width: 40px;
+    height: 40px;
     font-size: 12px;
   }
   .documents__step__description {

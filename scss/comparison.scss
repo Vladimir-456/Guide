@@ -5,7 +5,6 @@
 .comparison {
     max-width: 1200px;
     margin: 90px auto;
-    // padding: 20px;
 
     &__title {
         color: $secondary-color;
@@ -245,13 +244,14 @@
 
 @include xs-down {
     .comparison {
-        // padding: 0 10px;
+        padding: 0 10px;
         margin: 15px auto;
+        min-width: 475px;
         
         &__title {
             font-size: $font-size-title-small;
             // padding: 0 10px;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         &-mobile {
@@ -273,8 +273,7 @@
                 padding: 8px 5px;
                 font-size: 12px;
             }
-            
-            // Перестраиваем две колонки для лучшей видимости
+        
             .services {
                 width: 65%;
                 padding-right: 5px;

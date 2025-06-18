@@ -268,3 +268,25 @@
         }
     }
 }
+
+@include xxs-down {
+    .transportation {
+        margin: 30px auto;
+        padding: 15px;
+        min-width: 475px;
+        &__title {
+            font-size: $font-size-title-small;
+        }
+    }
+    .address-map {
+        margin: 30px auto;
+        padding: 5px;
+        min-width: 475px;
+        &__title {
+            font-size: $font-size-title-small;
+        }
+        &__map {
+            margin-top: 10px;
+        }
+    }
+}
