@@ -564,6 +564,7 @@ img.lazy.error::after {
 }
 @media (max-width: 768px) {
   .header {
+    min-width: 750px;
     position: static;
   }
   .header__container {
@@ -646,6 +647,9 @@ img.lazy.error::after {
   }
 }
 @media (max-width: 440px) {
+  .header {
+    min-width: 500px;
+  }
   .header__logo-img {
     width: 80px;
     height: 80px;
@@ -675,6 +679,9 @@ img.lazy.error::after {
 @media (max-width: 375px) {
   .divider {
     margin: 15px;
+  }
+  .header {
+    min-width: 450px;
   }
   .header__container {
     width: 100%;
@@ -4001,6 +4008,7 @@ i {
 @media (min-width: 480px) and (max-width: 575px) {
   .stock {
     margin-top: 40px;
+    width: 100%;
   }
   .stock__container {
     padding: 20px;
@@ -4017,6 +4025,7 @@ i {
 @media (max-width: 479px) {
   .stock {
     margin-top: 30px;
+    min-width: 470px;
   }
   .stock__container {
     padding: 15px;

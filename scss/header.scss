@@ -280,6 +280,7 @@
 
 @include md-down {
   .header {
+    min-width: 750px;
     position: static;
       &__container {
         width: 100%;
@@ -380,7 +381,7 @@
 
 @include xs-down {
   .header {
-    
+      min-width: 500px;
       &__logo-img {
           width: 80px;
           height: 80px;
@@ -414,6 +415,7 @@
 
 @include xxs-down {
   .header {
+    min-width: 450px;
       &__container {
         width: 100%;
       }
