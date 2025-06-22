@@ -36,6 +36,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/manage', (req, res) => {
+  console.log(path.join(__dirname, 'manage.html'));
+  res.sendFile(path.join(__dirname, 'manage.html'));
+});
+
 // connectDB();
 
 // app.use('/news', newsRoutes);
@@ -55,7 +60,6 @@ app.get('/news', (req, res) => {
 
 app.post('/api/application', async (req, res) => {
   const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;
-  console.log(services);
   const typesMapping = {
     'self': 'Для себя',
     'relative': 'Для родственников',
@@ -84,7 +88,6 @@ app.post('/api/application', async (req, res) => {
   const mobilityText = mobilityMapping[mobility] || 'Не указана';
   const didYouFindUsText = didYouFindUsMapping[howDidYouFindUs] || 'Не указано';
   const servicesText = servicesMapping[services] || 'Не указано';
-  console.log(servicesText);
 
   const telegramMessage = `Заполнение анкеты на сайте Опека:
   👤 ФИО: ${fullName}
@@ -99,7 +102,6 @@ app.post('/api/application', async (req, res) => {
   ✅ Согласие на обработку данных: ${agreement ? 'Да' : 'Нет'}`;
 
   callbackTelegramMessage(telegramMessage, res);
-  // callbackTelegramMessage(telegramMessage, res);
 })
 
 app.get('/promotion', (req, res) => {

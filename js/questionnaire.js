@@ -14,22 +14,19 @@ const openModal = () => {
 
 const onFormSubmit = async (evt) => {
     evt.preventDefault();
-    
-    // Инициализируем валидацию
+
     const validator = initValidate();
     if (!validator) {
         console.error('Failed to initialize form validation');
         return;
     }
 
-    // Проверяем валидность формы
     const isValid = await validator.revalidate();
     
     if (!isValid) {
         return;
     }
 
-    // Если форма валидна, собираем и отправляем данные
     const formData = new FormData(evt.target);
     const formDataObj = Object.fromEntries(formData);
     
@@ -42,20 +39,21 @@ const onFormSubmit = async (evt) => {
             }
         });
         
-        if(response.ok) {
-            closeModal();
-            profileModalForm.reset();
-        } else {
+        if(!response.ok) {
             throw new Error('Network response was not ok');
         }
 
-        return response.json();
+        const result = await response.json();
+        closeModal();
+        profileModalForm.reset();
+        window.location.href = '/manage'
+
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
-const closeModal = () => {
+function closeModal () {
     profileModal.style.display = 'none';
     profileModalForm.reset();
     profileModalCloseBtn.removeEventListener('click', closeModal);

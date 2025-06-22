@@ -58,9 +58,8 @@ const onFormSubmit = async (evt) => {
         const result = await response.json();
         closeModalView();
         form.reset();
+        window.location.href = '/manage'
         
-        // Показываем сообщение об успехе
-        alert('Спасибо! Ваша заявка принята.');
     } catch (error) {
         console.error('Error:', error);
         alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');

@@ -32,10 +32,10 @@ const callbackTelegramMessage = async (telegramMessage, res) => {
 
         console.log('Сообщение успешно отправлено в Telegram');
         
-        return res.status(201).json({
-            success: true,
-            message: 'Заявка успешно отправлена'
-        });
+        // return res.status(201).json({
+        //     success: true,
+        //     message: 'Заявка успешно отправлена'
+        // });
 
     } catch (telegramError) {
         console.error('Ошибка отправки в Telegram:', telegramError);
