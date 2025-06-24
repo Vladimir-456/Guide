@@ -13,7 +13,7 @@ function openModalView() {
 }
 
 function closeModalView() {
-    modalOverlay .style.display = 'none';
+    modalOverlay.style.display = 'none';
     form.reset();
     modalCloseBtn.removeEventListener('click', closeModalView);
 }
@@ -21,7 +21,6 @@ function closeModalView() {
 const formatFormData = (formData) => {
     const formDataObj = {};
     formData.forEach((value, key) => {
-        // Для чекбоксов (согласие с обработкой данных)
         if (key === 'agreement' || key === 'newsletter') {
             formDataObj[key] = value === 'on' || value === 'true';
         } else {

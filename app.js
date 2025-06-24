@@ -41,10 +41,6 @@ app.get('/manage', (req, res) => {
   res.sendFile(path.join(__dirname, 'manage.html'));
 });
 
-// connectDB();
-
-// app.use('/news', newsRoutes);
-
 app.get('/news/:slug', (req, res) => {
   const newsItem = newsData.find(item => item.slug === req.params.slug);
   if (newsItem) {
@@ -102,6 +98,8 @@ app.post('/api/application', async (req, res) => {
   ✅ Согласие на обработку данных: ${agreement ? 'Да' : 'Нет'}`;
 
   callbackTelegramMessage(telegramMessage, res);
+
+  res.status(201).json({ success: true, message: 'Заявка принята' });
 })
 
 app.get('/promotion', (req, res) => {
