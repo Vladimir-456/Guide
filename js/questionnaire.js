@@ -14,25 +14,23 @@ const openModal = () => {
 
 const onFormSubmit = async (evt) => {
     evt.preventDefault();
-    
-    // Инициализируем валидацию
+    console.log('Форма отправляется');
+
     const validator = initValidate();
     if (!validator) {
         console.error('Failed to initialize form validation');
         return;
     }
 
-    // Проверяем валидность формы
     const isValid = await validator.revalidate();
-    
+    console.log('isValid:', isValid);
+
     if (!isValid) {
         return;
     }
 
-    // Если форма валидна, собираем и отправляем данные
     const formData = new FormData(evt.target);
     const formDataObj = Object.fromEntries(formData);
-    
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -41,21 +39,25 @@ const onFormSubmit = async (evt) => {
                 'Content-Type': 'application/json'
             }
         });
-        
-        if(response.ok) {
-            closeModal();
-            profileModalForm.reset();
-        } else {
+        console.log('Ответ получен, статус:', response.status);
+ 
+        if(!response.ok) {
+            console.error('Ошибка сети:', response.status, await response.text());
             throw new Error('Network response was not ok');
         }
-
-        return response.json();
+        const result = await response.json();
+        console.log('Ответ сервера:', result);
+        closeModal();
+        console.log('Редирект на /manage');
+        window.location.href = '/manage';
+        profileModalForm.reset();
+ 
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
-const closeModal = () => {
+function closeModal () {
     profileModal.style.display = 'none';
     profileModalForm.reset();
     profileModalCloseBtn.removeEventListener('click', closeModal);

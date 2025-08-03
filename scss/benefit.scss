@@ -231,3 +231,30 @@
         }
     }
 }
+@include xxs-down {
+    .benefits {
+        min-width: 475px;
+        margin: 20px auto;
+        
+        &-title {
+            font-size: $font-size-title-small;
+        }
+        
+        &-description {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-item {
+            padding: 10px;
+            
+            h4 {
+                font-size: 15px;
+            }
+            
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+} 

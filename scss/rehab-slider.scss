@@ -234,7 +234,7 @@
 @include sm-down {
   .rehab-slider {
       &__title {
-          font-size: 20px;
+          font-size: 24px;
           margin-bottom: 15px;
       }
       
@@ -244,13 +244,13 @@
       
       &__buttons {
           flex-direction: column;
-          gap: 10px;
+          gap: 15px;
       }
   }
   
   .feature-list {
       &__item {
-          font-size: 14px;
+          font-size: 16px;
           margin-bottom: 10px;
           padding-left: 25px;
       }
@@ -260,7 +260,7 @@
 @include xs-down {
   .rehab-slider {
       &__content {
-          padding: 15px 10px;
+          padding: 20px 10px;
       }
       
       &__container {
@@ -268,7 +268,7 @@
       }
       
       &__title {
-          font-size: 18px;
+          font-size: 23px;
       }
       
       &__img {
@@ -277,7 +277,14 @@
       }
       
       &__buttons {
-          gap: 8px;
+          gap: 10px;
       }
+      .feature-list {
+      &__item {
+          font-size: 15px;
+          margin-bottom: 8px;
+          padding-left: 20px;
+      }
+    }
   }
 }

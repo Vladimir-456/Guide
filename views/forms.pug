@@ -1,153 +1,154 @@
 // Форма анкеты
-#profile-modal.profile-modal
-    .profile-modal__close#closeModal ×
-    .profile-modal__header
-    form#profile-modal__form
-        // Тип обращения
-        .profile-modal__form__section
-            h3 Тип обращения
-            .profile-modal__form__group.radio-group
-                .radio-item
-                    input(type="radio" id="forSelf" name="applicationType" value="self" checked)
-                    label(for="forSelf") Для себя
-                .radio-item
-                    input(type="radio" id="forRelative" name="applicationType" value="relative")
-                    label(for="forRelative") Для родственника
+.profile-modal__overlay
+    #profile-modal.profile-modal
+        .profile-modal__close#closeModal ×
+        .profile-modal__header
+        form#profile-modal__form
+            // Тип обращения
+            .profile-modal__form__section
+                h3 Тип обращения
+                .profile-modal__form__group.radio-group
+                    .radio-item
+                        input(type="radio" id="forSelf" name="applicationType" value="self" checked)
+                        label(for="forSelf") Для себя
+                    .radio-item
+                        input(type="radio" id="forRelative" name="applicationType" value="relative")
+                        label(for="forRelative") Для родственника
 
-        // Информация о заявителе
-        .profile-modal__form__section
-            h3 Ваши данные
-            .form-group
-                label(for="fullName") ФИО 
-                    span.required *
-                input(type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя")
-            
-            .profile-modal__form__group
-                label(for="phone") Телефон 
-                    span.required *
-                input(type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__")
-            
-            .profile-modal__form__group
-                label(for="email") Email
-                input(type="email" id="email" name="email" placeholder="Введите email для связи")
-
-        // Информация о пациенте
-        #patientSection.profile-modal__form__section(style="display: none;")
-            h3 Информация о пациенте
-            .form-group
-                label(for="patientName") ФИО пациента 
-                    span.required *
-                input(type="text" id="patientName" name="patientName" placeholder="Введите полное имя пациента")
-            
-            .profile-modal__form__row
-                .profile-modal__form__group
-                    label(for="patientAge") Возраст 
+            // Информация о заявителе
+            .profile-modal__form__section
+                h3 Ваши данные
+                .form-group
+                    label(for="fullName") ФИО 
                         span.required *
-                    input(type="number" id="patientAge" name="patientAge" min="18" max="120" placeholder="Возраст")
+                    input(type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя")
                 
                 .profile-modal__form__group
-                    label(for="patientGender") Пол 
+                    label(for="phone") Телефон 
                         span.required *
-                    select(id="patientGender" name="patientGender")
-                        option(value="" disabled selected) Выберите пол
-                        option(value="male") Мужской
-                        option(value="female") Женский
+                    input(type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__")
+                
+                .profile-modal__form__group
+                    label(for="email") Email
+                    input(type="email" id="email" name="email" placeholder="Введите email для связи")
 
-        // Услуги
-        .profile-modal__form__section
-            h3 Необходимые услуги
-            .profile-modal__form__group.checkbox-group
-                .checkbox-item
-                    input(type="checkbox" id="service1" name="services" value="permanent")
-                    label(for="service1") Постоянное проживание
-                .checkbox-item
-                    input(type="checkbox" id="service2" name="services" value="temporary")
-                    label(for="service2") Временное проживание
-                .checkbox-item
-                    input(type="checkbox" id="service3" name="services" value="rehabilitation")
-                    label(for="service3") Реабилитация после травм
-                .checkbox-item
-                    input(type="checkbox" id="service4" name="services" value="dementia")
-                    label(for="service4") Уход при деменции
-                .checkbox-item
-                    input(type="checkbox" id="service5" name="services" value="hospice")
-                    label(for="service5") Паллиативная помощь
-
-        // Состояние здоровья
-        .profile-modal__form__section
-            h3 Состояние здоровья
-            .form-group
-                label(for="mobility") Подвижность
-                select(id="mobility" name="mobility")
-                    option(value="" disabled selected) Выберите уровень подвижности
-                    option(value="independent") Самостоятельно передвигается
-                    option(value="assistance") Требуется помощь при передвижении
-                    option(value="wheelchair") Передвигается на коляске
-                    option(value="bedridden") Лежачий больной
-            
-            .profile-modal__form__group
-                label(for="diagnoses") Основные диагнозы
-                textarea(id="diagnoses" name="diagnoses" rows="3" placeholder="Укажите основные диагнозы и состояния здоровья")
-
-        // Дополнительная информация
-        .profile-modal__form__section
-            h3 Дополнительная информация
-            .profile-modal__form__group
-                label(for="additionalInfo") Ваши пожелания, вопросы или комментарии
-                textarea(id="additionalInfo" name="additionalInfo" rows="4" placeholder="Опишите дополнительные пожелания или задайте вопросы")
-            
-            .profile-modal__form__group
-                label(for="howDidYouFindUs") Как вы о нас узнали?
-                select(id="howDidYouFindUs" name="howDidYouFindUs")
-                    option(value="" disabled selected) Выберите вариант
-                    option(value="internet") Интернет
-                    option(value="social") Социальные сети
-                    option(value="friends") Рекомендации знакомых
-                    option(value="doctors") Направление врача
-                    option(value="other") Другое
-
-        // Согласие на обработку данных
-        .profile-modal__form__section
-            .profile-modal__form__group.checkbox-group
-                .checkbox-item.agreement
-                    input(type="checkbox" id="agreement" name="agreement" required)
-                    label(for="agreement")
-                        | Я согласен на 
-                        a.policy-link(href="#") обработку персональных данных
+            // Информация о пациенте
+            #patientSection.profile-modal__form__section(style="display: none;")
+                h3 Информация о пациенте
+                .form-group
+                    label(for="patientName") ФИО пациента 
                         span.required *
+                    input(type="text" id="patientName" name="patientName" placeholder="Введите полное имя пациента")
+                
+                .profile-modal__form__row
+                    .profile-modal__form__group
+                        label(for="patientAge") Возраст 
+                            span.required *
+                        input(type="number" id="patientAge" name="patientAge" min="18" max="120" placeholder="Возраст")
+                    
+                    .profile-modal__form__group
+                        label(for="patientGender") Пол 
+                            span.required *
+                        select(id="patientGender" name="patientGender")
+                            option(value="" disabled selected) Выберите пол
+                            option(value="male") Мужской
+                            option(value="female") Женский
 
-        .profile-modal__form__actions
-            button.btn-primary.submit-button(type="submit") Отправить заявку
-
-// Форма заказа звонка
-.modal__overlay
-    .modal
-        .modal__close#closeModal ×
-        .modal__content
-            h2.modal__title Заказать звонок
-            form#callback-form.modal__form
-                .form-group
-                    label(for="callback-name") Ваше имя
-                    input(type="text" id="callback-name" name="name" required placeholder="Введите ваше имя")
-                .form-group
-                    label(for="callback-phone") Телефон
-                    input(type="tel" id="callback-phone" name="phone" required placeholder="+7 (___) ___-__-__")
-                .form-group
-                    label(for="callback-time") Удобное время для звонка
-                    select(id="callback-time" name="time")
-                        option(value="" disabled selected) Выберите время
-                        option(value="morning") Утро (9:00 - 12:00)
-                        option(value="day") День (12:00 - 15:00)
-                        option(value="evening") Вечер (15:00 - 18:00)
-                .form-group
-                    label(for="callback-comment") Комментарий
-                    textarea(id="callback-comment" name="comment" rows="3" placeholder="Дополнительная информация")
-                .form-group.checkbox-group
+            // Услуги
+            .profile-modal__form__section
+                h3 Необходимые услуги
+                .profile-modal__form__group.checkbox-group
                     .checkbox-item
-                        input(type="checkbox" id="callback-agreement" name="agreement" required)
-                        label(for="callback-agreement")
+                        input(type="checkbox" id="service1" name="services" value="permanent")
+                        label(for="service1") Постоянное проживание
+                    .checkbox-item
+                        input(type="checkbox" id="service2" name="services" value="temporary")
+                        label(for="service2") Временное проживание
+                    .checkbox-item
+                        input(type="checkbox" id="service3" name="services" value="rehabilitation")
+                        label(for="service3") Реабилитация после травм
+                    .checkbox-item
+                        input(type="checkbox" id="service4" name="services" value="dementia")
+                        label(for="service4") Уход при деменции
+                    .checkbox-item
+                        input(type="checkbox" id="service5" name="services" value="hospice")
+                        label(for="service5") Паллиативная помощь
+
+            // Состояние здоровья
+            .profile-modal__form__section
+                h3 Состояние здоровья
+                .form-group
+                    label(for="mobility") Подвижность
+                    select(id="mobility" name="mobility")
+                        option(value="" disabled selected) Выберите уровень подвижности
+                        option(value="independent") Самостоятельно передвигается
+                        option(value="assistance") Требуется помощь при передвижении
+                        option(value="wheelchair") Передвигается на коляске
+                        option(value="bedridden") Лежачий больной
+                
+                .profile-modal__form__group
+                    label(for="diagnoses") Основные диагнозы
+                    textarea(id="diagnoses" name="diagnoses" rows="3" placeholder="Укажите основные диагнозы и состояния здоровья")
+
+            // Дополнительная информация
+            .profile-modal__form__section
+                h3 Дополнительная информация
+                .profile-modal__form__group
+                    label(for="additionalInfo") Ваши пожелания, вопросы или комментарии
+                    textarea(id="additionalInfo" name="additionalInfo" rows="4" placeholder="Опишите дополнительные пожелания или задайте вопросы")
+                
+                .profile-modal__form__group
+                    label(for="howDidYouFindUs") Как вы о нас узнали?
+                    select(id="howDidYouFindUs" name="howDidYouFindUs")
+                        option(value="" disabled selected) Выберите вариант
+                        option(value="internet") Интернет
+                        option(value="social") Социальные сети
+                        option(value="friends") Рекомендации знакомых
+                        option(value="doctors") Направление врача
+                        option(value="other") Другое
+
+            // Согласие на обработку данных
+            .profile-modal__form__section
+                .profile-modal__form__group.checkbox-group
+                    .checkbox-item.agreement
+                        input(type="checkbox" id="agreement" name="agreement" required)
+                        label(for="agreement")
                             | Я согласен на 
                             a.policy-link(href="#") обработку персональных данных
                             span.required *
-                .modal__form__actions
-                    button.btn-primary(type="submit") Заказать звонок 
+
+            .profile-modal__form__actions
+                button.btn-primary.submit-button(type="submit") Отправить заявку
+
+    // Форма заказа звонка
+    .modal__overlay
+        .modal
+            .modal__close#closeModal ×
+            .modal__content
+                h2.modal__title Заказать звонок
+                form#callback-form.modal__form
+                    .form-group
+                        label(for="callback-name") Ваше имя
+                        input(type="text" id="callback-name" name="name" required placeholder="Введите ваше имя")
+                    .form-group
+                        label(for="callback-phone") Телефон
+                        input(type="tel" id="callback-phone" name="phone" required placeholder="+7 (___) ___-__-__")
+                    .form-group
+                        label(for="callback-time") Удобное время для звонка
+                        select(id="callback-time" name="time")
+                            option(value="" disabled selected) Выберите время
+                            option(value="morning") Утро (9:00 - 12:00)
+                            option(value="day") День (12:00 - 15:00)
+                            option(value="evening") Вечер (15:00 - 18:00)
+                    .form-group
+                        label(for="callback-comment") Комментарий
+                        textarea(id="callback-comment" name="comment" rows="3" placeholder="Дополнительная информация")
+                    .form-group.checkbox-group
+                        .checkbox-item
+                            input(type="checkbox" id="callback-agreement" name="agreement" required)
+                            label(for="callback-agreement")
+                                | Я согласен на 
+                                a.policy-link(href="#") обработку персональных данных
+                                span.required *
+                    .modal__form__actions
+                        button.btn-primary(type="submit") Заказать звонок 

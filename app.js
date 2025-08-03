@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -36,9 +35,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// connectDB();
-
-// app.use('/news', newsRoutes);
+app.get('/manage', (req, res) => {
+  console.log(path.join(__dirname, 'manage.html'));
+  res.sendFile(path.join(__dirname, 'manage.html'));
+});
 
 app.get('/news/:slug', (req, res) => {
   const newsItem = newsData.find(item => item.slug === req.params.slug);
@@ -55,7 +55,6 @@ app.get('/news', (req, res) => {
 
 app.post('/api/application', async (req, res) => {
   const {additionalInfo, agreement, applicationType, diagnoses, email, fullName, howDidYouFindUs, mobility, phone, services} = req.body;
-  console.log(services);
   const typesMapping = {
     'self': 'Для себя',
     'relative': 'Для родственников',
@@ -84,7 +83,6 @@ app.post('/api/application', async (req, res) => {
   const mobilityText = mobilityMapping[mobility] || 'Не указана';
   const didYouFindUsText = didYouFindUsMapping[howDidYouFindUs] || 'Не указано';
   const servicesText = servicesMapping[services] || 'Не указано';
-  console.log(servicesText);
 
   const telegramMessage = `Заполнение анкеты на сайте Опека:
   👤 ФИО: ${fullName}
@@ -99,7 +97,8 @@ app.post('/api/application', async (req, res) => {
   ✅ Согласие на обработку данных: ${agreement ? 'Да' : 'Нет'}`;
 
   callbackTelegramMessage(telegramMessage, res);
-  // callbackTelegramMessage(telegramMessage, res);
+
+  res.status(201).json({ success: true, message: 'Заявка принята' });
 })
 
 app.get('/promotion', (req, res) => {

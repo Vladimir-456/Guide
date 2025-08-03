@@ -5,30 +5,30 @@ module.exports = {
         
         // Современные возможности CSS
         require('postcss-preset-env')({
-            stage: 3, // Уровень поддержки новых возможностей CSS
+            stage: 3, 
             features: {
-                'nesting-rules': true, // Вложенные правила
-                'custom-media-queries': true, // Пользовательские медиа-запросы
-                'custom-selectors': true, // Пользовательские селекторы
+                'nesting-rules': true, 
+                'custom-media-queries': true, 
+                'custom-selectors': true, 
             }
         }),
         
         // Автоматическое добавление вендорных префиксов
         require('autoprefixer')({
-            grid: true, // Поддержка CSS Grid
-            flexbox: true, // Поддержка Flexbox
+            grid: true, 
+            flexbox: true, 
         }),
         
         // Минификация CSS
         require('cssnano')({
             preset: ['default', {
                 discardComments: {
-                    removeAll: true, // Удаление всех комментариев
+                    removeAll: true, 
                 },
-                normalizeWhitespace: true, // Нормализация пробелов
-                colormin: true, // Минимизация цветов
-                mergeRules: true, // Объединение правил
-                discardDuplicates: true, // Удаление дубликатов
+                normalizeWhitespace: true, 
+                colormin: true,
+                mergeRules: true, 
+                discardDuplicates: true, 
             }]
         })
     ]
