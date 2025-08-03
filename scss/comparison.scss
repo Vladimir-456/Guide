@@ -1,17 +1,48 @@
-@use 'varibles' as *;
+@use 'variables' as *;
 @use 'mixin' as *;
-@use 'animation' as *;
+@use 'animations' as *;
 
 .comparison {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 90px auto;
-    // padding: 20px;
 
     &__title {
-        color: $secondary-color;
-        font-size: $font-size-title;
+        color: var(--secondary-color);
+        font-size: var(--font-size-title);
         margin-bottom: 30px;
         font-weight: 400;
+
+        @include lg {
+            font-size: var(--font-size-title-small);
+        }
+
+        @include xs {
+            font-size: 20px;
+        }
+
+        @include xxs {
+            font-size: 19px;
+        }
+    }
+
+    @include lg {
+        margin: 70px auto;
+    }
+
+    @include md {
+        margin: 50px auto;
+    }
+
+    @include sm {
+        margin: 40px auto;
+    }
+
+    @include xs {
+        margin: 30px auto;
+    }
+
+    @include xxs {
+        margin: 20px auto;
     }
 
     &-table {
@@ -26,7 +57,7 @@
         th, td {
             padding: 15px;
             border-bottom: 1px solid #e6d0c4;
-            color: $secondary-color;
+            color: var(--text-color);
         }
 
         th {
@@ -36,7 +67,7 @@
 
         .services {
             text-align: left;
-            color: $text-color;
+            color: var(--text-color);
             width: 50%;
         }
 
@@ -54,7 +85,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: $secondary-color;
+            color: var(--secondary-color);
             font-size: 20px;
         }
 
@@ -75,7 +106,7 @@
             font-weight: bold;
             border-radius: 25px;
             border: none;
-            background-color: $secondary-color;
+            background-color: var(--secondary-color); 
             transition: background-color 0.3s ease;
 
             &:hover {
@@ -249,7 +280,7 @@
         margin: 15px auto;
         
         &__title {
-            font-size: $font-size-title-small;
+            font-size: var(--font-size-title-small);
             // padding: 0 10px;
             margin-bottom: 15px;
         }

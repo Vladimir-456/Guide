@@ -4,10 +4,30 @@
 .documents {
     max-width: $max-width;
     margin: 90px auto;
-    background: linear-gradient(145deg, #ffffff, #fcfdff);
+    background: linear-gradient(145deg, #ffffff);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 40px 20px;
+
+    @include lg {
+        margin: 70px auto;
+    }
+
+    @include md {
+        margin: 50px auto;
+    }
+
+    @include sm {
+        margin: 40px auto;
+    }
+
+    @include xs {
+        margin: 30px auto;
+    }
+
+    @include xxs {
+        margin: 20px auto;
+    }
     &__title {
         color: $secondary-color;
         margin-bottom: 30px;
@@ -15,6 +35,16 @@
         font-weight: 500;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
+        @include md {
+            font-size: $font-size-title;
+        }
+        @include xs {
+            font-size: 20px;
+        }
+
+        @include xxs {
+            font-size: 19px;
+        }
 
         &::after {
             content: '';
@@ -44,16 +74,53 @@
         line-height: 1.6;
         opacity: 0.9;
         max-width: 800px;
+
+        @include md {
+            margin-bottom: 25px;
+        }
+
+        @include sm {
+            margin-bottom: 20px;
+        }
+
+        @include xs {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        @include xxs {
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
     }
 
     &__steps {
         @include flex-container(row, space-between, flex-start, no-wrap);
         position: relative;
         margin-top: 70px;
-        gap: 20px;
-        @include md-down {
-            flex-wrap: wrap;
-        }    
+        gap: 20px;  
+
+        @include lg {
+            margin-top: 50px;
+        }
+
+        @include md {
+            margin-top: 40px;
+        }
+
+        @include sm {
+            margin-top: 30px;
+        }
+
+        @include xs {
+            margin-top: 20px;
+        }
+
+        @include xxs {
+            margin-top: 15px;
+        }
+        
+        
     }
 
     &__step {
@@ -175,11 +242,6 @@
 @include xs-down {
     .documents {
         margin: 30px auto;
-        
-        &__title {
-            font-size: $font-size-title-small;
-            margin-bottom: 15px;
-        }
         
         &__description {
             font-size: 14px;

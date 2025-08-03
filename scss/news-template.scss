@@ -1,10 +1,7 @@
-@use 'animation' as *;
+@use 'animations' as *;
 @use 'mixin' as *;
 @use 'varibles' as *;
 
-
-
-// Container styles
 .container__news {
     margin-top: 140px;
     max-width: $max-width;

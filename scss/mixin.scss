@@ -1,36 +1,65 @@
-@use 'varibles' as *;
+@use 'variables' as *;
 @use "sass:math";
-// 1200px
+
+$xl: 1200px; 
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 440px;
+$xxs: 375px;
+
+@mixin respond($min: null, $max: null) {
+  @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+@mixin xl { @include respond($min: $xl) { @content; } }
+@mixin lg { @include respond($min: $lg, $max: $xl - 1) { @content; } }
+@mixin md { @include respond($min: $md, $max: $lg - 1) { @content; } }
+@mixin sm { @include respond($min: $sm, $max: $md - 1) { @content; } }
+@mixin xs { @include respond($min: $xs, $max: $sm - 1) { @content; } }
+@mixin xxs { @include respond($max: $xs - 1) { @content; } }
+
+
+
+
 @mixin xl-down {
-    @media (max-width: $breakpoint-xl) {
-        .page__container {
-            width: 95%;
-            max-width: 100%;
-          } 
+    @media (max-width: $xl) {
       @content;
     }
 }
 // 992px
 @mixin lg-down {
-    @media (max-width: $breakpoint-lg) {
+    @media (max-width: $lg) {
       @content;
     }
 }
 // 768
 @mixin md-down {
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: $md) {
       @content;
     }
 }
 // 576
 @mixin sm-down {
-    @media (max-width: $breakpoint-sm) {
+    @media (max-width: $sm) {
       @content;
     }
 }
 // 440px
 @mixin xs-down {
-    @media (max-width: $breakpoint-xs) {
+    @media (max-width: $xs) {
         .location-tag {
             font-size: 10px;
             padding: 3px 6px;
@@ -40,7 +69,7 @@
 }
 // 375px
 @mixin xxs-down {
-    @media (max-width: $breakpoint-xxs) {
+    @media (max-width: $xxs) {
         .divider {
             margin: 15px;
           }

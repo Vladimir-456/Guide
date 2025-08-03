@@ -8,6 +8,26 @@
     @include flex-container(row, flex-start, center, no-wrap);
     background: linear-gradient(145deg, #ffffff, #fcfdff);
     backdrop-filter: blur(10px);
+
+    @include lg {
+        margin: 70px auto;
+    }
+
+    @include md {
+        margin: 50px auto;
+    }
+
+    @include sm {
+        margin: 40px auto;
+    }
+
+    @include xs {
+        margin: 30px auto;
+    }
+
+    @include xxs {
+        margin: 20px auto;
+    }
     
     &__content {
         margin-bottom: 90px;
@@ -19,6 +39,16 @@
         margin-bottom: 20px;
         font-weight: 500;
         position: relative;
+
+        @include xs {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        @include xxs {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
     }
     
     &__phone {
@@ -46,6 +76,16 @@
         color: $text-color;
         font-size: 17px;
         margin-top: 20px;
+
+        @include xs {
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        @include xxs {
+            font-size: 13px;
+            margin-top: 10px;
+        }
     }
     
     &__map {
@@ -56,6 +96,10 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         border-radius: 12px;
         transition: all 0.3s ease;
+
+        @include xs {
+            height: 300px;
+        }
         
         &:hover {
             transform: scale(1.02);
@@ -69,18 +113,55 @@
     @include flex-container(row, flex-start, center, no-wrap);
     border-radius: 16px;
     padding: 40px;
+
+    @include md {
+        padding: 30px;
+        margin: 60px auto;
+    }
+    
+    @include sm {
+        padding: 25px;
+        margin: 50px auto;
+    }
+    
+    @include xs {
+        padding: 20px;
+        margin: 40px auto;
+    }
+    
+    @include xxs {
+        padding: 15px;
+        margin: 30px auto;
+    }
     
     &__title {
         color: $secondary-color;
         font-size: $font-size-title;
         margin-bottom: 30px;
-        font-weight: 500;
+        font-weight: 600;
         position: relative;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
             color: #2ecc71;
             transform: translateX(10px);
+        }
+
+        @include md {
+            margin-bottom: 25px;
+        }
+
+        @include sm {
+            margin-bottom: 20px;
+        }
+
+        @include xs {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        @include xxs {
+            font-size: 19px;
         }
     }
     &__image {
@@ -143,6 +224,7 @@
     &__button {
         margin-top: 20px;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
         
         &:hover {
             transform: translateY(-5px);
@@ -260,8 +342,6 @@
     }
     
     .transportation {
-        padding: 10px;
-        margin: 20px auto;
         
         &__list__item {
             font-size: 15px;

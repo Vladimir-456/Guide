@@ -1,8 +1,7 @@
 @use 'varibles' as *;
 @use 'mixin' as *;
-@use 'animation' as *;
+@use 'animations' as *;
 
-// Миксины
 @mixin flex($direction: row, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
@@ -35,7 +34,7 @@
   display: none;
 }
 
-// Основные стили модального окна
+
 .profile-modal {
   position: fixed;
   top: 50%;
@@ -54,7 +53,7 @@
   padding: 40px;
   animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-  // Стилизация скроллбара
+
   &::-webkit-scrollbar {
       width: 8px;
   }
@@ -580,7 +579,7 @@
   }
 }
 
-// Добавляем стили для очень маленьких экранов
+
 @include xxs-down {
   .profile-modal {
     padding: 5px;

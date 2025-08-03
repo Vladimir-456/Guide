@@ -34,6 +34,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Опека Ставрополь</title>
 </head>
 <body>
@@ -54,9 +57,24 @@
                         <li class="header__item"><a class="header__link" href="#news" role="link">Статьи</a></li>
                     </ul>
                 </nav>
+                <div class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                    </label>
+
+                    <ul class="menu__box">
+                        <li><a class="menu__item" href="#info-pansionat" role="link">О нас</a></li>
+                        <li><a class="menu__item" href="#benefits" role="link">Услуги</a></li>
+                        <li><a class="menu__item" href="#comparison" role="link">Преимущества</a></li>
+                        <li><a class="menu__item" href="#news" role="link">Статьи</a></li>
+                    </ul>
+                </div>
                 <div class="header__contacts">
+                    <div class="header__text">Пансионат ОПЕКА</div>
                     <a class="header__phone">+ 7 933 181-02-35</a>
                     <span class="header__hours">Режим работы: с 9:00 до 18:00</span>
+                    <span class="header__text">Ставрополь, проспект Кулакова 28Б/3</span>
                 </div>
                 <div class="header__actions">
                     <a href="#" class="button button--anketa" role="link"> Заполнить анкету</a>
@@ -103,7 +121,6 @@
                 <div class="profile-modal__close" id="closeModal">×</div>
                 <div class="profile-modal__header"></div>
                 <form id="profile-modal__form">
-                    <!-- Тип обращения -->
                     <div class="profile-modal__form__section">
                         <h3>Тип обращения</h3>
                         <div class="profile-modal__form__group radio-group">
@@ -118,7 +135,6 @@
                         </div>
                     </div>
     
-                    <!-- Информация о заявителе -->
                     <div class="profile-modal__form__section">
                         <h3>Ваши данные</h3>
                         <div class="form-group">
@@ -137,7 +153,6 @@
                         </div>
                     </div>
                     
-                    <!-- Информация о пациенте (скрыто по умолчанию) -->
                     <div class="profile-modal__form__section" id="patientSection" style="display: none;">
                         <h3>Информация о пациенте</h3>
                         <div class="form-group">
@@ -162,7 +177,6 @@
                         </div>
                     </div>
                     
-                    <!-- Услуги -->
                     <div class="profile-modal__form__section">
                         <h3>Необходимые услуги</h3>
                         <div class="profile-modal__form__group checkbox-group">
@@ -189,7 +203,6 @@
                         </div>
                     </div>
                     
-                    <!-- Состояние здоровья -->
                     <div class="profile-modal__form__section">
                         <h3>Состояние здоровья</h3>
                         <div class="form-group">
@@ -209,7 +222,6 @@
                         </div>
                     </div>
                     
-                    <!-- Дополнительная информация -->
                     <div class="profile-modal__form__section">
                         <h3>Дополнительная информация</h3>
                         <div class="profile-modal__form__group">
@@ -230,7 +242,6 @@
                         </div>
                     </div>
                     
-                    <!-- Согласие на обработку данных -->
                     <div class="profile-modal__form__section">
                         <div class="profile-modal__form__group checkbox-group">
                             <div class="checkbox-item agreement">
@@ -303,28 +314,29 @@
               </p>
           </div>
       </section>
+
       <section class="news fade-in" id="news" itemtype="https://schema.org/NewsArticle">
             <h2 class="news__title fade-in delay-1" itemprop="name">Статьи</h2>
             <div class="news__bottom fade-in delay-2">
                 <div class="news__navigation" itemprop="navigation">
                   <button role="button" class="nav__arrow prev">&#10094;</button>
                   <button  role="button" class="nav__arrow next">&#10095;</button>
-                  <a href="/news" role="link" class="all-news">ВСЕ СТАТЬИ →</a>
+                  <a href="/news" role="link" class="all-news">ВСЕ СТАТЬИ</a>
                 </div>
               </div>
             <div class="news-slider" itemprop="slider">
-              <div class="news__item fade-in delay-3" itemprop="articleBody">
+              <article class="news__item fade-in delay-3" itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/67413990-15e5-50a2-ac07-e403ffc6238a.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
                 <div class="news__item__content" itemprop="articleSection">
                   <h3 class="news__item__title" itemprop="headline"><a href="/news/kuda-opredelit-pozhilogo-cheloveka-na-vremya-otpuska">Куда определить пожилого человека на время отпуска</a></h3>
-                  <p>Многие люди сталкиваются с проблемой, кому доверить опеку над престарелым человеком, если планируется отдохнуть на море или в санатории. Наличие пожилого члена семьи – не повод отказываться от заслуженного отпуска. Психологи настоятельно рекомендуют родственникам, ухаживающим за больными и беспомощными стариками, периодически устраивать себе передышку. Иначе не уберечься от эмоциональных срывов и физического переутомления. Ведь уход за больными стариками требует внимания и ответственности. Но куда пристроить пожилого человека на время отпуска? Рассмотрим несколько вариантов решения, их преимущества и недостатки.</p>
+                  <p>Многие люди сталкиваются с проблемой, кому доверить опеку над престарелым человеком, если планируется отдохнуть на море или в санатории.</p>
                   <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
-              </div>
+              </article>
               
-              <div class="news__item fade-in delay-4" itemprop="articleBody">
+              <article  class="news__item fade-in delay-4" itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/IMG_756600.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
@@ -333,8 +345,8 @@
                   <p>Гипертонический криз является осложнением артериальной гипертензии и характеризуется значительным повышением артериального давления (АД). Для пожилых людей это заболевание является особенно опасным состоянием, так как может угрожать жизни.</p>
                   <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
-              </div>
-              <div class="news__item " itemprop="articleBody">
+              </article>
+              <article class="news__item " itemprop="articleBody">
                 <div class="news__item__image" itemprop="image">
                   <img src="./img/28dadb3d-b0a7-555b-bc19-867f70bf5005.jpeg" alt="Открытие нового центра" itemprop="url">
                 </div>
@@ -343,7 +355,7 @@
                   <p>Скандинавская ходьба – техника физической активности, которую называют также северной или нордической ходьбой с палками. Авторами этого вида спорта стали финские лыжники. Не имея возможности летом полноценно тренироваться, они ходили с палками, не теряли форму и побеждали в зимних соревнованиях.</p>
                   <div class="news__item__date" itemprop="datePublished">27.06.2024</div>
                 </div>
-              </div>
+              </article>
             </div>
           </section>
         <section class="benefits" id="benefits">

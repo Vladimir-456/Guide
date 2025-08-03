@@ -1,45 +1,100 @@
-@use "varibles" as *;
+@use "variables" as *;
 @use 'mixin' as *;
 
 .stock {
     position: relative;
-    margin: 0 auto;
+    margin: 150px auto;
     width: 100%;
-    max-width: $max-width;
+    max-width: var(--max-width);
     padding: 0 20px;
-    min-width: 430px;
+
+    @include lg {
+        padding: 0 15px;
+    }
+
+    @include md {
+        padding: 0 10px;
+        margin: 50px auto;
+    }
+
+    @include sm {
+        padding: 0 5px;
+        margin: 30px auto;
+    }
+
+    @include xs {
+        padding: 0 5px;
+        margin: 20px auto;
+    }
+
+    @include xxs {
+        padding: 0 5px;
+        margin: 10px auto;
+    }
+
 
     &__container {
         display: flex;
         flex-direction: column;
-        border-radius: 10px;
-        box-shadow: 0 15px 30px rgba(161, 161, 161, 0.12);
+        border-radius: var(--border-radius-m);
         padding: 30px;
         position: relative;
         overflow: hidden;
         z-index: 1;
     }
-    
+
     &__image {
         display: flex;
         gap: 30px;
         margin-left: auto;
         width: 100px;
-        
+
+        @include lg {
+            gap: 25px;
+        }
+
+        @include md {
+            gap: 20px;
+        }
+
+        @include sm {
+            gap: 15px;
+        }
+
+        @include xs {
+            gap: 10px;
+        }
+
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
     }
+
     &__title {
         box-sizing: border-box;
-        color: $secondary-color;
-        font-size: clamp(22px, 4vw, 25px); // Используем clamp для плавного масштабирования шрифта
-        font-weight: 500;
+        color: var(--secondary-color);
+        font-size: clamp(22px, 4vw, 25px);
+        font-weight: 600;
         margin-bottom: 20px;
         position: relative;
         z-index: 2;
+
+        @include lg {
+            font-size: clamp(20px, 3vw, 22px);
+            margin-bottom: 15px;
+        }
+
+        @include md {
+            font-size: clamp(18px, 2.5vw, 20px);
+            margin-bottom: 10px;
+        }
+
+        @include sm {
+            font-size: clamp(16px, 2vw, 18px);
+            margin-bottom: 5px;
+        }
     }
 
     &__content {
@@ -49,10 +104,25 @@
     }
 
     &__description {
-        color: $text-color;
-        font-size: clamp(16px, 3vw, 18px); // Используем clamp для плавного масштабирования шрифта
+        color: var(--text-color);
+        font-size: clamp(16px, 3vw, 18px);
         line-height: 1.4;
         margin-bottom: 25px;
+
+        @include lg {
+            font-size: clamp(14px, 2.5vw, 16px);
+            margin-bottom: 20px;
+        }
+
+        @include md {
+            font-size: clamp(12px, 2vw, 14px);
+            margin-bottom: 15px;
+        }
+
+        @include sm {
+            font-size: clamp(10px, 1.5vw, 12px);
+            margin-bottom: 10px;
+        }
     }
 
     &__offer {
@@ -70,23 +140,23 @@
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         border-radius: 50%;
-        width: clamp(90px, 15vw, 120px); // Используем clamp для плавного масштабирования
-        height: clamp(90px, 15vw, 120px); // Используем clamp для плавного масштабирования
-        min-width: 90px; // Устанавливаем минимальную ширину
-        min-height: 90px; // Устанавливаем минимальную высоту
+        width: clamp(90px, 15vw, 120px);
+        height: clamp(90px, 15vw, 120px);
+        min-width: 90px;
+        min-height: 90px;
         justify-content: center;
         position: relative;
         border: 2px dashed rgba(255, 255, 255, 0.5);
 
         &-value {
-            font-size: clamp(28px, 5vw, 36px); // Используем clamp для плавного масштабирования шрифта
+            font-size: clamp(28px, 5vw, 36px);
             font-weight: 800;
             color: #fff;
             line-height: 1;
         }
 
         &-period {
-            font-size: clamp(12px, 2vw, 14px); // Используем clamp для плавного масштабирования шрифта
+            font-size: clamp(12px, 2vw, 14px);
             color: rgba(255, 255, 255, 0.8);
             margin-top: 5px;
         }
@@ -101,7 +171,7 @@
         overflow: hidden;
         pointer-events: none;
         z-index: 1;
-        
+
         &-item {
             position: absolute;
             border-radius: 50%;
@@ -133,95 +203,95 @@
 }
 
 // Responsive styles using min-width for desktop-first approach
-@media (min-width: 1400px) {
-    .stock {
-        margin-top: 130px;
-    }
-}
+// @media (min-width: 1400px) {
+//     .stock {
+//         margin-top: 130px;
+//     }
+// }
 
-@media (min-width: 992px) and (max-width: 1399px) {
-    .stock {
-        margin-top: 120px;
-    }
-}
+// @media (min-width: 992px) and (max-width: 1399px) {
+//     .stock {
+//         margin-top: 120px;
+//     }
+// }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .stock {
-        margin-top: 100px;
-    }
-}
+// @media (min-width: 768px) and (max-width: 991px) {
+//     .stock {
+//         margin-top: 100px;
+//     }
+// }
 
-@media (min-width: 576px) and (max-width: 767px) {
-    .stock {
-        margin-top: 60px;
-        
-        &__container {
-            padding: 25px;
-        }
-        
-        &__discount {
-            width: 100px;
-            height: 100px;
-        }
-    }
-}
+// @media (min-width: 576px) and (max-width: 767px) {
+//     .stock {
+//         margin-top: 60px;
 
-@media (min-width: 480px) and (max-width: 575px) {
-    .stock {
-        margin-top: 40px;
-        
-        &__container {
-            padding: 20px;
-        }
-        
-        &__title {
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        
-        &__badge {
-            font-size: 12px;
-            padding: 6px 12px;
-        }
-    }
-}
+//         &__container {
+//             padding: 25px;
+//         }
 
-@media (max-width: 479px) {
-    .stock {
-        margin-top: 30px;
-        
-        &__container {
-            padding: 15px;
-        }
-        
-        &__title {
-            margin-top: 24px;
-            margin-bottom: 15px;
-        }
-        
-        &__badge {
-            font-size: 12px;
-            padding: 6px 12px;
-            right: 15px;
-        }
-        
-        &__offer {
-            justify-content: center;
-        }
-        
-        &__discount {
-            width: 90px;
-            height: 90px;
-        }
-        
-        &__image {
-            gap: 15px;
-            width: 80px;
-            
-            &__preview {
-                width: 60px;
-                height: 60px;
-            }
-        }
-    }
-}
+//         &__discount {
+//             width: 100px;
+//             height: 100px;
+//         }
+//     }
+// }
+
+// @media (min-width: 480px) and (max-width: 575px) {
+//     .stock {
+//         margin-top: 40px;
+
+//         &__container {
+//             padding: 20px;
+//         }
+
+//         &__title {
+//             margin-top: 20px;
+//             margin-bottom: 15px;
+//         }
+
+//         &__badge {
+//             font-size: 12px;
+//             padding: 6px 12px;
+//         }
+//     }
+// }
+
+// @media (max-width: 479px) {
+//     .stock {
+//         margin-top: 30px;
+
+//         &__container {
+//             padding: 15px;
+//         }
+
+//         &__title {
+//             margin-top: 24px;
+//             margin-bottom: 15px;
+//         }
+
+//         &__badge {
+//             font-size: 12px;
+//             padding: 6px 12px;
+//             right: 15px;
+//         }
+
+//         &__offer {
+//             justify-content: center;
+//         }
+
+//         &__discount {
+//             width: 90px;
+//             height: 90px;
+//         }
+
+//         &__image {
+//             gap: 15px;
+//             width: 80px;
+
+//             &__preview {
+//                 width: 60px;
+//                 height: 60px;
+//             }
+//         }
+//     }
+// }
