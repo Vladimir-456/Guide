@@ -59,19 +59,7 @@ $xxs: 375px;
 }
 // 440px
 @mixin xs-down {
-<<<<<<< HEAD
     @media (max-width: $xs) {
-        .location-tag {
-            font-size: 10px;
-            padding: 3px 6px;
-          }
-=======
-    @media (max-width: $breakpoint-xs) {
-        // .location-tag {
-        //     font-size: 10px;
-        //     padding: 3px 6px;
-        //   }
->>>>>>> a8b441e83ebfc3c8ea99c564385dfed083bb7b25
       @content;
     }
 }

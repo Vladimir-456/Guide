@@ -3,18 +3,19 @@
 
 .stock {
     position: relative;
-    margin: 150px auto;
+    margin: 80px auto;
     width: 100%;
     max-width: var(--max-width);
     padding: 0 20px;
 
     @include lg {
         padding: 0 15px;
+        margin: 60px auto;
     }
 
     @include md {
         padding: 0 10px;
-        margin: 50px auto;
+        margin: 40px auto;
     }
 
     @include sm {
@@ -29,135 +30,87 @@
 
     @include xxs {
         padding: 0 5px;
-        margin: 10px auto;
+        margin: 15px auto;
     }
-
 
     &__container {
         display: flex;
         flex-direction: column;
-        border-radius: var(--border-radius-m);
-        padding: 30px;
+        border-radius: var(--border-radius-xl);
+        padding: 40px;
         position: relative;
         overflow: hidden;
         z-index: 1;
+        background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+        box-shadow: 0 10px 30px rgba(86, 171, 47, 0.3);
     }
 
-    &__image {
-        display: flex;
-        gap: 30px;
-        margin-left: auto;
-        width: 100px;
-
-        @include lg {
-            gap: 25px;
-        }
-
-        @include md {
-            gap: 20px;
-        }
-
-        @include sm {
-            gap: 15px;
-        }
-
-        @include xs {
-            gap: 10px;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    &__badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        z-index: 3;
+        animation: pulse 2s infinite;
     }
 
     &__title {
-        box-sizing: border-box;
-        color: var(--secondary-color);
-        font-size: clamp(22px, 4vw, 25px);
-        font-weight: 600;
-        margin-bottom: 20px;
+        color: white;
+        font-size: clamp(22px, 4vw, 32px);
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         position: relative;
         z-index: 2;
-
-        @include lg {
-            font-size: clamp(20px, 3vw, 22px);
-            margin-bottom: 15px;
-        }
-
-        @include md {
-            font-size: clamp(18px, 2.5vw, 20px);
-            margin-bottom: 10px;
-        }
-
-        @include sm {
-            font-size: clamp(16px, 2vw, 18px);
-            margin-bottom: 5px;
-        }
-    }
-
-    &__content {
-        position: relative;
-        z-index: 2;
-        width: 100%;
     }
 
     &__description {
-        color: var(--text-color);
-        font-size: clamp(16px, 3vw, 18px);
-        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(16px, 3vw, 20px);
+        line-height: 1.5;
         margin-bottom: 25px;
-<<<<<<< HEAD
-
-        @include lg {
-            font-size: clamp(14px, 2.5vw, 16px);
-            margin-bottom: 20px;
-        }
-
-        @include md {
-            font-size: clamp(12px, 2vw, 14px);
-            margin-bottom: 15px;
-        }
-
-        @include sm {
-            font-size: clamp(10px, 1.5vw, 12px);
-            margin-bottom: 10px;
-        }
-=======
+        position: relative;
+        z-index: 2;
+        
         b {
-            color: $secondary-color;
-        }  
->>>>>>> a8b441e83ebfc3c8ea99c564385dfed083bb7b25
+            color: white;
+            font-weight: 700;
+        }
     }
 
     &__offer {
         display: flex;
         align-items: center;
-        margin-top: 30px;
-        flex-wrap: wrap;
+        margin-top: 20px;
         gap: 20px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 2;
     }
 
     &__discount {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         border-radius: 50%;
         width: clamp(90px, 15vw, 120px);
         height: clamp(90px, 15vw, 120px);
-        min-width: 90px;
-        min-height: 90px;
-        justify-content: center;
-        position: relative;
         border: 2px dashed rgba(255, 255, 255, 0.5);
 
         &-value {
             font-size: clamp(28px, 5vw, 36px);
             font-weight: 800;
-            color: #fff;
+            color: white;
             line-height: 1;
         }
 
@@ -168,21 +121,54 @@
         }
     }
 
+    &__cta {
+        display: inline-block;
+        background: white;
+        color: #56ab2f;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: clamp(14px, 2vw, 16px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: #f8f8f8;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        width: 200px;
+        height: 200px;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+        }
+    }
+
     &__decoration {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden;
-        pointer-events: none;
         z-index: 1;
+        overflow: hidden;
 
         &-item {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.1;
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
 
             &--1 {
                 width: 200px;
@@ -197,170 +183,58 @@
                 bottom: -30px;
                 right: 30%;
             }
-
-            &--3 {
-                width: 100px;
-                height: 100px;
-                top: 40%;
-                left: 10%;
-            }
         }
     }
-}
 
-// Responsive styles using min-width for desktop-first approach
-// @media (min-width: 1400px) {
-//     .stock {
-//         margin-top: 130px;
-//     }
-// }
-
-// @media (min-width: 992px) and (max-width: 1399px) {
-//     .stock {
-//         margin-top: 120px;
-//     }
-// }
-
-// @media (min-width: 768px) and (max-width: 991px) {
-//     .stock {
-//         margin-top: 100px;
-//     }
-// }
-
-// @media (min-width: 576px) and (max-width: 767px) {
-//     .stock {
-//         margin-top: 60px;
-
-<<<<<<< HEAD
-//         &__container {
-//             padding: 25px;
-//         }
-
-//         &__discount {
-//             width: 100px;
-//             height: 100px;
-//         }
-//     }
-// }
-
-// @media (min-width: 480px) and (max-width: 575px) {
-//     .stock {
-//         margin-top: 40px;
-
-//         &__container {
-//             padding: 20px;
-//         }
-
-//         &__title {
-//             margin-top: 20px;
-//             margin-bottom: 15px;
-//         }
-
-//         &__badge {
-//             font-size: 12px;
-//             padding: 6px 12px;
-//         }
-//     }
-// }
-
-// @media (max-width: 479px) {
-//     .stock {
-//         margin-top: 30px;
-
-//         &__container {
-//             padding: 15px;
-//         }
-
-//         &__title {
-//             margin-top: 24px;
-//             margin-bottom: 15px;
-//         }
-
-//         &__badge {
-//             font-size: 12px;
-//             padding: 6px 12px;
-//             right: 15px;
-//         }
-
-//         &__offer {
-//             justify-content: center;
-//         }
-
-//         &__discount {
-//             width: 90px;
-//             height: 90px;
-//         }
-
-//         &__image {
-//             gap: 15px;
-//             width: 80px;
-
-//             &__preview {
-//                 width: 60px;
-//                 height: 60px;
-//             }
-//         }
-//     }
-// }
-=======
-@media (min-width: 480px) and (max-width: 575px) {
-    .stock {
-        margin-top: 40px;
-        width: 100%;
-        
+    @include md-down {
         &__container {
-            padding: 20px;
+            padding: 30px;
+            text-align: center;
         }
-        
-        &__title {
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        
-        &__badge {
-            font-size: 12px;
-            padding: 6px 12px;
-        }
-    }
-}
 
-@media (max-width: 479px) {
-    .stock {
-        margin-top: 30px;
-        min-width: 475px;
-        &__container {
-            padding: 15px;
+        &__image {
+            position: relative;
+            right: auto;
+            margin: 20px auto 0;
+            width: 150px;
+            height: 150px;
         }
-        
-        &__title {
-            margin-top: 24px;
-            margin-bottom: 15px;
-        }
-        
-        &__badge {
-            font-size: 12px;
-            padding: 6px 12px;
-            right: 15px;
-        }
-        
+
         &__offer {
             justify-content: center;
         }
-        
-        &__discount {
-            width: 90px;
-            height: 90px;
+    }
+
+    @include sm-down {
+        &__container {
+            padding: 25px;
         }
-        
-        &__image {
-            gap: 15px;
-            width: 80px;
-            
-            &__preview {
-                width: 60px;
-                height: 60px;
-            }
+
+        &__title {
+            font-size: clamp(20px, 6vw, 24px);
+        }
+
+        &__description {
+            font-size: clamp(16px, 4vw, 18px);
+        }
+    }
+
+    @include xs-down {
+        &__container {
+            padding: 20px;
+        }
+
+        &__badge {
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            padding: 5px 15px;
         }
     }
 }
->>>>>>> a8b441e83ebfc3c8ea99c564385dfed083bb7b25
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

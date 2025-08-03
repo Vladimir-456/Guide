@@ -430,7 +430,7 @@
         width: 100%;
       }
       &__content h2 {
-        font-size: $font-size-title-small;
+        font-size: var(--font-size-title-small); //$font-size-title-small;
       }
       
       &__content p {
