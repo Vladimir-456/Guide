@@ -5,11 +5,9 @@ import { initProfileModal } from './questionnaire.js';
 import { initValidate } from './validate.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Общий Intersection Observer для всех анимаций
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Анимация для текстовых элементов
                 if (entry.target.classList.contains('fade-in') || 
                     entry.target.classList.contains('fade-in-left') || 
                     entry.target.classList.contains('fade-in-right') || 
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entry.target);
                 }
                 
-                // Анимация для изображений
                 if (entry.target.classList.contains('lazy') && entry.intersectionRatio >= 0.5) {
                     const img = entry.target;
                     
@@ -45,16 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {
         root: null,
         rootMargin: '50px',
-        threshold: [0.15, 0.5] // 15% для текста, 50% для изображений
+        threshold: [0.15, 0.5] 
     });
 
-    // Наблюдаем за всеми элементами с анимацией
     const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .wave-in');
     animatedElements.forEach(element => {
         observer.observe(element);
     });
 
-    // Наблюдаем за всеми изображениями с ленивой загрузкой
     const lazyImages = document.querySelectorAll("img[data-src]");
     lazyImages.forEach(img => {
         if (!img.classList.contains('lazy-placeholder')) {
@@ -63,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(img);
     });
 
-    // Остальные инициализации
     const pensionCard = document.querySelectorAll('.pension-card');
     pensionCard.forEach(card => {
         card.addEventListener('mouseenter', () => {

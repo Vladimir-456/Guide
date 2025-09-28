@@ -6,11 +6,14 @@ const cors = require('cors');
 const TelegramBot = require('node-telegram-bot-api');
 const rateLimit = require('express-rate-limit');
 
+require('dotenv').config();
+
 const { newsData, relatedNews } = require('./mokki/data');
 const { callbackTelegramMessage } = require('./middleware/callback');
 
 const app = express();
-const PORT = 5500;
+const PORT = process.env.PORT;
+console.log(process.env.TELEGRAM_CHAT_ID);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,11 +22,6 @@ app.use(express.static(__dirname));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
-const TELEGRAM_CHAT_ID = '-4618771405';
-
-const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

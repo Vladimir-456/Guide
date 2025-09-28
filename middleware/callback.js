@@ -1,7 +1,5 @@
 const axios = require('axios');
-
-const TELEGRAM_BOT_TOKEN = '8161506152:AAEyLE3R8IdcSDMvYmdxjtP_IgtqI8kQAMo';
-const TELEGRAM_CHAT_ID = '-4618771405';
+require('dotenv').config();
 
 const callbackTelegramMessage = async (telegramMessage, res) => {
     if (!telegramMessage) {
@@ -12,7 +10,7 @@ const callbackTelegramMessage = async (telegramMessage, res) => {
         });
     }
 
-    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) {
         console.log('Отправка в Telegram пропущена: отсутствуют токен или chat_id');
         return res.status(201).json({
             success: true,
@@ -24,7 +22,7 @@ const callbackTelegramMessage = async (telegramMessage, res) => {
         await axios.post(
             `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
             {
-                chat_id: TELEGRAM_CHAT_ID,
+                chat_id: process.env.TELEGRAM_CHAT_ID,
                 text: telegramMessage,
                 parse_mode: 'Markdown'
             }
