@@ -292,6 +292,10 @@
             margin-bottom: 15px;
         }
     }
+    &__buttons {
+        display: flex;
+        gap: 25px;
+    }
     &__button {
         border: 1px solid #cbe4ef;
         border-radius: 8px;

@@ -1,4 +1,5 @@
 import { initValidate } from './validate.js';
+import { lockScroll, unlockScroll } from "./utils.js";
 
 const profileModal = document.querySelector('.profile-modal__overlay');
 const profileModalCloseBtn = document.querySelector('.profile-modal__close');
@@ -9,6 +10,7 @@ const API_URL = '/api/application';
 
 const openModal = () => {
     profileModal.style.display = 'block';
+    lockScroll();
     profileModalCloseBtn.addEventListener('click', closeModal);
 }
 
@@ -59,6 +61,7 @@ const onFormSubmit = async (evt) => {
 
 function closeModal () {
     profileModal.style.display = 'none';
+    unlockScroll();
     profileModalForm.reset();
     profileModalCloseBtn.removeEventListener('click', closeModal);
 }

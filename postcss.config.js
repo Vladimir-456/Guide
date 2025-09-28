@@ -28,7 +28,8 @@ module.exports = {
                 normalizeWhitespace: true, 
                 colormin: true,
                 mergeRules: true, 
-                discardDuplicates: true, 
+                discardDuplicates: true,
+                discardUnused: false, // Не удалять неиспользуемые стили
             }]
         })
     ]

@@ -1,5 +1,5 @@
 import { initValidateCallback } from './validate.js';
-
+import { lockScroll, unlockScroll } from "./utils.js";
 const modalCloseBtn = document.querySelector('.modal__close');
 const modalOverlay = document.querySelector('.modal__overlay');
 const sliderButtons = document.querySelectorAll('.button__slider');
@@ -9,12 +9,14 @@ const API_URL = '/api/callback';
 
 function openModalView() {
     modalOverlay.style.display = 'block';
+    lockScroll();
     modalCloseBtn.addEventListener('click', closeModalView);
 }
 
 function closeModalView() {
     modalOverlay.style.display = 'none';
     form.reset();
+    unlockScroll();
     modalCloseBtn.removeEventListener('click', closeModalView);
 }
 

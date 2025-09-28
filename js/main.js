@@ -3,6 +3,7 @@ import { initModal } from './modal.js';
 import { initializeMap } from './map.js';
 import { initProfileModal } from './questionnaire.js';
 import { initValidate } from './validate.js';
+import { initReviewModal } from './yandex-reviews-modal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
@@ -73,5 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMap();
     initModal();
     initProfileModal();
+    initReviewModal();
     initValidate();
 });

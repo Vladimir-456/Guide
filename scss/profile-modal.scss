@@ -31,9 +31,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
-  display: none;
 }
-
 
 .profile-modal {
   position: fixed;
@@ -68,7 +66,7 @@
       border-radius: 4px;
       
       &:hover {
-          background: #0fdf2e;
+          background: red;
       }
   }
 

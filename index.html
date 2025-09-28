@@ -21,7 +21,8 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/101457366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    <link href="./dist/css/styles.min.css" rel="stylesheet">
+    <link href="/dist/css/styles.min.css" rel="stylesheet">
+    <link href="/css/yandex-modal.css" rel="stylesheet">
     <link rel="icon" href="./img/favicon-16x16.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -51,10 +52,11 @@
                 </div>
                 <nav class="header__nav" id="header__nav" role="navigation">
                     <ul class="header__list" id="header__list" role="list">
-                        <li class="header__item"><a class="header__link" href="#info-pansionat" role="link">О нас</a></li>
+                        <!-- <li class="header__item"><a class="header__link" href="#info-pansionat" role="link">О нас</a></li> -->
                         <li class="header__item"><a class="header__link" href="#benefits" role="link">Услуги</a></li>
                         <li class="header__item"><a class="header__link" href="#comparison" role="link">Преимущества</a></li>
                         <li class="header__item"><a class="header__link" href="#news" role="link">Статьи</a></li>
+                        <li class="header__item"><a class="header__link yandex-modal__button">Отзывы</a></li>
                     </ul>
                 </nav>
                 <div class="hamburger-menu">
@@ -68,6 +70,7 @@
                         <li><a class="menu__item" href="#benefits" role="link">Услуги</a></li>
                         <li><a class="menu__item" href="#comparison" role="link">Преимущества</a></li>
                         <li><a class="menu__item" href="#news" role="link">Статьи</a></li>
+                        <li><a class="menu__item yandex-modal__button">Отзывы</a></li>
                     </ul>
                 </div>
                 <div class="header__contacts">
@@ -117,6 +120,81 @@
                 </div>
             </div>
         </section>
+
+        <div class="yandex-modal__overlay">
+            <div class="yandex-modal">
+                <div class="yandex-modal__close">×</div>
+                <div class="yandex-modal__content">
+                    <div class="yandex-modal__header">
+                        <h2 class="yandex-modal__title">Наши отзывы</h2>
+                        <p class="yandex-modal__subtitle">Что говорят о нас наши клиенты</p>
+                    </div>
+                    
+                    <div class="yandex-modal__body">
+                        <div class="yandex-modal__description">
+                            <p>Посмотрите отзывы о работе нашего пансионата на популярных платформах.</p>
+                        </div>
+                        
+                        <div class="yandex-modal__platforms">
+                            <div class="platform-card">
+                                <div class="platform-card__icon">
+                                    <a href="https://logo-teka.com/yandex-maps/"><img src="https://logo-teka.com/wp-content/uploads/2025/07/yandex-maps-logo.png" alt="PNG logo Яндекс Карты" style="max-width:40px;" /></a>
+                                </div>
+                                <div class="platform-card__content">
+                                    <h3>Яндекс.Карты</h3>
+                                    <p>Отзывы о наших пансионатах на картах</p>
+                                    <div class="platform-card__rating">
+                                        <div class="stars">★★★★</div>
+                                        <span class="rating-text">4.3 из 5</span>
+                                    </div>
+                                </div>
+                                <button class="platform-card__button">
+                                    <a href="https://yandex.ru/maps/org/opeka/147309335704/?ll=41.930780%2C45.078245&z=16" target="_blank">
+                                        Читать отзывы
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </a>
+                                </button>
+                            </div>
+                            
+                            <div class="platform-card">
+                                <div class="platform-card__icon">
+                                    <i class="fa fa-map" aria-hidden="true"></i>
+                                </div>
+                                <div class="platform-card__content">
+                                    <h3>2ГИС</h3>
+                                    <p>Отзывы о наших пансионатах на картах</p>
+                                    <div class="platform-card__rating">
+                                        <div class="stars">★★★★★</div>
+                                        <span class="rating-text">5 из 5</span>
+                                    </div>
+                                </div>
+                                <button class="platform-card__button">
+                                    <a href="https://2gis.ru/stavropol/geo/70000001100131929" target="_blank">
+                                        Читать отзывы
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="yandex-modal__contact">
+                            <div class="contact-info">
+                                <div class="contact-info__phone">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>+7 933 181-02-35</span>
+                                </div>
+                                <div class="contact-info__whatsapp">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    <span>Написать в WhatsApp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="profile-modal__overlay">
             <div id="profile-modal" class="profile-modal">
                 <div class="profile-modal__close" id="closeModal">×</div>
@@ -421,11 +499,12 @@
                 </div>
             </div>
         </section>
-
         <section class="pansions-populated">
             <h2 class="pansions-populated__title fade-in delay-1">Хотите заселить своего Близкого?</h2>
             <p class="pansions-populated__description fade-in delay-2">Оставьте телефон, чтобы не платить за связь, мы сами позвоним и всё расскажем.</p>
-            <button class="pansions-populated__button button__slider fade-in delay-3">Перезвоните мне</button>
+            <div class="pansions-populated__buttons">
+                 <button class="pansions-populated__button button__slider fade-in delay-3">Перезвоните мне</button>
+            </div>
         </section>
         <section >
             <div class="transportation">
@@ -433,7 +512,7 @@
                     <img class="lazy" data-src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт" loading="lazy">
                 </div>
                 <div class="transportation__content">
-                    <h2 class="transportation__title fade-in delay-3" >Перевозка лежачих</h2>
+                    <h2 class="transportation__title fade-in delay-3">Перевозка лежачих</h2>
                     <ul class="transportation__list fade-in delay-2">
                         <li class="transportation__list__item fade-in delay-1">От кровати до кровати</li>
                         <li class="transportation__list__item fade-in delay-2">Из любой точки страны</li>
@@ -463,11 +542,6 @@
                             <td><span class="available fade-in-left delay-1"></span></td>
                             <td><span class="unavailable fade-in-left delay-1"></span></td>
                         </tr>
-                        <!-- <tr>
-                            <td class="services fade-in delay-2">Контроль приема лекарств и проведения процедур</td>
-                            <td><span class="available fade-in-left delay-2"></span></td>
-                            <td><span class="available fade-in-left delay-2"></span></td>
-                        </tr> -->
                         <tr>
                             <td class="services fade-in delay-3">Пятиразовое сбалансированное питание</td>
                             <td><span class="available fade-in-left delay-2"></span></td>
@@ -546,6 +620,7 @@
                             <li class="footer__list__item">
                                 <a href="#address-map" class="footer__link">Контакты</a>
                             </li>
+                             <li class="footer__list__item"><a class="footer__link yandex-modal__button">Отзывы</a></li>
                         </ul>
                     </nav>
                 </div>
