@@ -1,0 +1,123 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #129e4c;
+  --text-color: #555;
+  --background-color: #f5f5f5;
+  --link-color: #3c39f2;
+  --font-size-title: 27px;
+  --font-size-title-small: 22px;
+  --align-center: center;
+  --radius: 5px;
+  --max-width: 1200px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-lg: 992px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 576px;
+  --breakpoint-xs: 440px;
+  --breakpoint-xxs: 375px;
+  --text-color: #333;
+  --light-text: #555;
+  --border-color: #e0e0e0;
+  --focus-color: #2c9fc3;
+  --error-color: #b20202;
+  --white: #fff;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-black-02: #333;
+  --modal-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --input-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --hover-transition: all 0.3s ease;
+  --border-width-l: 4px;
+  --border-width-m: 3px;
+  --border-width-s: 1px;
+  --border-radius-l: 12px;
+  --border-radius-m: 10px;
+  --border-radius-s: 8px;
+  --border-radius-xs: 6px;
+  --border-radius-xxs: 5px;
+  --border-radius-xxxs: 4px;
+  --container-padding-x: 16px;
+  --section-padding-y: fluid(75, 40);
+  --transition-duration: 0.2s;
+  --transition-duration-longer: 0.4s;
+}
+
+.manage {
+  margin: 30px;
+  padding: 90px 0;
+}
+.manage__container {
+  display: flex;
+  padding: 40px 0;
+  align-items: center;
+}
+.manage__content {
+  margin: 70px 0;
+}
+.manage__content__title {
+  color: black;
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+.manage__content__text {
+  color: #333;
+  margin-bottom: 55px;
+  font-size: 23px;
+  font-weight: 500;
+}
+.manage__content__button {
+  text-decoration: none;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #129e4c;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.manage__content__button:hover {
+  background-color: #0eb654;
+}
+
+@media (max-width: 440px) {
+  .manage__content__title {
+    font-size: 24px;
+  }
+  .manage__content__text {
+    font-size: 14px;
+  }
+  .manage__content__button {
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 375px) {
+  .divider {
+    margin: 15px;
+  }
+  .manage {
+    margin: 10px;
+    padding: 30px 0;
+  }
+  .manage__container {
+    padding: 20px 0;
+  }
+  .manage__content__title {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  .manage__content__text {
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
+  .manage__content__button {
+    margin-top: 20px;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=manage.css.map */

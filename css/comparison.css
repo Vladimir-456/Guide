@@ -1,0 +1,512 @@
+@charset "UTF-8";
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #129e4c;
+  --text-color: #555;
+  --background-color: #f5f5f5;
+  --link-color: #3c39f2;
+  --font-size-title: 27px;
+  --font-size-title-small: 22px;
+  --align-center: center;
+  --radius: 5px;
+  --max-width: 1200px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-lg: 992px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 576px;
+  --breakpoint-xs: 440px;
+  --breakpoint-xxs: 375px;
+  --text-color: #333;
+  --light-text: #555;
+  --border-color: #e0e0e0;
+  --focus-color: #2c9fc3;
+  --error-color: #b20202;
+  --white: #fff;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-black-02: #333;
+  --modal-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --input-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --hover-transition: all 0.3s ease;
+  --border-width-l: 4px;
+  --border-width-m: 3px;
+  --border-width-s: 1px;
+  --border-radius-l: 12px;
+  --border-radius-m: 10px;
+  --border-radius-s: 8px;
+  --border-radius-xs: 6px;
+  --border-radius-xxs: 5px;
+  --border-radius-xxxs: 4px;
+  --container-padding-x: 16px;
+  --section-padding-y: fluid(75, 40);
+  --transition-duration: 0.2s;
+  --transition-duration-longer: 0.4s;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.7s ease, transform 0.7s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease-out;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wave-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.wave-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease-out;
+}
+
+.delay-1 {
+  transition-delay: 0.7s;
+}
+
+.delay-2 {
+  transition-delay: 0.9s;
+}
+
+.delay-3 {
+  transition-delay: 1s;
+}
+
+.delay-4 {
+  transition-delay: 1.2s;
+}
+
+.delay-5 {
+  transition-delay: 1.4s;
+}
+
+.delay-6 {
+  transition-delay: 1.6s;
+}
+
+.wave-in:first-child {
+  transition-delay: 0.1s;
+}
+.wave-in:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.wave-in:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.wave-in:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.wave-in:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.wave-in:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes rotateAndFadeIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.comparison {
+  max-width: var(--max-width);
+  margin: 90px auto;
+}
+.comparison__title {
+  color: var(--secondary-color);
+  font-size: var(--font-size-title);
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .comparison__title {
+    font-size: var(--font-size-title-small);
+  }
+}
+@media (min-width: 440px) and (max-width: 575px) {
+  .comparison__title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 439px) {
+  .comparison__title {
+    font-size: 19px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .comparison {
+    margin: 70px auto;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .comparison {
+    margin: 50px auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .comparison {
+    margin: 40px auto;
+  }
+}
+@media (min-width: 440px) and (max-width: 575px) {
+  .comparison {
+    margin: 30px auto;
+  }
+}
+@media (max-width: 439px) {
+  .comparison {
+    margin: 20px auto;
+  }
+}
+.comparison-table {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.comparison-table th, .comparison-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e6d0c4;
+  color: var(--text-color);
+}
+.comparison-table th {
+  font-weight: bold;
+  text-align: center;
+}
+.comparison-table .services {
+  text-align: left;
+  color: var(--text-color);
+  width: 50%;
+}
+.comparison-table .available, .comparison-table .unavailable {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+}
+.comparison-table .available::before {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--secondary-color);
+  font-size: 20px;
+}
+.comparison-table .unavailable::before {
+  content: "✖";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f44336;
+  font-size: 20px;
+}
+.comparison-table .reserve-btn {
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--secondary-color);
+  transition: background-color 0.3s ease;
+}
+.comparison-table .reserve-btn:hover {
+  background-color: #0eb654;
+}
+.comparison-table td:not(.services) {
+  text-align: center;
+}
+.comparison-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 1200px) {
+  .comparison {
+    max-width: 95%;
+  }
+}
+@media (max-width: 992px) {
+  .comparison {
+    max-width: 90%;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 12px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .comparison__title {
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+  .comparison-table {
+    min-width: 650px;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+  .comparison-table .services {
+    width: 45%;
+    font-size: 14px;
+  }
+  .comparison-table .reserve-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .comparison-table tbody tr {
+    opacity: 0;
+    animation: fadeInRow 0.5s ease forwards;
+  }
+  .comparison-table tbody tr:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .comparison-table tbody tr:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .comparison-table tbody tr:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .comparison-table tbody tr:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .comparison-table tbody tr:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .comparison-table tbody tr:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  .comparison-table tbody tr:nth-child(7) {
+    animation-delay: 0.7s;
+  }
+  .comparison-table tbody tr:nth-child(8) {
+    animation-delay: 0.8s;
+  }
+  .comparison-table tbody tr:nth-child(9) {
+    animation-delay: 0.9s;
+  }
+  .comparison-table tbody tr:nth-child(10) {
+    animation-delay: 1s;
+  }
+}
+@media (max-width: 576px) {
+  .comparison {
+    margin: 20px auto;
+  }
+  .comparison__title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .comparison-table-wrapper {
+    box-shadow: none;
+  }
+  .comparison-table {
+    min-width: 100%;
+    box-shadow: none;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+  .comparison-table .services {
+    font-size: 13px;
+    width: 70%;
+  }
+  .comparison-table .reserve-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  .comparison-table .available, .comparison-table .unavailable {
+    width: 20px;
+    height: 20px;
+  }
+  .comparison-table .available::before, .comparison-table .unavailable::before {
+    font-size: 16px;
+  }
+  .comparison-mobile {
+    display: block;
+    width: 100%;
+  }
+  .comparison-mobile__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e6d0c4;
+    background-color: #fff;
+  }
+  .comparison-mobile__item:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+  .comparison-mobile__item:last-child {
+    border-radius: 0 0 12px 12px;
+    border-bottom: none;
+  }
+  .comparison-mobile__service {
+    color: gray;
+    font-size: 14px;
+    width: 75%;
+  }
+  .comparison-mobile__value {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+  }
+}
+@media (max-width: 440px) {
+  .comparison {
+    padding: 0 10px;
+    margin: 15px auto;
+  }
+  .comparison__title {
+    font-size: var(--font-size-title-small);
+    margin-bottom: 25px;
+  }
+  .comparison-mobile__item {
+    padding: 10px;
+  }
+  .comparison-mobile__service {
+    font-size: 13px;
+  }
+  .comparison-table {
+    border-radius: 12px;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+  .comparison-table .services {
+    width: 65%;
+    padding-right: 5px;
+  }
+  .comparison-table tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .comparison-table th, .comparison-table td {
+    flex: 1;
+  }
+  .comparison-table th:first-child, .comparison-table td:first-child {
+    flex: 2;
+  }
+  .comparison-table .available, .comparison-table .unavailable {
+    width: 18px;
+    height: 18px;
+  }
+  .comparison-table .available::before, .comparison-table .unavailable::before {
+    font-size: 14px;
+  }
+  .comparison-table .reserve-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=comparison.css.map */
