@@ -1,11 +1,11 @@
 import { initValidateCallback } from './validate.js';
 import { lockScroll, unlockScroll } from "./utils.js";
+import { API_URL } from './const.js';
+
 const modalCloseBtn = document.querySelector('.modal__close');
 const modalOverlay = document.querySelector('.modal__overlay');
 const sliderButtons = document.querySelectorAll('.button__slider');
 const form = document.querySelector('.modal__form');
-
-const API_URL = '/api/callback';
 
 function openModalView() {
     modalOverlay.style.display = 'block';

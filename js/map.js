@@ -1,6 +1,8 @@
+import {mapCoordinates as coordinates} from './const.js';
+
 export function initializeMap() {
     ymaps.ready(() => {
-        const coordinates = [45.078245, 41.930779];
+       
         
         const mapElement = document.getElementById('map');
         if (!mapElement) {
@@ -9,13 +11,11 @@ export function initializeMap() {
         }
         
         try {
-
             const map = new ymaps.Map('map', {
                 center: coordinates,
                 zoom: 15,
                 controls: ['zoomControl', 'fullscreenControl']
             });
-
 
             const placemark = new ymaps.Placemark(coordinates, {
                 balloonContent: 'Опека'
@@ -24,8 +24,8 @@ export function initializeMap() {
             });
 
             map.geoObjects.add(placemark);
-
             map.behaviors.disable('scrollZoom');
+
             map.events.add('click', function() {
                 map.behaviors.enable('scrollZoom');
             });

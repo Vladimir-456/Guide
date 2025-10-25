@@ -2,11 +2,28 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <title>Опека Ставрополь</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Сеть пансионатов для пожилых Опека. Работаем в городе Ставрополь">
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
+    <link href="/dist/css/styles.min.css" rel="stylesheet">
+    <link href="/css/yandex-modal.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon-16x16.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>      
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=6f99a5c3-9f9d-4cad-b11c-d628befa5f1c&lang=ru_RU"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script>
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -19,57 +36,42 @@
             accurateTrackBounce:true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/101457366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    <link href="/dist/css/styles.min.css" rel="stylesheet">
-    <link href="/css/yandex-modal.css" rel="stylesheet">
-    <link rel="icon" href="./img/favicon-16x16.png" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>      
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=6f99a5c3-9f9d-4cad-b11c-d628befa5f1c&lang=ru_RU" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <title>Опека Ставрополь</title>
 </head>
-<body>
-  <body class="page" id="page" itemscope itemtype="https://schema.org/Organization">
+<body class="page" id="page" itemscope itemtype="https://schema.org/Organization">
+     <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/101457366" 
+            style="position:absolute; left:-9999px;" 
+            alt="Map">
+        </div>
+    </noscript>
     <div class="page__container" id="page__container" itemprop="mainEntityOfPage">
         <header class="header" id="header" itemprop="header">
             <div class="header__container" id="header__container" itemprop="mainEntityOfPage">
                 <div class="header__logo" id="header__logo" itemprop="logo">
                     <div>
-                        <img class="header__logo-img lazy" data-src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url" loading="lazy">
+                        <img class="header__logo-img lazy" src="./img/logo_edit.jpg" data-src="./img/logo_edit.jpg" alt="ОПЕКА" itemprop="url" loading="lazy">
                     </div>
                 </div>
-                <nav class="header__nav" id="header__nav" role="navigation">
-                    <ul class="header__list" id="header__list" role="list">
-                        <!-- <li class="header__item"><a class="header__link" href="#info-pansionat" role="link">О нас</a></li> -->
-                        <li class="header__item"><a class="header__link" href="#benefits" role="link">Услуги</a></li>
-                        <li class="header__item"><a class="header__link" href="#comparison" role="link">Преимущества</a></li>
-                        <li class="header__item"><a class="header__link" href="#news" role="link">Статьи</a></li>
+                <nav class="header__nav" id="header__nav">
+                    <ul class="header__list" id="header__list">
+                        <li class="header__item"><a class="header__link" href="#benefits">Услуги</a></li>
+                        <li class="header__item"><a class="header__link" href="#comparison">Преимущества</a></li>
+                        <li class="header__item"><a class="header__link" href="#news">Статьи</a></li>
                         <li class="header__item"><a class="header__link yandex-modal__button">Отзывы</a></li>
                     </ul>
                 </nav>
                 <div class="hamburger-menu">
-                    <input id="menu__toggle" type="checkbox" />
+                    <input id="menu__toggle" type="checkbox">
                     <label class="menu__btn" for="menu__toggle">
                     <span></span>
                     </label>
 
                     <ul class="menu__box">
-                        <li><a class="menu__item" href="#info-pansionat" role="link">О нас</a></li>
-                        <li><a class="menu__item" href="#benefits" role="link">Услуги</a></li>
-                        <li><a class="menu__item" href="#comparison" role="link">Преимущества</a></li>
-                        <li><a class="menu__item" href="#news" role="link">Статьи</a></li>
+                        <li><a class="menu__item" href="#info-pansionat">О нас</a></li>
+                        <li><a class="menu__item" href="#benefits">Услуги</a></li>
+                        <li><a class="menu__item" href="#comparison">Преимущества</a></li>
+                        <li><a class="menu__item" href="#news">Статьи</a></li>
                         <li><a class="menu__item yandex-modal__button">Отзывы</a></li>
                     </ul>
                 </div>
@@ -80,15 +82,15 @@
                     <span class="header__text">Ставрополь, проспект Кулакова 28Б/3</span>
                 </div>
                 <div class="header__actions">
-                    <a href="#" class="button button--anketa" role="link"> Заполнить анкету</a>
-                    <a href="#" class="button button__slider button--call" role="link">Заказать звонок</a>
+                    <a href="#" class="button button--anketa"> Заполнить анкету</a>
+                    <a href="#" class="button button__slider button--call">Заказать звонок</a>
                 </div>
             </div>
         </header>
         <section class="stock" id="stock">
             <div class="stock__container">
                 <div class="stock__image">
-                    <img class="lazy" data-src="./img/0480e74d-56d4-4daf-b762-0a09595cb6eb.jpeg" alt="stock" loading="lazy">
+                    <img class="lazy" src = "./img/0480e74d-56d4-4daf-b762-0a09595cb6eb.jpeg" data-src="./img/0480e74d-56d4-4daf-b762-0a09595cb6eb.jpeg" alt="stock" loading="lazy">
                 </div>
                 <h2 class="stock__title" itemprop="name">ВЫГОДНОЕ ПРЕДЛОЖЕНИЕ</h2>
                 <div class="stock__content">
@@ -102,7 +104,7 @@
                 <div class="rehab-slider__item" id="rehab-slider__item" itemprop="mainEntityOfPage">
                     <div class="rehab-slider__content" id="rehab-slider__content" itemprop="mainEntityOfPage">
                         <h2 class="rehab-slider__title fade-in delay-2">Нам доверяют заботу о самых близких!</h2>
-                        <ul class="feature-list wave-in" id="feature-list" role="list" itemprop="description">
+                        <ul class="feature-list wave-in" id="feature-list" itemprop="description">
                             <li class="feature-list__item">Профессиональный уход 24 часа в сутки</li>
                             <li class="feature-list__item">5-разовое питание: вкусное и разнообразное</li>
                             <li class="feature-list__item">Прогулки и полезный досуг</li>
@@ -110,12 +112,12 @@
                             <li class="feature-list__item">Организуем бережную транспортировку в пансионат при ограниченной подвижности</li>
                         </ul>
                         <div class="rehab-slider__buttons" id="rehab-slider__buttons" itemprop="buttons">
-                            <a href="#" class="button__slider button--primary fade-in delay-4" role="link">Бесплатная консультация</a>
-                            <a href="#" class="button__slider  button--secondary fade-in delay-5" role="link">Посещение пансионата</a>
+                            <a href="#" class="button__slider button--primary fade-in delay-4">Бесплатная консультация</a>
+                            <a href="#" class="button__slider  button--secondary fade-in delay-5">Посещение пансионата</a>
                         </div>
                     </div>
                         <div class="rehab-slider__image fade-in-right delay-3" id="rehab-slider__image" role="img" itemprop="image">
-                            <img class="rehab-slider__img lazy" data-src="./img/logo_edit.jpg" alt="Реабилитация пожилых людей" itemprop="url" loading="lazy"/>
+                            <img class="rehab-slider__img lazy" src="./img/logo_edit.jpg" data-src="./img/logo_edit.jpg" alt="Реабилитация пожилых людей" itemprop="url" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -138,7 +140,7 @@
                         <div class="yandex-modal__platforms">
                             <div class="platform-card">
                                 <div class="platform-card__icon">
-                                    <a href="https://logo-teka.com/yandex-maps/"><img src="https://logo-teka.com/wp-content/uploads/2025/07/yandex-maps-logo.png" alt="PNG logo Яндекс Карты" style="max-width:40px;" /></a>
+                                    <a href="https://logo-teka.com/yandex-maps/"><img src="https://logo-teka.com/wp-content/uploads/2025/07/yandex-maps-logo.png" alt="PNG logo Яндекс Карты" style="max-width:40px;"></a>
                                 </div>
                                 <div class="platform-card__content">
                                     <h3>Яндекс.Карты</h3>
@@ -148,12 +150,10 @@
                                         <span class="rating-text">4.3 из 5</span>
                                     </div>
                                 </div>
-                                <button class="platform-card__button">
-                                    <a href="https://yandex.ru/maps/org/opeka/147309335704/?ll=41.930780%2C45.078245&z=16" target="_blank">
+                                    <a class="platform-card__button" href="https://yandex.ru/maps/org/opeka/147309335704/?ll=41.930780%2C45.078245&z=16">
                                         Читать отзывы
                                         <i class="fa fa-external-link" aria-hidden="true"></i>
                                     </a>
-                                </button>
                             </div>
                             
                             <div class="platform-card">
@@ -168,12 +168,10 @@
                                         <span class="rating-text">5 из 5</span>
                                     </div>
                                 </div>
-                                <button class="platform-card__button">
-                                    <a href="https://2gis.ru/stavropol/geo/70000001100131929" target="_blank">
-                                        Читать отзывы
-                                        <i class="fa fa-external-link" aria-hidden="true"></i>
-                                    </a>
-                                </button>
+                                <a class="platform-card__button" href="https://2gis.ru/stavropol/geo/70000001100131929">
+                                    Читать отзывы
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
                         
@@ -197,7 +195,7 @@
 
         <div class="profile-modal__overlay">
             <div id="profile-modal" class="profile-modal">
-                <div class="profile-modal__close" id="closeModal">×</div>
+                <div class="profile-modal__close">×</div>
                 <div class="profile-modal__header"></div>
                 <form id="profile-modal__form">
                     <div class="profile-modal__form__section">
@@ -339,7 +337,7 @@
        
         <div class="modal__overlay">
             <div class="modal">
-                <div class="modal__close" id="closeModal">×</div>
+                <div class="modal__close">×</div>
                 <div class="modal__header">
                     <div class="modal__header__phone">+7 933 181-02-35</div>
                     <span class="modal__header__whatsapp">- позвоните нам или напишите в <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></span>
@@ -352,11 +350,11 @@
                     </div>
                     <div class="modal__form__group">
                         <label for="phone">Ваш телефон</label>
-                        <input type="tel" class="modal__form__control" id="phone" name="phone"  required>
+                        <input type="tel" class="modal__form__control" name="phone"  required>
                     </div>
                     <button type="submit" class="submit-button button--primary">Отправить</button>
                      <div class="checkbox__group">
-                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <input type="checkbox" name="agreement" required>
                         <label for="agreement"  class="agreement-text">Я согласен на обработку моих персональных данных</label>
                       </div>
                       
@@ -373,14 +371,14 @@
         <section class="info-pansionat" id="info-pansionat">
           <div class="info-pansionat__image-section fade-in">
               <div class="info-pansionat__main-image">
-                  <img class="lazy" data-src="./img/531f180f-f344-471e-847e-52ac9a32afbd.jpeg" alt="Здание пансионата" loading="lazy">
+                  <img class="lazy" src="./img/531f180f-f344-471e-847e-52ac9a32afbd.jpeg" data-src="./img/531f180f-f344-471e-847e-52ac9a32afbd.jpeg" alt="Здание пансионата" loading="lazy">
               </div>
               <div class="info-pansionat__small-images">
                 <div class="info-pansionat__room-image">
-                    <img class="lazy" data-src="./img/b4c777de-ce48-4c15-bb95-fa6099d9b7e9.jpeg" alt="Комната в пансионате" loading="lazy">
+                    <img class="lazy" src = "./img/b4c777de-ce48-4c15-bb95-fa6099d9b7e9.jpeg" data-src="./img/b4c777de-ce48-4c15-bb95-fa6099d9b7e9.jpeg" alt="Комната в пансионате" loading="lazy">
                 </div>
                 <div class="info-pansionat__people-image">
-                    <img class="lazy" data-src="./img/baa2ce27-fd15-404c-975a-58e8800d429c.jpeg" alt="Пожилые люди" loading="lazy">
+                    <img class="lazy" src="./img/baa2ce27-fd15-404c-975a-58e8800d429c.jpeg" data-src="./img/baa2ce27-fd15-404c-975a-58e8800d429c.jpeg" alt="Пожилые люди" loading="lazy">
                 </div>
               </div>
           </div>
@@ -394,13 +392,13 @@
           </div>
       </section>
 
-      <section class="news fade-in" id="news" itemtype="https://schema.org/NewsArticle">
+      <section class="news fade-in" id="news" itemscope itemtype="https://schema.org/NewsArticle">
             <h2 class="news__title fade-in delay-1" itemprop="name">Статьи</h2>
             <div class="news__bottom fade-in delay-2">
                 <div class="news__navigation" itemprop="navigation">
-                  <button role="button" class="nav__arrow prev">&#10094;</button>
-                  <button  role="button" class="nav__arrow next">&#10095;</button>
-                  <a href="/news" role="link" class="all-news">ВСЕ СТАТЬИ</a>
+                  <button class="nav__arrow prev">&#10094;</button>
+                  <button class="nav__arrow next">&#10095;</button>
+                  <a href="/news" class="all-news">ВСЕ СТАТЬИ</a>
                 </div>
               </div>
             <div class="news-slider" itemprop="slider">
@@ -438,19 +436,14 @@
             </div>
           </section>
         <section class="benefits" id="benefits">
-        <h3 class="benefits-title">Проживание по системе «Всё включено»</h2>
+        <h3 class="benefits-title">Проживание по системе «Всё включено»</h3>
         <p class="benefits-description">Оказываем полный перечень услуг без лишних доплат.</p>
         <div class="benefits-container wave-in">
             <div class="benefit-item">
                 <h4>5-разовое питание</h4>
                 <p>Разнообразное, свежее  питание - каждый день готовит повар. Помогаем в измельчении пищи по необходимости</p>
             </div>
-            
-            <!-- <div class="benefit-item">
-                <h4>Контроль и поддержка здоровья</h4>
-                <p>Контроль давления, сахара, ведение динамических листов, контроль приема лекарств, дежурный специалист <br> с образованием, тревожная кнопка</p>
-            </div> -->
-            
+          
             <div class="benefit-item">
                 <h4>Гигиена и ежедневный уход</h4>
                 <p>Чистое белье каждый день, стирка вещей, помощь в гигиене, принятии душа, помощь при переодеваниях, обработка пролежней</p>
@@ -509,7 +502,7 @@
         <section >
             <div class="transportation">
                 <div class="transportation__image fade-in delay-2">
-                    <img class="lazy" data-src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт" loading="lazy">
+                    <img class="lazy" src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" data-src="./img/fb84a4c4-6d9b-453c-a909-2cf71a4d5494.jpeg" alt="Транспорт" loading="lazy">
                 </div>
                 <div class="transportation__content">
                     <h2 class="transportation__title fade-in delay-3">Перевозка лежачих</h2>
@@ -520,7 +513,7 @@
                         <li class="transportation__list__item fade-in delay-4">Специализированная машина</li>
                     </ul>
                     <div class="transportation__button">
-                        <a href="#" class="button button__slider button--call" role="link">Оформить заявку</a>
+                        <a href="#" class="button button__slider button--call">Оформить заявку</a>
                     </div>
                 </div>
             </div>
@@ -594,7 +587,7 @@
         <section class="address-map" id="address-map" itemscope itemtype="https://schema.org/Organization">
             <div class="address-map__content">
                 <h2 class="address-map__title fade-in delay-1" itemprop="name">Звоните, приезжайте, мы всегда на связи и рядом!</h2>
-                <a href="tel:7 (933) 181-02-35" class="address-map__phone fade-in delay-2">+7 933 181-02-35</a>
+                <a href="tel:7(933)181-02-35" class="address-map__phone fade-in delay-2">+7 933 181-02-35</a>
                 <p class="address-map__description" itemprop="description fade-in delay-3">Ставрополь, проспект Кулакова 28Б/3</p>
             </div>
             <div class="address-map__map fade-in-right delay-4" id="map" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"></div>
@@ -603,7 +596,7 @@
                 <div class="footer__container">
                     <div class="footer__logo" >
                         <div>
-                            <img class="header__logo-img lazy" data-src="./img/logo_edit.jpg" alt="ОПЕКА" loading="lazy">
+                            <img class="header__logo-img lazy" src="./img/logo_edit.jpg" data-src="./img/logo_edit.jpg" alt="ОПЕКА" loading="lazy">
                         </div>
                     </div>
                     <nav class="footer__nav">

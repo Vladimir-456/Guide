@@ -18,6 +18,5 @@ function closeModalView() {
 
 
 export const initReviewModal = () => {
-    console.log(modalButtons);
     modalButtons.forEach((button) => button.addEventListener('click', openModalView));
 }

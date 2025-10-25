@@ -9,7 +9,7 @@ const initNewsSlider = () => {
     infinite: true,
     responsive: [
       {
-        breakpoint: 992, // lg breakpoint
+        breakpoint: 992, 
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -17,7 +17,7 @@ const initNewsSlider = () => {
         }
       },
       {
-        breakpoint: 768, // md breakpoint
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -25,7 +25,7 @@ const initNewsSlider = () => {
         }
       },
       {
-        breakpoint: 576, // sm breakpoint
+        breakpoint: 576, 
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -35,20 +35,19 @@ const initNewsSlider = () => {
         }
       },
       {
-        breakpoint: 425, // xs breakpoint
+        breakpoint: 425, 
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false,
-          centerMode: false, // Отключаем centerMode
-          centerPadding: '0', // Убираем отступы
-          variableWidth: false // Отключаем переменную ширину (если была включена)
+          centerMode: false, 
+          centerPadding: '0', 
+          variableWidth: false 
         }
       }
     ]
   });
 
-  // Кастомные стрелки для новостного слайдера
   $('.nav__arrow.prev').click(function() {
     $('.news-slider').slick('slickPrev');
   });
